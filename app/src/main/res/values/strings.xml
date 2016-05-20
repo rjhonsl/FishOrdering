@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">FishOrdering</string>
+
+
+    <string-array name="sampleItems">
+        <item>Bangus | 20KGs</item>
+        <item>Tambakon | 50KGs</item>
+        <item>Galungong | 50KGs</item>
+        <item>Hipon | 50KGs</item>
+    </string-array>
+
+    <string-array name="fishes">
+        <item>Agoot</item>
+        <item>Alakaak</item>
+        <item>Alumahan</item>
+        <item>Alumahang bato</item>
+        <item>Apahap</item>
+        <item>Asohos</item>
+        <item>Ayungin</item>
+        <item>Babansi / bagaong</item>
+        <item>Bakoko</item>
+        <item>Banak / asubi / talilong</item>
+        <item>Bangus</item>
+        <item>Bidbid</item>
+        <item>Biloan</item>
+        <item>Bisugo</item>
+        <item>Bitilya</item>
+        <item>Biya</item>
+        <item>Buan-buan</item>
+        <item>Burara</item>
+        <item>Chabeta / hiwas - Dalag</item>
+        <item>Dalag-dagat</item>
+        <item>Dalagang bukid</item>
+        <item>Danggit</item>
+        <item>Dapa</item>
+        <item>Dilat</item>
+        <item>Dilis</item>
+        <item>Twakang</item>
+        <item>Dorado</item>
+        <item>Dulong</item>
+        <item>Espada</item>
+        <item>Galunggong</item>
+        <item>Gulyasan</item>
+        <item>Hasa-hasa / kabalyas / kabayas</item>
+        <item>Hito</item>
+        <item>Igat / palos</item>
+        <item>Isu</item>
+        <item>Kabasi</item>
+        <item>Kalaso</item>
+        <item>Kanduli</item>
+        <item>Kitang</item>
+        <item>Labahita</item>
+        <item>Lao-lao / lawlaw</item>
+        <item>Lapu-lapu</item>
+        <item>Lohoran</item>
+        <item>Loro</item>
+        <item>Ludong</item>
+        <item>Malaga</item>
+        <item>Malakapas</item>
+        <item>Malasugi</item>
+        <item>Mamali</item>
+        <item>Liwalo / Martiniko</item>
+        <item>Matangbaka</item>
+        <item>Maya-maya / bambangin / pargo</item>
+        <item>Pampano</item>
+        <item>Sagisi / tikwi</item>
+        <item>Samaral</item>
+        <item>Salay-salay</item>
+        <item>Salay-salay aso / salingga</item>
+        <item>Salay batang / kalapato</item>
+        <item>Sapsap</item>
+        <item>Silinyasi / tunsoy</item>
+        <item>Sinarapan</item>
+        <item>Taksay</item>
+        <item>Talakitok / maliputo</item>
+        <item>Talimusak</item>
+        <item>Tambakol</item>
+        <item>Tamban</item>
+        <item>Tanigue / tangigue</item>
+        <item>Tawilis</item>
+        <item>Tilapia</item>
+        <item>Torsilyo</item>
+        <item>Tulingan</item>
+        <item>Ataba</item>
+        <item>Balo</item>
+        <item>Bolador</item>
+        <item>Kansusuit</item>
+        <item>Maming</item>
+        <item>Paru-parong dagat</item>
+    </string-array>
+
+
+    <string-array name="shellfish">
+        <item>Alimasag</item>
+        <item>Alimango</item>
+        <item>Putian / bulik</item>
+        <item>Pulahan</item>
+        <item>Alupihang-dagat</item>
+        <item>Banagan</item>
+        <item>Canoos / hibya</item>
+        <item>Curacha</item>
+        <item>Diwal</item>
+        <item>Halaan</item>
+        <item>Tulya</item>
+        <item>Hipon</item>
+        <item>Swahe / suahe</item>
+        <item>Kuhol</item>
+        <item>Pitik-pitik</item>
+        <item>Pugita</item>
+        <item>Pugita</item>
+        <item>Pusit</item>
+        <item>Pusit Bisaya</item>
+        <item>Pusit lumot</item>
+        <item>Sugpo</item>
+        <item>Susô</item>
+        <item>Tahong</item>
+        <item>Talaba</item>
+        <item>Talangka</item>
+        <item>Tuyom</item>
+        <item>Ulang</item>
+    </string-array>
+
+</resources>

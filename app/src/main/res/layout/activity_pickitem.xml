@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+
+    <include layout="@layout/toolbar"
+             android:id="@+id/toolbar2"
+             android:layout_alignParentTop="true"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"/>
+
+    <ListView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:entries="@array/fishes"
+              android:id="@+id/lvFishes"
+              android:layout_above="@+id/btnNext"
+              android:layout_below="@id/toolbar2"
+              android:background="@drawable/bg_listview_color"
+
+    />
+
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NEXT >>>"
+            android:id="@+id/btnNext"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+    />
+
+</RelativeLayout>
