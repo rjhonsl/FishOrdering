@@ -15,7 +15,7 @@ public class BR_ReceiveSMS extends BroadcastReceiver {
 
 	public void onReceive(Context context, Intent intent) {
 		ctx = context;
-		Log.d("Receive", "I received something");
+
 		// Retrieves a map of extended data from the intent.
 		final Bundle extras = intent.getExtras();
 		try {
@@ -56,7 +56,7 @@ public class BR_ReceiveSMS extends BroadcastReceiver {
 				int status = finalStatus;
 				
 				contactName = phoneNumber;
-
+				Log.d("Receive", "I received something from: " + senderNum + " - " + body + " - " + finalDate);
 
 			} // bundle is null
 		} catch (Exception e) {

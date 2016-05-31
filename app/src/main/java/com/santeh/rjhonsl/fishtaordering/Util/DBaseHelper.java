@@ -25,8 +25,9 @@ public class DBaseHelper extends SQLiteOpenHelper{
     public static String CL_ITEMS_CODE          = "itm_code";
     public static String CL_ITEMS_DESCRIPTION   = "itm_desc";
     public static String CL_ITEMS_OLD_CODE      = "itm_oldcode";
-    public static final String[] ALL_KEY_ITEMS          = new String[]{CL_ITEMS_ID, CL_ITEMS_CODE, CL_ITEMS_DESCRIPTION, CL_ITEMS_OLD_CODE};
-    public static final String[] ALL_DATATYPE_ITEMS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT};
+    public static String CL_ITEMS_UNITS = "itm_units";
+    public static final String[] ALL_KEY_ITEMS      = new String[]{CL_ITEMS_ID, CL_ITEMS_CODE, CL_ITEMS_DESCRIPTION, CL_ITEMS_OLD_CODE, CL_ITEMS_UNITS};
+    public static final String[] ALL_DATATYPE_ITEMS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT};
 
 
 
@@ -56,6 +57,7 @@ public class DBaseHelper extends SQLiteOpenHelper{
 
         //CREATE TABLE FOR ITEMS
         db.execSQL(createTableString(TBL_ITEMS, ALL_KEY_ITEMS, ALL_DATATYPE_ITEMS));
+        db.execSQL(createTableString(TBL_SENTHISTORY, ALL_KEY_HISTORY, ALL_DATATYPE_HISTORY));
     }
 
     @Override

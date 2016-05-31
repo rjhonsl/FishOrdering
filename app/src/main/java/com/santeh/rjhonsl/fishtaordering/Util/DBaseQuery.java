@@ -1,6 +1,5 @@
 package com.santeh.rjhonsl.fishtaordering.Util;
 
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -41,14 +40,28 @@ public class DBaseQuery {
     /**
      * INSERTS
     **/
-    public long insertItems(String code, String description, String oldCOde ){
+    public long insertItems(String code, String description, String oldCOde, String units ){
 
         ContentValues values = new ContentValues();
         values.put(DBaseHelper.CL_ITEMS_CODE, code);
         values.put(DBaseHelper.CL_ITEMS_DESCRIPTION, description);
         values.put(DBaseHelper.CL_ITEMS_OLD_CODE, oldCOde);
+        values.put(DBaseHelper.CL_ITEMS_UNITS, units);
 
         return  db.insert(DBaseHelper.TBL_ITEMS, null, values);
+    }
+
+    public long insertOrderHistory(String sendto, String message, String timeSent, String isMultipart, String isSent, String isStillSending){
+
+        ContentValues values = new ContentValues();
+        values.put(DBaseHelper.CL_HST_SENTTO, sendto);
+        values.put(DBaseHelper.CL_HST_MESSAGE, message);
+        values.put(DBaseHelper.CL_HST_TIMESENT, timeSent);
+        values.put(DBaseHelper.CL_HST_ISMULTIPART, isMultipart);
+        values.put(DBaseHelper.CL_HST_ISSENT, isSent);
+        values.put(DBaseHelper.CL_HST_ISSTILLSENDING, isStillSending);
+
+        return  db.insert(DBaseHelper.TBL_SENTHISTORY, null, values);
     }
 
 
@@ -74,6 +87,7 @@ public class DBaseQuery {
                 queriedItem.setItem_code(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_CODE)));
                 queriedItem.setItem_description(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_DESCRIPTION)));
                 queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_OLD_CODE)));
+                queriedItem.setItem_units(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_UNITS)));
                 itemsList.add(queriedItem);
             }
         }

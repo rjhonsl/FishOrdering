@@ -16,16 +16,30 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Main.MainActivity"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-                  android:label="Store Name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+                  android:label="New Order">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
         </activity>
 
         <activity android:name=".Main.Activity_PickItem"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                     android:label="Select Fish">
+        </activity>
+
+        <activity android:name=".Main.Activity_OrderHistory"
+                  android:theme="@style/CustomActionBarTheme"
+                  android:label="Order History">
+        </activity>
+
+        <activity android:name=".Main.Activity_LogInScreen"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+                    android:label="Fishta SMS Ordering">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
 

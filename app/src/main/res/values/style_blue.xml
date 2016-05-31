@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+           xmlns:tools="http://schemas.android.com/tools">
 
     <style name="MyTheme_Blue"  parent="@style/Theme.AppCompat.Light.NoActionBar">
         <!--<item name="android:windowActionBar">false</item>-->
@@ -17,6 +18,24 @@
     <style name="MyAppTheme.ActionBar" parent="Widget.AppCompat.Light.ActionBar">
         <item name="android:height">40dp</item>
         <item name="height">40dp</item>
+    </style>
+
+
+    <style name="MyActionBarOrange" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background"  tools:ignore="NewApi">@color/red</item>
+        <item name="background">@color/orange_fishta</item>
+        <item name="titleTextStyle">@style/titleStyle</item>
+    </style>
+
+    <style name="titleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+    <style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarStyle"   tools:ignore="NewApi">@style/MyActionBarOrange</item>
+        <item name="actionBarStyle">@style/MyActionBarOrange</item>
+
     </style>
 
 

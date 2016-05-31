@@ -12,6 +12,7 @@ public class VarFishtaOrdering extends Application {
     private String item_code;
     private String item_description;
     private String item_oldcode;
+    private String item_units;
 
     private String order_unit;
     private String order_qty;
@@ -85,5 +86,13 @@ public class VarFishtaOrdering extends Application {
 
     public void setOrder_description(String order_description) {
         this.order_description = order_description;
+    }
+
+    public String getItem_units() {
+        return item_units;
+    }
+
+    public void setItem_units(String item_units) {
+        this.item_units = item_units;
     }
 }

@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         myToolbar.setBackgroundColor(getResources().getColor(R.color.orange_fishta));
         setSupportActionBar(myToolbar);
         myToolbar.inflateMenu(R.menu.menu_search);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         rvItems = (RecyclerView) findViewById(R.id.rvItems);
         assert rvItems != null;
@@ -87,13 +87,11 @@ public class MainActivity extends AppCompatActivity {
                     if (orderList.size() > 0){
 
 
-                        String formattedOrder = "STORENAME;", recepient = "+639159231467";
+                        String formattedOrder = "STORENAME", recipient = "09159231467";
                         for (int i = 0; i <orderList.size() ; i++) {
-                            formattedOrder = formattedOrder + "" + orderList.get(i).getOrder_code().toString()+"\n";
+                            formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
                         }
-                        SendSMS.sendOR(activity, context, recepient, formattedOrder);
-
-
+                        SendSMS.sendOrder(activity, context, recipient, formattedOrder);
                     }else{
                         Helper.toast.short_(activity, "No items to send.");
                     }
@@ -115,9 +113,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        if (db.getAllItems().size() < 1){
-            insertItems();
-        }
 
     }
 
@@ -135,6 +130,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -148,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedItem.setOrder_description(data.getStringExtra("item"));
                 selectedItem.setOrder_qty(data.getStringExtra("qty"));
                 selectedItem.setOrder_unit(data.getStringExtra("pax"));
+                selectedItem.setItem_units(data.getStringExtra("units"));
 //            Helper.dialogBox.okOnly(activity, "Result", data.getStringExtra("code") + "\n" + data.getStringExtra("item") + "\n" + data.getStringExtra("pax"), "OK");
                 addItems(selectedItem);
 
@@ -220,14 +226,5 @@ public class MainActivity extends AppCompatActivity {
         db.open();
     }
 
-    void insertItems(){
-
-        Log.d("DB", "INSERTING ITEMS");
-        String[] itemss = getResources().getStringArray(R.array.fishes);
-        for (int i = 0; i < itemss.length; i++) {
-            db.insertItems(i + "", itemss[i], "");
-        }
-
-    }
 }
 

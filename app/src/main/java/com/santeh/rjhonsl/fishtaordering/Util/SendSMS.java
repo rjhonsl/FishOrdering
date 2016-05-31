@@ -15,11 +15,12 @@ public class SendSMS  {
 
     public static String ACTION_SENDORDER       = "SMS_SENDING_ORDER";
     public static String ACTION_SMS_DELIVERED   = "SMS_ORDER_SENT";
+    public static String MESSAGE_TYPE_SENDORDER = "sendorder";
 
 
 
 
-    public static void sendOR(Activity activity, Context context, String number, String content){
+    public static void sendOrder(Activity activity, Context context, String number, String content){
 
         final SmsManager sms = SmsManager.getDefault();
         Intent sendIntent = new Intent(ACTION_SENDORDER);
@@ -27,6 +28,7 @@ public class SendSMS  {
         sendIntent.putExtra("sendto", number+"");
         sendIntent.putExtra("content", content+"");
         sendIntent.putExtra("timesent", System.currentTimeMillis()+"");
+        sendIntent.putExtra("neworder", MESSAGE_TYPE_SENDORDER);
 
 
         PendingIntent piSent = PendingIntent.getBroadcast(context, 0, sendIntent, PendingIntent.FLAG_UPDATE_CURRENT);

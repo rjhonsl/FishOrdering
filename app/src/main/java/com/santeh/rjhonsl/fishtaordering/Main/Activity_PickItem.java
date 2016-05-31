@@ -72,7 +72,9 @@ public class Activity_PickItem extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
 
-                final String[] pax = new String[]{"KGs","PCs"};
+                final String units = varFishtaOrderings.get(position).getItem_units();
+                final String[] pax = units.split(",");
+
                 final Dialog d = Helper.dialogBox.numberAndPAXpicker(activity, itemsArray[position], 1, 1000,pax );
                 Button btnOk = (Button) d.findViewById(R.id.btn_numberAndPaxPicekr_set);
                 final NumberPicker value = (NumberPicker) d.findViewById(R.id.dialog_numandpax_value);
@@ -91,6 +93,7 @@ public class Activity_PickItem extends AppCompatActivity {
                         returnIntent.putExtra("qty",  value.getValue()+"");
                         returnIntent.putExtra("item",  itemsArray[position]+"");
                         returnIntent.putExtra("pax", pax[pax1.getValue()]+"");
+                        returnIntent.putExtra("units", units);
                         returnIntent.putExtra("code", varFishtaOrderings.get(position).getItem_code()+"");
                         d.dismiss();
                         setResult(Activity.RESULT_OK,returnIntent);

@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Created by rjhonsl on 5/18/2016.
  */
-public class ItemsViewAdapter extends RecyclerView.Adapter<ItemsViewAdapter.MyViewHolder> {
+public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapter.MyViewHolder> {
 
     private List<VarFishtaOrdering> itemList;
     Context context1;
@@ -49,7 +49,7 @@ public class ItemsViewAdapter extends RecyclerView.Adapter<ItemsViewAdapter.MyVi
     }
 
 
-    public ItemsViewAdapter(List<VarFishtaOrdering> newsFeedsList, Context context, Activity activity) {
+    public OrderHistoryAdapter(List<VarFishtaOrdering> newsFeedsList, Context context, Activity activity) {
         this.itemList = newsFeedsList;
         context1 = context;
         activity1 = activity;

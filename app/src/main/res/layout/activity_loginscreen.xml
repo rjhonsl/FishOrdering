@@ -1,7 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
+              android:background="@color/orange_fishta"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                android:layout_weight="1">
+        <ImageView android:layout_width="190dp"
+                   android:layout_height="100dp"
+                   android:src="@drawable/fishta_white"
+                   android:id="@+id/img_logo"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:orientation="vertical"
+                  android:layout_weight="1">
+
+
+        <android.support.v7.widget.CardView android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            app:cardBackgroundColor="@color/orange_fishta_darker"
+                                            android:layout_margin="5dp"
+                                            app:cardCornerRadius="3dp">
+
+            <TextView android:layout_width="200dp"
+                      android:layout_height="wrap_content"
+                      android:textColor="@color/gray_300"
+                      android:background="@drawable/bg_material_transparent_darker_pressed"
+                      android:padding="10dp"
+                      android:gravity="center"
+                      android:text="Send an Order"
+                      android:id="@+id/btnSendOrder"
+            />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            app:cardBackgroundColor="@color/orange_fishta_darker"
+                                            android:layout_margin="5dp"
+                                            app:cardCornerRadius="3dp">
+
+            <TextView android:layout_width="200dp"
+                      android:layout_height="wrap_content"
+                      android:textColor="@color/gray_300"
+                      android:background="@drawable/bg_material_transparent_darker_pressed"
+                      android:padding="10dp"
+                      android:gravity="center"
+                      android:text="Order History"
+                      android:id="@+id/btnOrderHistory"
+            />
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            app:cardBackgroundColor="@color/orange_fishta_darker"
+                                            android:layout_margin="5dp"
+                                            app:cardCornerRadius="3dp">
+
+            <TextView android:layout_width="200dp"
+                      android:layout_height="wrap_content"
+                      android:textColor="@color/gray_300"
+                      android:background="@drawable/bg_material_transparent_darker_pressed"
+                      android:padding="10dp"
+                      android:gravity="center"
+                      android:text="Settings"
+                      android:enabled="false"
+                      android:id="@+id/btnSettings"
+            />
+
+        </android.support.v7.widget.CardView>
+
+
+
+
+    </LinearLayout>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:gravity="center"
+              android:textSize="12sp"
+              android:textColor="@color/gray_300"
+              android:text="\u00a9 Santeh Feeds Corp. 2016"
+    />
+
+
 
 </LinearLayout>
