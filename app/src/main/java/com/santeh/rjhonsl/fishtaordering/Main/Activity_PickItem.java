@@ -19,7 +19,11 @@ import android.widget.ListView;
 import android.widget.NumberPicker;
 
 import com.santeh.rjhonsl.fishtaordering.R;
+import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;
+import com.santeh.rjhonsl.fishtaordering.Util.VarFishtaOrdering;
+
+import java.util.List;
 
 /**
  * Created by rjhonsl on 5/20/2016.
@@ -29,6 +33,7 @@ public class Activity_PickItem extends AppCompatActivity {
     Activity activity;
     Context context;
     ListView lvItems;
+    DBaseQuery db;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +41,9 @@ public class Activity_PickItem extends AppCompatActivity {
 
         activity = this;
         context = Activity_PickItem.this;
+
+        db = new DBaseQuery(this);
+        db.open();
 
         lvItems = (ListView) findViewById(R.id.lvFishes);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar2);
@@ -50,7 +58,16 @@ public class Activity_PickItem extends AppCompatActivity {
         ab.setDisplayShowHomeEnabled(true);
         ab.setDisplayHomeAsUpEnabled(true);
         ab.show();
-        final String[] itemsArray = getResources().getStringArray(R.array.fishes);
+
+        final List<VarFishtaOrdering> varFishtaOrderings = db.getAllItems();
+        final String[] itemsArray = new String[varFishtaOrderings.size()];
+
+        for (int i = 0; i < varFishtaOrderings.size(); i++) {
+            itemsArray[i] = varFishtaOrderings.get(i).getItem_description();
+        }
+
+
+
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -64,6 +81,8 @@ public class Activity_PickItem extends AppCompatActivity {
                 value.clearFocus();
                 pax1.clearFocus();
 
+
+
                 btnOk.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -72,6 +91,7 @@ public class Activity_PickItem extends AppCompatActivity {
                         returnIntent.putExtra("qty",  value.getValue()+"");
                         returnIntent.putExtra("item",  itemsArray[position]+"");
                         returnIntent.putExtra("pax", pax[pax1.getValue()]+"");
+                        returnIntent.putExtra("code", varFishtaOrderings.get(position).getItem_code()+"");
                         d.dismiss();
                         setResult(Activity.RESULT_OK,returnIntent);
                         finish();
@@ -124,4 +144,15 @@ public class Activity_PickItem extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        db.open();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        db.close();
+    }
 }

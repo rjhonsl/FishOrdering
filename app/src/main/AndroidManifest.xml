@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,31 @@
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                     android:label="Select Fish">
         </activity>
+
+
+
+
+        <!-- For Receiving SMS -->
+        <receiver
+            android:name="com.santeh.rjhonsl.fishtaordering.Util.BR_ReceiveSMS"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS" >
+            <intent-filter android:priority="999">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.santeh.rjhonsl.fishtaordering.Util.BR_SMSDelivery" >
+            <intent-filter>
+                <action android:name="SMS_SENDING_ORDER" />
+            </intent-filter>
+        </receiver>
+
+
     </application>
+
+
+
 
 </manifest>
