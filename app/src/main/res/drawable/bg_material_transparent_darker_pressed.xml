@@ -13,8 +13,8 @@
     <item android:state_enabled="false"> <!-- if pressed -->
         <shape android:shape="rectangle">
             <gradient
-                android:startColor="#b3969699"
-                android:endColor="#b3969699"
+                android:startColor="#80969699"
+                android:endColor="#80969699"
                 android:type="linear"
                 android:angle="315">
             </gradient>

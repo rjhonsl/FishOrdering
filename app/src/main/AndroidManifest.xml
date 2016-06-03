@@ -33,6 +33,31 @@
                   android:label="Order History">
         </activity>
 
+        <activity android:name=".Main.Activity_Settings"
+                  android:theme="@style/CustomActionBarTheme"
+                  android:label="Settings">
+        </activity>
+
+        <activity android:name=".Main.Activity_Wiz_SetServerNum"
+                  android:theme="@style/CustomActionBarTheme"
+                  android:label="Set Server Number">
+        </activity>
+
+        <activity android:name=".Main.Activity_Wiz_StoreName"
+                  android:theme="@style/CustomActionBarTheme"
+                  android:label="Set Store Name">
+        </activity>
+
+        <activity android:name=".Main.Activity_Welcome"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+                  android:label="Select Fish">
+        </activity>
+
+        <activity android:name=".Main.Activity_SetupSuccess"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+                  android:label="Select Fish">
+        </activity>
+
         <activity android:name=".Main.Activity_LogInScreen"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                     android:label="Fishta SMS Ordering">

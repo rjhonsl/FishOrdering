@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FishOrdering</string>
+    <string name="app_name">Fish Ordering</string>
 
 
     <string-array name="sampleItems">

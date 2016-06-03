@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     public static int INTENT_SELECT_ITEM = 0;
 
-    ArrayList<VarFishtaOrdering> orderList =new ArrayList<>();
+    public static ArrayList<VarFishtaOrdering> orderList = new ArrayList<>();
 
     RecyclerView rvItems;
     Toolbar myToolbar;
-    ItemsViewAdapter itemsViewAdapter;
+    public static ItemsViewAdapter itemsViewAdapter;
     LinearLayoutManager mLayoutManager;
     //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
     LinearLayout imgNoItems;
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         activity = this;
         context = MainActivity.this;
+
 
         db = new DBaseQuery(this);
         db.open();
@@ -85,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (orderList != null){
                     if (orderList.size() > 0){
-
-
                         String formattedOrder = "STORENAME", recipient = "09159231467";
                         for (int i = 0; i <orderList.size() ; i++) {
                             formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";

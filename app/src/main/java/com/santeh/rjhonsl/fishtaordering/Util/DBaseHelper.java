@@ -11,12 +11,11 @@ import android.util.Log;
 public class DBaseHelper extends SQLiteOpenHelper{
 
     private static String DATABASE_NAME = "fishta_ordering.db";
-    private static int DATABASE_VERSION = 2;
+    private static int DATABASE_VERSION = 1;
     private static String LOGTAG = "DB_FishtaOrdering";
 
     public static String DATE = "DATE", TEXT = "TEXT", INTEGER = "INTEGER", DOUBLE = "DOUBLE", DATETIME = "DATETIME",
             PRIMARY_AUTOINCRE = "PRIMARY KEY AUTOINCREMENT", BOOLEAN = "BOOLEAN", TEMP = "TMP", ROWID_AUTOINCRE = INTEGER + " " + PRIMARY_AUTOINCRE;
-
 
 
     //TABLE FOR ITEMS
@@ -32,7 +31,6 @@ public class DBaseHelper extends SQLiteOpenHelper{
 
 
     //TABLE FOR ORDER HISTORY
-
     public static String TBL_SENTHISTORY    = "tbl_senthistory";
     public static String CL_HST_ID              = "hst_id";
     public static String CL_HST_SENTTO          = "hst_sentTo";
@@ -45,6 +43,15 @@ public class DBaseHelper extends SQLiteOpenHelper{
     public static final String[] ALL_DATATYPE_HISTORY = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT};
 
 
+    //TABLE FOR SETTINGS
+    public static String TBL_SETTINGS = "tbl_settings";
+    public static String CL_SET_ID = "set_id";
+    public static String CL_SET_SERVERNUM   = "set_servernum";
+    public static String CL_SET_INCRECOUNT  = "set_increcount";
+    public static String CL_SET_STORENAME   = "set_storeName";
+    public static String CL_SET_PIN         = "set_pin";
+    public static final String[] ALL_KEY_SETTINGS = new String[]{CL_SET_ID, CL_SET_SERVERNUM, CL_SET_INCRECOUNT, CL_SET_STORENAME, CL_SET_PIN};
+    public static final String[] ALL_DATATYPE_SETTINGS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT};
 
     //connects db
     public DBaseHelper(Context context) {
@@ -58,15 +65,12 @@ public class DBaseHelper extends SQLiteOpenHelper{
         //CREATE TABLE FOR ITEMS
         db.execSQL(createTableString(TBL_ITEMS, ALL_KEY_ITEMS, ALL_DATATYPE_ITEMS));
         db.execSQL(createTableString(TBL_SENTHISTORY, ALL_KEY_HISTORY, ALL_DATATYPE_HISTORY));
+        db.execSQL(createTableString(TBL_SETTINGS, ALL_KEY_SETTINGS, ALL_DATATYPE_SETTINGS));
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if(oldVersion < 2)
-        {
-            //ADDED NEW TABLE TBLSENTHISTORY
-            db.execSQL(createTableString(TBL_SENTHISTORY, ALL_KEY_HISTORY, ALL_DATATYPE_HISTORY));
-        }
 
     }
 

@@ -40,6 +40,7 @@ import android.widget.Toast;
 
 import com.santeh.rjhonsl.fishtaordering.R;
 
+import java.math.BigInteger;
 import java.net.NetworkInterface;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -180,7 +181,7 @@ public class Helper {
 
     public static class dialogBox{
 
-        public static Dialog yesNo(Activity activity, String prompt, String title, String strButton1, String strButton2, int resIdColor){
+        public static Dialog yesNo(Activity activity, String prompt, String title, String strButton1, String strButton2){
             final Dialog d = new Dialog(activity);//
             d.requestWindowFeature(Window.FEATURE_NO_TITLE);
             d.setContentView(R.layout.dialog_material_themed_yesno);//Set the xml view of the dialog
@@ -513,6 +514,59 @@ public class Helper {
             return new int[]{month,day,year};
         }
 
+
+        public static StringBuilder StringToBinary(String forConversion){
+
+            String s = forConversion;
+            byte[] bytes = s.getBytes();
+            StringBuilder binary = new StringBuilder();
+            for (byte b : bytes)
+            {
+                int val = b;
+                for (int i = 0; i < 8; i++)
+                {
+                    binary.append((val & 128) == 0 ? 0 : 1);
+                    val <<= 1;
+                }
+//            binary.append(' ');
+            }
+
+            return binary;
+        }
+
+        public static String BinaryToChar(String bin){
+            String s = bin;
+            String str = "";
+
+            for (int i = 0; i < s.length()/8; i++) {
+
+                int a = Integer.parseInt(s.substring(8*i,(i+1)*8),2);
+                str += (char)(a);
+            }
+
+            return str;
+        }
+
+        public static String stringtoHex(String arg) {
+            return String.format("%040x", new BigInteger(1, arg.getBytes(/*YOUR_CHARSET?*/)));
+        }
+
+
+        public static String HextoString (String hex){
+            StringBuilder output = new StringBuilder();
+            for (int i = 0; i < hex.length(); i+=2) {
+                String str = hex.substring(i, i+2);
+                output.append((char)Integer.parseInt(str, 16));
+            }
+
+            return output.toString();
+        }
+
+        public static StringBuilder toStringBuilder(String toSB){
+            StringBuilder sb = new StringBuilder();
+            sb.append(toSB);
+            return sb;
+        }
     }
 
 

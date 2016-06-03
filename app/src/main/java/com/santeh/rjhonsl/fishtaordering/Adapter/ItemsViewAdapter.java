@@ -44,7 +44,6 @@ public class ItemsViewAdapter extends RecyclerView.Adapter<ItemsViewAdapter.MyVi
             btnremove = (ImageButton) view.findViewById(R.id.btnRemove);
             llitems = (LinearLayout) view.findViewById(R.id.ll_items);
 
-//            imagePreview = (ImageView) view.findViewById(R.id.img_content);
         }
     }
 
@@ -68,7 +67,6 @@ public class ItemsViewAdapter extends RecyclerView.Adapter<ItemsViewAdapter.MyVi
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         holder.txtItem.setText(itemList.get(position).getOrder_description());
         holder.txtQuantity.setText(itemList.get(position).getOrder_qty()+" "+itemList.get(position).getOrder_unit());
-
 
         holder.btnremove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,21 +124,6 @@ public class ItemsViewAdapter extends RecyclerView.Adapter<ItemsViewAdapter.MyVi
             }
         });
 
-//        holder.llitems.setOnTouchListener(new OnSwipeTouchListener(context1) {
-//            public void onSwipeTop() {
-//                Toast.makeText(context1, "top", Toast.LENGTH_SHORT).show();
-//            }
-//            public void onSwipeRight() {
-//                Toast.makeText(context1, "right", Toast.LENGTH_SHORT).show();
-//            }
-//            public void onSwipeLeft() {
-//                Toast.makeText(context1, "left", Toast.LENGTH_SHORT).show();
-//            }
-//            public void onSwipeBottom() {
-//                Toast.makeText(context1, "bottom", Toast.LENGTH_SHORT).show();
-//            }
-//
-//        });
 
     }
 
@@ -151,7 +134,6 @@ public class ItemsViewAdapter extends RecyclerView.Adapter<ItemsViewAdapter.MyVi
 
     public void removeAt(int position) {
         itemList.remove(position);
-
         notifyItemRemoved(position);
         notifyItemRangeRemoved(position, itemList.size());
 //        notifyItemRangeChanged(itemList.size(), itemList.size());

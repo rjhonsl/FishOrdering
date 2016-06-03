@@ -35,12 +35,25 @@
     <color name="purple_600">#673ab7</color>
     <color name="purple_500">#de673ab7</color>
     <color name="purple_400">#be673ab7</color>
-    <color name="orange_400">#bfff5722</color>
-    <color name="orange_500">#d3ff5722</color>
-    <color name="orange_600">#edff5722</color>
-    <color name="red_orange_800">#EB2C02</color>
     <color name="transparent">#00ffffff</color>
 
+
+
+
+    <color name="orange_50">#FFF3E0</color>
+    <color name="orange_100">#FFE0B2</color>
+    <color name="orange_200">#FFCC80</color>
+    <color name="orange_300">#FFB74D</color>
+    <color name="orange_400">#FFA726</color>
+    <color name="orange_500">#FF9800</color>
+    <color name="orange_600">#FB8C00</color>
+    <color name="orange_700">#F57C00</color>
+    <color name="orange_800">#EF6C00</color>
+    <color name="orange_900">#E65100</color>
+    <color name="orange_A100">#FFD180</color>
+    <color name="orange_A200">#FFAB40</color>
+    <color name="orange_A400">#FF9100</color>
+    <color name="orange_A700">#FF6D00</color>
 
     <color name="skyblue_500">#42A5F5</color>
     <color name="skyblue_400">#ec42a5f5</color>
@@ -209,7 +222,7 @@
     <color name="deepOrange_A400">#FF3D00</color>
     <color name="deepOrange_A700">#DD2C00</color>
     <color name="orange_fishta">#e67817</color>
-    <color name="orange_fishta_darker">#ec7207</color>
+    <color name="orange_fishta_darker">#94af723c</color>
 
     <color name="teal_500">#009688</color>
     <color name="teal_400">#26A69A</color>

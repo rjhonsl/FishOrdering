@@ -8,6 +8,11 @@ import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.santeh.rjhonsl.fishtaordering.Main.Activity_OrderHistory;
+import com.santeh.rjhonsl.fishtaordering.Main.MainActivity;
+
+import java.util.List;
+
 public class BR_SMSDelivery extends BroadcastReceiver {
 
 	private final String DEBUG_TAG = getClass().getSimpleName();
@@ -27,39 +32,83 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 		String timesend = intent.getStringExtra("timesent");
 		String content = intent.getStringExtra("content");
 		String number = intent.getStringExtra("sendto");
-		String type = intent.getStringExtra("neworder");
+		String type = intent.getStringExtra("type");
+
 		String isSent = "0";
+
 
 		Log.d("DELIVERY", "SENDING INTENT");
 		//checks if intent action passed is equals to sms sent
 		if (action.equals(ACTION_SMS_SENT)) {
 			switch (getResultCode()) {
 			case Activity.RESULT_OK:
-				Toast.makeText(context, "SENT", Toast.LENGTH_LONG).show();
+//				Toast.makeText(context, "SENT", Toast.LENGTH_LONG).show();
 				isSent = "1";
 				break;
 			case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
-				Toast.makeText(context, "SENDING FAILED! Check Operator Service!", Toast.LENGTH_LONG)
-				.show();
+//				Toast.makeText(context, "SENDING FAILED! Check Operator Service!", Toast.LENGTH_LONG).show();
 				isSent = "0";
 				break;
 			case SmsManager.RESULT_ERROR_NO_SERVICE:
-				Toast.makeText(context, "SENDING FAILED! No Network Service!", Toast.LENGTH_LONG)
-				.show();
+//				Toast.makeText(context, "SENDING FAILED! No Network Service!", Toast.LENGTH_LONG).show();
 				isSent = "0";
 				break;
 			case SmsManager.RESULT_ERROR_NULL_PDU:
-				Toast.makeText(context, "Null PDU", Toast.LENGTH_LONG).show();
+//				Toast.makeText(context, "Null PDU", Toast.LENGTH_LONG).show();
 				isSent = "0";
 				break;
 			case SmsManager.RESULT_ERROR_RADIO_OFF:
-				Toast.makeText(context, "SENDING FAILED! Connectivity is Off!", Toast.LENGTH_LONG).show();
+//				Toast.makeText(context, "SENDING FAILED! Connectivity is Off!", Toast.LENGTH_LONG).show();
 				isSent = "0";
 				break;
 			}
 
+
+			SendSMS.pd_sending.dismiss();
 			if (type.equalsIgnoreCase(SendSMS.MESSAGE_TYPE_SENDORDER)){
-				db.insertOrderHistory(number, content, timesend, "0", isSent, "0");
+				if (isSent.equalsIgnoreCase("0")){
+					Toast.makeText(context, "Sending Failed. Please try again", Toast.LENGTH_LONG).show();
+				}else {
+					Toast.makeText(context, "Order has been sent", Toast.LENGTH_LONG).show();
+					if (MainActivity.orderList != null){
+						int size = MainActivity.orderList.size();
+						List<VarFishtaOrdering> list = MainActivity.orderList;
+						if (size > 0) {
+							for (int i = 0; i < size; i++) {
+								list.remove(0);
+							}
+							MainActivity.itemsViewAdapter.notifyItemRangeRemoved(0, size);
+						}
+					}
+
+					db.insertOrderHistory(number, content, timesend, "0", isSent, "0");
+				}
+
+			}else if (type.equalsIgnoreCase(SendSMS.MESSAGE_TYPE_RESEND)){
+
+				if (isSent.equalsIgnoreCase("0")){
+					Toast.makeText(context, "Rending Failed. Please try again", Toast.LENGTH_LONG).show();
+				}else {
+					Toast.makeText(context, "Resend Successful", Toast.LENGTH_LONG).show();
+				}
+
+				String hstid = intent.getStringExtra("hstid");
+				int itemcount = Integer.valueOf(intent.getStringExtra("listcount"));
+				int itemPosition = Integer.valueOf(intent.getStringExtra("pos"));
+
+				db.updateSentHistory(hstid, number, content, timesend, "0", isSent, "0");
+				if (Activity_OrderHistory.isActive) {
+					Intent refresh = new Intent(context, Activity_OrderHistory.class);
+					refresh.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+					context.startActivity(refresh);
+				}
+
+//				if (Activity_OrderHistory.orderHistoryAdapter!=null) {
+//					Activity_OrderHistory.orderHistoryAdapter.notifyDataSetChanged();
+////					Activity_OrderHistory.orderHistoryAdapter.notifyItemRangeChanged(itemPosition, itemcount);
+////					Activity_OrderHistory.orderHistoryAdapter.notifyItemRangeChanged(Integer.valueOf(itemPosition), Integer.valueOf(itemcount));
+////					Activity_OrderHistory.orderHistoryAdapter.notifyItemChanged(Integer.valueOf(itemPosition));
+//				}
 			}
 		}
 	}

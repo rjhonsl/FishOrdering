@@ -19,6 +19,23 @@ public class VarFishtaOrdering extends Application {
     private String order_code;
     private String order_description;
 
+    private String hst_id;
+    private String hst_timesent;
+    private String hst_sendTo;
+    private String hst_message;
+    private String hst_isMultipart;
+    private String hst_isSent;
+    private String hst_isStillSending;
+
+    private String set_servernum;
+    private String set_increCount;
+    private String set_storeName;
+    private String set_setPin;
+    private String set_id;
+
+
+
+
     /**
      * GETTER AND SETTER
     **/
@@ -94,5 +111,101 @@ public class VarFishtaOrdering extends Application {
 
     public void setItem_units(String item_units) {
         this.item_units = item_units;
+    }
+
+    public String getHst_id() {
+        return hst_id;
+    }
+
+    public void setHst_id(String hst_id) {
+        this.hst_id = hst_id;
+    }
+
+    public String getHst_sendTo() {
+        return hst_sendTo;
+    }
+
+    public void setHst_sendTo(String hst_sendTo) {
+        this.hst_sendTo = hst_sendTo;
+    }
+
+    public String getHst_message() {
+        return hst_message;
+    }
+
+    public void setHst_message(String hst_message) {
+        this.hst_message = hst_message;
+    }
+
+    public String getHst_isMultipart() {
+        return hst_isMultipart;
+    }
+
+    public void setHst_isMultipart(String hst_isMultipart) {
+        this.hst_isMultipart = hst_isMultipart;
+    }
+
+    public String getHst_isSent() {
+        return hst_isSent;
+    }
+
+    public void setHst_isSent(String hst_isSent) {
+        this.hst_isSent = hst_isSent;
+    }
+
+    public String getHst_isStillSending() {
+        return hst_isStillSending;
+    }
+
+    public void setHst_isStillSending(String hst_isStillSending) {
+        this.hst_isStillSending = hst_isStillSending;
+    }
+
+    public String getHst_timesent() {
+        return hst_timesent;
+    }
+
+    public void setHst_timesent(String hst_timesent) {
+        this.hst_timesent = hst_timesent;
+    }
+
+    public String getSet_servernum() {
+        return set_servernum;
+    }
+
+    public void setSet_servernum(String set_servernum) {
+        this.set_servernum = set_servernum;
+    }
+
+    public String getSet_increCount() {
+        return set_increCount;
+    }
+
+    public void setSet_increCount(String set_increCount) {
+        this.set_increCount = set_increCount;
+    }
+
+    public String getSet_storeName() {
+        return set_storeName;
+    }
+
+    public void setSet_storeName(String set_storeName) {
+        this.set_storeName = set_storeName;
+    }
+
+    public String getSet_setPin() {
+        return set_setPin;
+    }
+
+    public void setSet_setPin(String set_setPin) {
+        this.set_setPin = set_setPin;
+    }
+
+    public String getSet_id() {
+        return set_id;
+    }
+
+    public void setSet_id(String set_id) {
+        this.set_id = set_id;
     }
 }
