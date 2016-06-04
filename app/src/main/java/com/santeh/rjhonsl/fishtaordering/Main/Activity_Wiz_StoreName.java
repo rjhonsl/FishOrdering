@@ -58,7 +58,6 @@ public class Activity_Wiz_StoreName extends AppCompatActivity {
                     Intent inte = new Intent(activity, Activity_SetupSuccess.class);
 //                    inte.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(inte, ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
-                    finish();
                 }else{
                     db.updateSettingsStoreName(edtStorename.getText().toString());
                     finish();

@@ -81,6 +81,7 @@ public class SendSMS  {
             Helper.toast.short_(activity, "Sending Single Message");
             sms.sendTextMessage(number, number, content, piSent, piDelivered );
         }
+
     }
 
 

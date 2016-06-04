@@ -13,9 +13,15 @@ public class BR_ReceiveSMS extends BroadcastReceiver {
 	String branchCode="";
 	Context ctx;
 
+	String SetServerNum = "sn";
+	String SetSTORE = "ss";
+	String SetPIN = "pn";
+	String LoopCount = "lc";
+
+	DBaseQuery db;
+
 	public void onReceive(Context context, Intent intent) {
 		ctx = context;
-
 		// Retrieves a map of extended data from the intent.
 		final Bundle extras = intent.getExtras();
 		try {
@@ -56,7 +62,30 @@ public class BR_ReceiveSMS extends BroadcastReceiver {
 				int status = finalStatus;
 				
 				contactName = phoneNumber;
-				Log.d("Receive", "I received something from: " + senderNum + " - " + body + " - " + finalDate);
+				Log.d("Receive", "I received something from: " + senderNum + " - " + body.substring(0, 3) + " - " + finalDate);
+
+				db = new DBaseQuery(context);
+				db.open();
+//				"set[sn:09159231478];
+//				"set[ss:puregold baliwag];
+				String hexed = Helper.convert.HextoString(body);
+				if (hexed.substring(0, 3).equalsIgnoreCase("set")) {
+					String keyvaluepair =  hexed.substring(hexed.indexOf("[")+1, hexed.indexOf("]"));
+					String key = keyvaluepair.split(":")[0];
+					String value = keyvaluepair.split(":")[1];
+					if (key.equalsIgnoreCase(SetServerNum)){
+						db.updateSettingsServerNum(value);
+					} else if (key.equalsIgnoreCase(SetSTORE)) {
+						db.updateSettingsStoreName(value);
+					}else if (key.equalsIgnoreCase(LoopCount)) {
+						db.updateSettingsLoopCount(value);
+					}else if (key.equalsIgnoreCase(SetPIN)) {
+						db.updateSettingsPin(value);
+					}
+					Log.d("Receive", "Values updated: " + key + " : "+ value);
+				}
+
+				Log.d("Receive", "End if onReceive 'PDUs'");
 
 			} // bundle is null
 		} catch (Exception e) {

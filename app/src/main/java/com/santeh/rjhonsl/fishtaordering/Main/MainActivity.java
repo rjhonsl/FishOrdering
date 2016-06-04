@@ -85,12 +85,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (orderList != null){
+
                     if (orderList.size() > 0){
-                        String formattedOrder = "STORENAME", recipient = "09159231467";
+                        String formattedOrder = db.getStoreName();
                         for (int i = 0; i <orderList.size() ; i++) {
                             formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
                         }
-                        SendSMS.sendOrder(activity, context, recipient, formattedOrder);
+                        SendSMS.sendOrder(activity, context, db.getServerNum(), formattedOrder);
                     }else{
                         Helper.toast.short_(activity, "No items to send.");
                     }

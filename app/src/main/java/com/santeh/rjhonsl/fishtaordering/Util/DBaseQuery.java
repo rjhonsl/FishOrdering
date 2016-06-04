@@ -232,6 +232,23 @@ public class DBaseQuery {
         return 	db.update(DBaseHelper.TBL_SETTINGS, newValues, where, null);
     }
 
+    public int updateSettingsPin(String loolcount){
+        ContentValues newValues = new ContentValues();
+        String where = DBaseHelper.CL_SET_ID = "1";
+        newValues.put(DBaseHelper.CL_SET_INCRECOUNT, loolcount);
+
+        return 	db.update(DBaseHelper.TBL_SETTINGS, newValues, where, null);
+    }
+
+    public int updateSettingsLoopCount(String pin){
+        ContentValues newValues = new ContentValues();
+        String where = DBaseHelper.CL_SET_ID = "1";
+        newValues.put(DBaseHelper.CL_SET_PIN, pin);
+
+        return 	db.update(DBaseHelper.TBL_SETTINGS, newValues, where, null);
+    }
+
+
     /**
      * DELETES
      * */
