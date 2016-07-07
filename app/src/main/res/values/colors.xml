@@ -208,6 +208,7 @@
 
 
     <color name="deepOrange_50">#FBE9E7</color>
+    <color name="deepOrange_75">#f2dfdc</color>
     <color name="deepOrange_100">#FFCCBC</color>
     <color name="deepOrange_200">#FFAB91</color>
     <color name="deepOrange_300">#FF8A65</color>
@@ -222,7 +223,7 @@
     <color name="deepOrange_A400">#FF3D00</color>
     <color name="deepOrange_A700">#DD2C00</color>
     <color name="orange_fishta">#e67817</color>
-    <color name="orange_fishta_darker">#94af723c</color>
+    <color name="orange_fishta_darker">#f9da7217</color>
 
     <color name="teal_500">#009688</color>
     <color name="teal_400">#26A69A</color>

@@ -38,15 +38,16 @@ public class SendSMS  {
         sendIntent.putExtra("type", SendSMS.MESSAGE_TYPE_SENDORDER);
 
 
+
         PendingIntent piSent = PendingIntent.getBroadcast(context, 0, sendIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent piDelivered = PendingIntent.getBroadcast(context, 0, deliverIntent, 0);
 
         if (content.length() > 160){
-            Helper.toast.short_(activity, "Sending Multipart Message");
+//            Helper.toast.short_(activity, "Sending Multipart Message");
             ArrayList<String> parts = sms.divideMessage(content);
             sms.sendMultipartTextMessage(number, content, parts, null, null );
         }else{
-            Helper.toast.short_(activity, "Sending Single Message");
+//            Helper.toast.short_(activity, "Sending Single Message");
             sms.sendTextMessage(number, number, content, piSent, piDelivered );
         }
     }

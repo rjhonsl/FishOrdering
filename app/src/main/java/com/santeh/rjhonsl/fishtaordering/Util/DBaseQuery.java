@@ -78,6 +78,16 @@ public class DBaseQuery {
     }
 
 
+    public long insertOrderedItems(String itemID, String orderId){
+
+        ContentValues values = new ContentValues();
+        values.put(DBaseHelper.CL_OI_ITEMID, itemID);
+        values.put(DBaseHelper.CL_OI_ORDERID, orderId);
+
+        return  db.insert(DBaseHelper.TBL_ORDEREDITEMS, null, values);
+    }
+
+
 
     /**
      * SELECTSS
@@ -86,13 +96,16 @@ public class DBaseQuery {
         List<VarFishtaOrdering> itemsList = new ArrayList<>();
 
         String query = "SELECT * FROM "+DBaseHelper.TBL_ITEMS+" " +
-                "ORDER BY " + DBaseHelper.CL_ITEMS_ID + " ASC";
+                "ORDER BY " + DBaseHelper.CL_ITEMS_DESCRIPTION + " ASC";
+
         String[] params = new String[] {};
 
         Cursor cur =  db.rawQuery(query, params);
+        Log.d("COUNTER", "getAllItems: "+cur.getCount());
 
         if (cur != null && cur.getCount() > 0) {
-            while (cur.moveToNext()) {
+            cur.moveToFirst();
+            do {
                 VarFishtaOrdering queriedItem = new VarFishtaOrdering();
                 queriedItem.setItem_id(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_ID)));
                 queriedItem.setItem_code(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_CODE)));
@@ -100,7 +113,45 @@ public class DBaseQuery {
                 queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_OLD_CODE)));
                 queriedItem.setItem_units(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_UNITS)));
                 itemsList.add(queriedItem);
-            }
+            }while (cur.moveToNext());
+        }
+
+        return itemsList;
+    }
+
+
+    public List<VarFishtaOrdering> getTopTenFav(){
+        List<VarFishtaOrdering> itemsList = new ArrayList<>();
+
+        String query = "SELECT *, COUNT(*) as cc from tbl_ordereditems " +
+                " " +
+                "INNER JOIN tbl_items on tbl_items.itm_code = tbl_ordereditems.oi_itemId " +
+                " " +
+                "GRoup by tbl_ordereditems.oi_itemId " +
+                " " +
+                "Order by cc DESC " +
+                "LIMIT 10";
+
+        String[] params = new String[] {};
+
+        Cursor cur =  db.rawQuery(query, params);
+
+        if (cur != null && cur.getCount() > 0) {
+            cur.moveToFirst();
+            do {
+                VarFishtaOrdering queriedItem = new VarFishtaOrdering();
+                queriedItem.setOi_id(cur.getString(cur.getColumnIndex(DBaseHelper.CL_OI_ID)));
+                queriedItem.setOi_itemid(cur.getString(cur.getColumnIndex(DBaseHelper.CL_OI_ITEMID)));
+                queriedItem.setOi_orderid(cur.getString(cur.getColumnIndex(DBaseHelper.CL_OI_ORDERID)));
+
+                queriedItem.setItem_id(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_ID)));
+                queriedItem.setItem_code(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_CODE)));
+                queriedItem.setItem_description(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_DESCRIPTION)));
+                queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_OLD_CODE)));
+                queriedItem.setItem_units(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_UNITS)));
+
+                itemsList.add(queriedItem);
+            }while (cur.moveToNext());
         }
 
         return itemsList;
@@ -144,6 +195,47 @@ public class DBaseQuery {
         }
 
         return serverNum;
+    }
+
+    public String getTableList(){
+        Cursor c = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null);
+        String tables = "";
+        if (c.moveToFirst()) {
+            while ( !c.isAfterLast() ) {
+                tables =  " " + c.getString(0);
+                c.moveToNext();
+            }
+        }
+        return tables;
+    }
+
+
+
+    public List<VarFishtaOrdering> getSearchItems(String keyword){
+        List<VarFishtaOrdering> itemsList = new ArrayList<>();
+
+        String query = "SELECT * from tbl_items WHERE " +
+                "tbl_items.itm_desc LIKE '%"+keyword+"%'";
+
+        String[] params = new String[] {};
+
+        Cursor cur =  db.rawQuery(query, params);
+        Log.d("COUNTER", "getAllItems: "+cur.getCount());
+
+        if (cur != null && cur.getCount() > 0) {
+            cur.moveToFirst();
+            do {
+                VarFishtaOrdering queriedItem = new VarFishtaOrdering();
+                queriedItem.setItem_id(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_ID)));
+                queriedItem.setItem_code(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_CODE)));
+                queriedItem.setItem_description(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_DESCRIPTION)));
+                queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_OLD_CODE)));
+                queriedItem.setItem_units(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_UNITS)));
+                itemsList.add(queriedItem);
+            }while (cur.moveToNext());
+        }
+
+        return itemsList;
     }
 
     public String getStoreName(){

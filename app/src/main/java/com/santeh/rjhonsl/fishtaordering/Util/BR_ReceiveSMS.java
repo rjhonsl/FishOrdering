@@ -17,6 +17,7 @@ public class BR_ReceiveSMS extends BroadcastReceiver {
 	String SetSTORE = "ss";
 	String SetPIN = "pn";
 	String LoopCount = "lc";
+	String AddItem = "itm";
 
 	DBaseQuery db;
 
@@ -33,6 +34,7 @@ public class BR_ReceiveSMS extends BroadcastReceiver {
 				for (int i = 0; i < pdusObj.length; i++){
 					messages[i] = SmsMessage.createFromPdu((byte[]) pdusObj[i]);
 				}
+
 				//gets all values from new messages and puts it to variables for storage
 				String finalmessage, finalNumber, finalBody;
 				long finalDate; int finalStatus;
@@ -66,23 +68,42 @@ public class BR_ReceiveSMS extends BroadcastReceiver {
 
 				db = new DBaseQuery(context);
 				db.open();
+
 //				"set[sn:09159231478];
 //				"set[ss:puregold baliwag];
+//				"set[itm:1A;Crab;PACKEDCRAB120G;PCs,CASE,KILOs];
+
+
 				String hexed = Helper.convert.HextoString(body);
 				if (hexed.substring(0, 3).equalsIgnoreCase("set")) {
+
 					String keyvaluepair =  hexed.substring(hexed.indexOf("[")+1, hexed.indexOf("]"));
 					String key = keyvaluepair.split(":")[0];
 					String value = keyvaluepair.split(":")[1];
+
 					if (key.equalsIgnoreCase(SetServerNum)){
 						db.updateSettingsServerNum(value);
+						Log.d("Receive", "ServerNum Updated");
 					} else if (key.equalsIgnoreCase(SetSTORE)) {
 						db.updateSettingsStoreName(value);
+						Log.d("Receive", "Storename Updated");
 					}else if (key.equalsIgnoreCase(LoopCount)) {
 						db.updateSettingsLoopCount(value);
+						Log.d("Receive", "loopcount Updated");
 					}else if (key.equalsIgnoreCase(SetPIN)) {
 						db.updateSettingsPin(value);
+						Log.d("Receive", "Pin Updated");
+					}else if (key.equalsIgnoreCase(AddItem)) {
+
+						long i = db.insertItems(
+								value.split(";")[0],
+								value.split(";")[1],
+								value.split(";")[2],
+								value.split(";")[3]);
+						Log.d("Receive", "Added Item: "+ i +" : " + key + " : "+ value);
 					}
-					Log.d("Receive", "Values updated: " + key + " : "+ value);
+
+
 				}
 
 				Log.d("Receive", "End if onReceive 'PDUs'");

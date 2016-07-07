@@ -42,23 +42,18 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 		if (action.equals(ACTION_SMS_SENT)) {
 			switch (getResultCode()) {
 			case Activity.RESULT_OK:
-//				Toast.makeText(context, "SENT", Toast.LENGTH_LONG).show();
 				isSent = "1";
 				break;
 			case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
-//				Toast.makeText(context, "SENDING FAILED! Check Operator Service!", Toast.LENGTH_LONG).show();
 				isSent = "0";
 				break;
 			case SmsManager.RESULT_ERROR_NO_SERVICE:
-//				Toast.makeText(context, "SENDING FAILED! No Network Service!", Toast.LENGTH_LONG).show();
 				isSent = "0";
 				break;
 			case SmsManager.RESULT_ERROR_NULL_PDU:
-//				Toast.makeText(context, "Null PDU", Toast.LENGTH_LONG).show();
 				isSent = "0";
 				break;
 			case SmsManager.RESULT_ERROR_RADIO_OFF:
-//				Toast.makeText(context, "SENDING FAILED! Connectivity is Off!", Toast.LENGTH_LONG).show();
 				isSent = "0";
 				break;
 			}
@@ -78,10 +73,26 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 								list.remove(0);
 							}
 							MainActivity.itemsViewAdapter.notifyItemRangeRemoved(0, size);
+							MainActivity.showNoItemImage();
 						}
 					}
 
-					db.insertOrderHistory(number, content, timesend, "0", isSent, "0");
+					long orderID = db.insertOrderHistory(number, content, timesend, "0", isSent, "0");
+
+					String[] contentss = content.split(";");
+					for (int i = 0; i < contentss.length; i++) {
+
+						if (i > 0){
+							String[] itemdetails = contentss[i].split(",");
+//							itemdetails[0] //itemid
+//							itemdetails[1] //itemqty
+//							itemdetails[2] //itemunits
+							db.insertOrderedItems(itemdetails[0], orderID + "");
+						}
+					}
+
+
+
 				}
 
 			}else if (type.equalsIgnoreCase(SendSMS.MESSAGE_TYPE_RESEND)){

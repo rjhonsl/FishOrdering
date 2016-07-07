@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public static ItemsViewAdapter itemsViewAdapter;
     LinearLayoutManager mLayoutManager;
     //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
-    LinearLayout imgNoItems;
+    static LinearLayout imgNoItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         assert myToolbar != null;
         myToolbar.setBackgroundColor(getResources().getColor(R.color.orange_fishta));
         setSupportActionBar(myToolbar);
-        myToolbar.inflateMenu(R.menu.menu_search);
+//        myToolbar.inflateMenu(R.menu.menu_search);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         rvItems = (RecyclerView) findViewById(R.id.rvItems);
@@ -117,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void showNoItemImage() {
+    public static void showNoItemImage() {
         if (orderList != null){
             if (orderList.size() <= 0){
                 imgNoItems.setVisibility(View.VISIBLE);
@@ -194,28 +193,51 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_search, menu);
-
-        // Define the listener
-        MenuItemCompat.OnActionExpandListener expandListener = new MenuItemCompat.OnActionExpandListener() {
-            @Override
-            public boolean onMenuItemActionCollapse(MenuItem item) {
-                // Do something when action item collapses
-                return true;  // Return true to collapse action view
-            }
-
-            @Override
-            public boolean onMenuItemActionExpand(MenuItem item) {
-                // Do something when expanded
-                return true;  // Return true to expand action view
-            }
-
-        };
-
-        // Get the MenuItem for the action item
-        MenuItem actionMenuItem = menu.findItem(R.id.action_search);
-        // Assign the listener to that action item
-        MenuItemCompat.setOnActionExpandListener(actionMenuItem, expandListener);
+//        getMenuInflater().inflate(R.menu.menu_search, menu);
+//
+//        // Define the listener
+//        MenuItemCompat.OnActionExpandListener expandListener = new MenuItemCompat.OnActionExpandListener() {
+//            @Override
+//            public boolean onMenuItemActionCollapse(MenuItem item) {
+//                // Do something when action item collapses
+//                return true;  // Return true to collapse action view
+//            }
+//
+//            @Override
+//            public boolean onMenuItemActionExpand(MenuItem item) {
+//                // Do something when expanded
+//                return true;  // Return true to expand action view
+//            }
+//
+//        };
+//        // Get the MenuItem for the action item
+//        MenuItem actionMenuItem = menu.findItem(R.id.action_search);
+//        // Assign the listener to that action item
+//        MenuItemCompat.setOnActionExpandListener(actionMenuItem, expandListener);
+//
+//
+//        SearchManager searchManager =
+//                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//        SearchView searchView =
+//                (SearchView) MenuItemCompat.getActionView(actionMenuItem);
+////        searchView.setSearchableInfo(
+////                searchManager.getSearchableInfo(getComponentName()));
+//
+//
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//
+//                Helper.toast.long_(activity, query);
+//
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
 
         return true;
     }

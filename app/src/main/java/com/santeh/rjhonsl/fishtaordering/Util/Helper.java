@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.os.Environment;
 import android.provider.OpenableColumns;
 import android.support.design.widget.Snackbar;
 import android.telephony.TelephonyManager;
@@ -40,6 +41,7 @@ import android.widget.Toast;
 
 import com.santeh.rjhonsl.fishtaordering.R;
 
+import java.io.File;
 import java.math.BigInteger;
 import java.net.NetworkInterface;
 import java.text.ParseException;
@@ -176,7 +178,6 @@ public class Helper {
         }
 
     }
-
 
 
     public static class dialogBox{
@@ -399,7 +400,6 @@ public class Helper {
     }
 
 
-
     public static class convert{
 
         public static long DateToLong(int dd, int MM, int yyyy){
@@ -414,6 +414,13 @@ public class Helper {
                 e.printStackTrace();
             }
             return startDate;
+        }
+
+        public static int dpToPixels(Context context, int dps){
+            final float scale = context.getResources().getDisplayMetrics().density;
+            int pixels = (int) (dps * scale + 0.5f);
+
+            return pixels;
         }
 
         public static String DatetoGregorian(int dd, int MM, int yyyy){
@@ -657,6 +664,31 @@ public class Helper {
 
     public static class random{
 
+
+        public static boolean createFolderToExternal(String folderName, Activity activity){
+            //creates new folder
+            File folder = new File(Environment.getExternalStorageDirectory() + folderName);
+            boolean isCreated = true;
+            boolean check = Helper.random.checkSD(activity);
+            if (check) {
+                if (!folder.exists()) {
+                    isCreated = folder.mkdirs();
+                }
+                else
+                {
+                    Log.d("mkDirs", "exist");
+                }
+
+                if (isCreated) {
+                    Log.d("mkDirs", "SUCCESS");
+                } else {
+                    Log.d("mkDirs", "FAIL");
+                }
+            }
+
+            return isCreated;
+        }
+
         public static void moveCursortoEnd(Activity activity, int resId){
             EditText et = (EditText)activity.findViewById(resId);
             et.setSelection(et.getText().length());
@@ -699,6 +731,19 @@ public class Helper {
             } catch (PackageManager.NameNotFoundException e) {
                 return false;
             }
+        }
+
+        public static boolean checkSD(Activity activity) {
+            Boolean isSDPresent = android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
+            if(isSDPresent)
+            {
+//			toaster_long(activity, "SDcard available");
+            }
+            else
+            {
+//			toaster_long(activity, "SDcard not available");
+            }
+            return isSDPresent;
         }
 
     }

@@ -33,6 +33,10 @@ public class VarFishtaOrdering extends Application {
     private String set_setPin;
     private String set_id;
 
+    private String oi_id;
+    private String oi_itemid;
+    private String oi_orderid;
+
 
 
 
@@ -207,5 +211,29 @@ public class VarFishtaOrdering extends Application {
 
     public void setSet_id(String set_id) {
         this.set_id = set_id;
+    }
+
+    public String getOi_id() {
+        return oi_id;
+    }
+
+    public void setOi_id(String oi_id) {
+        this.oi_id = oi_id;
+    }
+
+    public String getOi_itemid() {
+        return oi_itemid;
+    }
+
+    public void setOi_itemid(String oi_itemid) {
+        this.oi_itemid = oi_itemid;
+    }
+
+    public String getOi_orderid() {
+        return oi_orderid;
+    }
+
+    public void setOi_orderid(String oi_orderid) {
+        this.oi_orderid = oi_orderid;
     }
 }

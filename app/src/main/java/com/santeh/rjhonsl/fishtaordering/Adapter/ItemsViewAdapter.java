@@ -3,6 +3,7 @@ package com.santeh.rjhonsl.fishtaordering.Adapter;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Handler;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -16,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import com.santeh.rjhonsl.fishtaordering.Main.MainActivity;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;
 import com.santeh.rjhonsl.fishtaordering.Util.VarFishtaOrdering;
@@ -136,6 +138,16 @@ public class ItemsViewAdapter extends RecyclerView.Adapter<ItemsViewAdapter.MyVi
         itemList.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeRemoved(position, itemList.size());
+        if (itemList.size() < 1){
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    MainActivity.showNoItemImage();
+                }
+            }, 300);
+
+        }
 //        notifyItemRangeChanged(itemList.size(), itemList.size());
 
 
