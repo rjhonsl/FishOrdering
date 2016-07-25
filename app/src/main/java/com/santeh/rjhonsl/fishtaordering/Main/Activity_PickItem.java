@@ -112,15 +112,12 @@ public class Activity_PickItem extends AppCompatActivity {
                     isBOttomShow = false;
                     btnShowFav.setImageResource(R.drawable.ic_arrow_upward_white_24dp);
                 }else if (newState == BottomSheetBehavior.STATE_DRAGGING){
-//                    Log.d("BOTTOM", "dragging");
                 }else if (newState == BottomSheetBehavior.STATE_EXPANDED){
                     Log.d("BOTTOM", "expanded");
 //                    btnShowFav.setImageResource(R.drawable.ic_arrow_downward_white_24dp);
                     isBOttomShow = true;
                 }else if (newState == BottomSheetBehavior.STATE_HIDDEN){
-//                    Log.d("BOTTOM", "hidden");
                 }else if (newState == BottomSheetBehavior.STATE_SETTLING){
-//                    Log.d("BOTTOM", "settling");
                 }
             }
 
