@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +45,7 @@ public class DBaseQuery {
         ContentValues values = new ContentValues();
         values.put(DBaseHelper.CL_ITEMS_CODE, code);
         values.put(DBaseHelper.CL_ITEMS_DESCRIPTION, description);
-        values.put(DBaseHelper.CL_ITEMS_OLD_CODE, oldCOde);
+        values.put(DBaseHelper.CL_ITEMS_GROUP_CODE, oldCOde);
         values.put(DBaseHelper.CL_ITEMS_UNITS, units);
 
         return  db.insert(DBaseHelper.TBL_ITEMS, null, values);
@@ -101,7 +100,7 @@ public class DBaseQuery {
         String[] params = new String[] {};
 
         Cursor cur =  db.rawQuery(query, params);
-        Log.d("COUNTER", "getAllItems: "+cur.getCount());
+//        Log.d("COUNTER", "getAllItems: "+cur.getCount());
 
         if (cur != null && cur.getCount() > 0) {
             cur.moveToFirst();
@@ -110,7 +109,7 @@ public class DBaseQuery {
                 queriedItem.setItem_id(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_ID)));
                 queriedItem.setItem_code(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_CODE)));
                 queriedItem.setItem_description(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_DESCRIPTION)));
-                queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_OLD_CODE)));
+                queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_GROUP_CODE)));
                 queriedItem.setItem_units(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_UNITS)));
                 itemsList.add(queriedItem);
             }while (cur.moveToNext());
@@ -147,7 +146,7 @@ public class DBaseQuery {
                 queriedItem.setItem_id(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_ID)));
                 queriedItem.setItem_code(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_CODE)));
                 queriedItem.setItem_description(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_DESCRIPTION)));
-                queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_OLD_CODE)));
+                queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_GROUP_CODE)));
                 queriedItem.setItem_units(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_UNITS)));
 
                 itemsList.add(queriedItem);
@@ -220,7 +219,6 @@ public class DBaseQuery {
         String[] params = new String[] {};
 
         Cursor cur =  db.rawQuery(query, params);
-        Log.d("COUNTER", "getAllItems: "+cur.getCount());
 
         if (cur != null && cur.getCount() > 0) {
             cur.moveToFirst();
@@ -229,7 +227,7 @@ public class DBaseQuery {
                 queriedItem.setItem_id(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_ID)));
                 queriedItem.setItem_code(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_CODE)));
                 queriedItem.setItem_description(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_DESCRIPTION)));
-                queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_OLD_CODE)));
+                queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_GROUP_CODE)));
                 queriedItem.setItem_units(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_UNITS)));
                 itemsList.add(queriedItem);
             }while (cur.moveToNext());
@@ -261,6 +259,26 @@ public class DBaseQuery {
        return db.rawQuery(query, params).getCount();
     }
 
+    public String getitemDescription(String id){
+
+        String query = "SELECT * from tbl_items WHERE " +
+                "tbl_items.itm_code = '"+id+"'";
+
+        String[] params = new String[] {};
+        String itemDEsc = "";
+
+        Cursor cur =  db.rawQuery(query, params);
+
+        if (cur != null && cur.getCount() > 0) {
+            cur.moveToFirst();
+            do {
+                itemDEsc = cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_DESCRIPTION));
+
+            }while (cur.moveToNext());
+        }
+        return itemDEsc;
+    }
+
 
     public List<VarFishtaOrdering> getAllOrderHistory(){
         List<VarFishtaOrdering> orderHistoryList = new ArrayList<>();
@@ -270,7 +288,6 @@ public class DBaseQuery {
 
         Cursor cur =  db.rawQuery(query, params);
 
-        Log.d("Count", ""+cur.getCount());
         if (cur != null && cur.getCount() > 0) {
             cur.moveToFirst();
             do {
@@ -288,6 +305,21 @@ public class DBaseQuery {
 
         return orderHistoryList;
     }
+
+    public String rearrangeItems(String raw){
+
+        String[] splitted = raw.split(";");
+        String arranged = "";
+        for (int i = 0; i < splitted.length; i++) {
+            if (i==0){
+                arranged = getitemDescription(splitted[i].split(",")[0]) + " "+ splitted[i].split(",")[1]+""+ splitted[i].split(",")[2];
+            }else{
+                arranged = arranged + ",\n" + getitemDescription(splitted[i].split(",")[0]) + " "+ splitted[i].split(",")[1]+""+ splitted[i].split(",")[2];;
+            }
+        }
+        return arranged;
+    }
+
 
 
     /**

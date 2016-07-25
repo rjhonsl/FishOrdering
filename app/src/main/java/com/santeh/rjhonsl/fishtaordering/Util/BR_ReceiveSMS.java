@@ -83,16 +83,16 @@ public class BR_ReceiveSMS extends BroadcastReceiver {
 
 					if (key.equalsIgnoreCase(SetServerNum)){
 						db.updateSettingsServerNum(value);
-						Log.d("Receive", "ServerNum Updated");
+//						Log.d("Receive", "ServerNum Updated");
 					} else if (key.equalsIgnoreCase(SetSTORE)) {
 						db.updateSettingsStoreName(value);
-						Log.d("Receive", "Storename Updated");
+//						Log.d("Receive", "Storename Updated");
 					}else if (key.equalsIgnoreCase(LoopCount)) {
 						db.updateSettingsLoopCount(value);
-						Log.d("Receive", "loopcount Updated");
+//						Log.d("Receive", "loopcount Updated");
 					}else if (key.equalsIgnoreCase(SetPIN)) {
 						db.updateSettingsPin(value);
-						Log.d("Receive", "Pin Updated");
+//						Log.d("Receive", "Pin Updated");
 					}else if (key.equalsIgnoreCase(AddItem)) {
 
 						long i = db.insertItems(
@@ -100,13 +100,13 @@ public class BR_ReceiveSMS extends BroadcastReceiver {
 								value.split(";")[1],
 								value.split(";")[2],
 								value.split(";")[3]);
-						Log.d("Receive", "Added Item: "+ i +" : " + key + " : "+ value);
+//						Log.d("Receive", "Added Item: "+ i +" : " + key + " : "+ value);
 					}
 
 
 				}
 
-				Log.d("Receive", "End if onReceive 'PDUs'");
+//				Log.d("Receive", "End if onReceive 'PDUs'");
 
 			} // bundle is null
 		} catch (Exception e) {

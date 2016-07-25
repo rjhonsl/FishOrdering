@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 
-import com.santeh.rjhonsl.fishtaordering.Adapter.ItemsViewAdapter;
+import com.santeh.rjhonsl.fishtaordering.Adapter.ItemsAdapter;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;
@@ -29,7 +29,8 @@ import jp.wasabeef.recyclerview.animators.FadeInRightAnimator;
 public class MainActivity extends AppCompatActivity {
 
     DBaseQuery db;
-    FloatingActionButton btnAddITem, btnSendOrder;
+    FloatingActionButton btnAddITem;
+    static FloatingActionButton btnSendOrder;
     Activity activity;
     Context context;
     public static int INTENT_SELECT_ITEM = 0;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView rvItems;
     Toolbar myToolbar;
-    public static ItemsViewAdapter itemsViewAdapter;
+    public static ItemsAdapter itemsViewAdapter;
     LinearLayoutManager mLayoutManager;
     //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
     static LinearLayout imgNoItems;
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         rvItems.setItemAnimator(new FadeInRightAnimator(new OvershootInterpolator(2f)));
         registerForContextMenu(rvItems);
 
-        itemsViewAdapter = new ItemsViewAdapter(orderList, context, activity);
+        itemsViewAdapter = new ItemsAdapter(orderList, context, activity);
         rvItems.setAdapter(itemsViewAdapter);
         itemsViewAdapter.notifyDataSetChanged();
 
@@ -86,9 +87,16 @@ public class MainActivity extends AppCompatActivity {
                 if (orderList != null){
 
                     if (orderList.size() > 0){
-                        String formattedOrder = db.getStoreName();
+                        String formattedOrder = ""
+//                               + db.getStoreName()
+                                ;
                         for (int i = 0; i <orderList.size() ; i++) {
-                            formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
+                            if (i==0){
+                                formattedOrder =  orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
+                            }else{
+                                formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
+                            }
+
                         }
                         SendSMS.sendOrder(activity, context, db.getServerNum(), formattedOrder);
                     }else{
@@ -112,7 +120,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        toggleSendButtonVisibility();
 
+
+    }
+
+    public static void toggleSendButtonVisibility() {
+        if (orderList.size() > 0){
+            btnSendOrder.setVisibility(View.VISIBLE);
+        }else{
+            btnSendOrder.setVisibility(View.GONE);
+        }
     }
 
 
@@ -155,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedItem.setItem_units(data.getStringExtra("units"));
 //            Helper.dialogBox.okOnly(activity, "Result", data.getStringExtra("code") + "\n" + data.getStringExtra("item") + "\n" + data.getStringExtra("pax"), "OK");
                 addItems(selectedItem);
-
+                toggleSendButtonVisibility();
                 showNoItemImage();
             }
         }

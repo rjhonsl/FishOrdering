@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.santeh.rjhonsl.fishtaordering.Main.Activity_OrderHistory;
@@ -37,7 +36,7 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 		String isSent = "0";
 
 
-		Log.d("DELIVERY", "SENDING INTENT");
+//		Log.d("DELIVERY", "SENDING INTENT");
 		//checks if intent action passed is equals to sms sent
 		if (action.equals(ACTION_SMS_SENT)) {
 			switch (getResultCode()) {

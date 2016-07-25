@@ -14,7 +14,7 @@
                                                 app:cardCornerRadius="0dp">
                 <TextView android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:text="DEVICE SETTINGS"
+                          android:text="@string/device_settings"
                           android:textSize="12sp"
                           android:paddingTop="10dp"
                           android:paddingBottom="0dp"
@@ -52,7 +52,7 @@
 
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:text="09151234567"
+                                  android:text=" "
                                   android:id="@+id/lblServerNum"
                         />
 
@@ -73,14 +73,14 @@
                     >
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:text="Store Name"
+                                  android:text="@string/store_name"
                                   android:textSize="18sp"
                                   android:textColor="@color/gray_800"
                         />
 
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:text="Puregold Baliwag"
+                                  android:text="@string/puregold_baliwag"
                                   android:id="@+id/lblStoreName"
 
                         />
@@ -103,7 +103,7 @@
                                                 app:cardCornerRadius="0dp">
                 <TextView android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:text="BACK UP AND RESTORE"
+                          android:text="@string/back_up_and_restore"
                           android:textSize="12sp"
                           android:paddingTop="10dp"
                           android:paddingBottom="0dp"
@@ -127,8 +127,8 @@
                 >
                     <LinearLayout android:layout_width="match_parent"
                                   android:layout_height="wrap_content"
-                                  android:paddingTop="30dp"
-                                  android:paddingBottom="30dp"
+                                  android:paddingTop="24dp"
+                                  android:paddingBottom="24dp"
                                   android:paddingLeft="10dp"
                                   android:orientation="vertical"
                                   android:id="@+id/llBackup"
@@ -136,9 +136,14 @@
                     >
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:text="Back Up to Local Storage"
+                                  android:text="@string/back_up_to_local_storage"
                                   android:textSize="18sp"
                                   android:textColor="@color/gray_800"
+                        />
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="Create Backup to Local Storage"
                         />
 
 
@@ -149,8 +154,8 @@
 
                     <LinearLayout android:layout_width="match_parent"
                                   android:layout_height="wrap_content"
-                                  android:paddingTop="30dp"
-                                  android:paddingBottom="30dp"
+                                  android:paddingTop="24dp"
+                                  android:paddingBottom="24dp"
                                   android:paddingLeft="10dp"
                                   android:orientation="vertical"
                                   android:id="@+id/llRestore"
@@ -158,10 +163,17 @@
                     >
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:text="Restore from Local Storage"
+                                  android:text="@string/restore_from_local_storage"
                                   android:textSize="18sp"
                                   android:textColor="@color/gray_800"
                         />
+
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="Restore Backup from Local Storage"
+                        />
+
 
 
                     </LinearLayout>
@@ -178,7 +190,7 @@
                                                 app:cardCornerRadius="0dp">
                 <TextView android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:text="GENERAL SETTINGS"
+                          android:text="@string/general_settings"
                           android:textSize="12sp"
                           android:paddingTop="10dp"
                           android:paddingBottom="0dp"
@@ -211,13 +223,13 @@
 
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:text="About"
+                                  android:text="@string/about"
                                   android:textSize="18sp"
                                   android:textColor="@color/gray_800"
                         />
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:text="@string/app_name"
+                                  android:text="@string/app_whole_name"
                                   android:id="@+id/lblAbout"
                         />
 

@@ -504,7 +504,6 @@ public class Helper {
             long diff = date1 - date2; //result in millis
             long days = diff / (24 * 60 * 60 * 1000);
 
-            Log.d("DIFF", "days: "+days+"");
             return days;
         }
 
@@ -602,7 +601,6 @@ public class Helper {
                         city + ", " + country
 //                        + ", " + country1
                 ;
-                Log.d("TAG",address1 );
             } catch (Exception e) {
                 e.printStackTrace();
             }

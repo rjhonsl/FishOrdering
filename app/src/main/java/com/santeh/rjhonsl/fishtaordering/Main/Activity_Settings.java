@@ -75,6 +75,7 @@ public class Activity_Settings extends AppCompatActivity {
         lblAbout= (TextView) findViewById(R.id.lblAbout);
 
 
+
         txtRestore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -282,4 +283,5 @@ public class Activity_Settings extends AppCompatActivity {
         super.onPause();
         db.close();
     }
+
 }

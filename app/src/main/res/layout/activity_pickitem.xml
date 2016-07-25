@@ -22,7 +22,7 @@
 
         <ListView android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:id="@+id/lvFishes"
-                  android:entries="@array/fishes"
+                  android:entries="@array/items"
                   android:layout_below="@id/toolbar2"
                   android:background="@drawable/bg_listview_color"
 
@@ -75,7 +75,7 @@
 
                 <ListView android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:entries="@array/fishes"
+                          android:entries="@array/items"
                           android:scrollbarSize="3dp"
                           android:id="@+id/lvFavorites"
                           android:scrollbarStyle="insideInset"

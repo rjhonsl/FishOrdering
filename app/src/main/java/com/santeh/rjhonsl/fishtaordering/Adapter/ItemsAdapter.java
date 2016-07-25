@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by rjhonsl on 5/18/2016.
  */
-public class ItemsViewAdapter extends RecyclerView.Adapter<ItemsViewAdapter.MyViewHolder> {
+public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.MyViewHolder> {
 
     private List<VarFishtaOrdering> itemList;
     Context context1;
@@ -50,7 +50,7 @@ public class ItemsViewAdapter extends RecyclerView.Adapter<ItemsViewAdapter.MyVi
     }
 
 
-    public ItemsViewAdapter(List<VarFishtaOrdering> newsFeedsList, Context context, Activity activity) {
+    public ItemsAdapter(List<VarFishtaOrdering> newsFeedsList, Context context, Activity activity) {
         this.itemList = newsFeedsList;
         context1 = context;
         activity1 = activity;
@@ -146,8 +146,10 @@ public class ItemsViewAdapter extends RecyclerView.Adapter<ItemsViewAdapter.MyVi
                     MainActivity.showNoItemImage();
                 }
             }, 300);
-
+            MainActivity.toggleSendButtonVisibility();
         }
+
+
 //        notifyItemRangeChanged(itemList.size(), itemList.size());
 
 

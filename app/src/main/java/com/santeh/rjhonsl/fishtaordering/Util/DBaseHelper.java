@@ -28,9 +28,9 @@ public class DBaseHelper extends SQLiteOpenHelper{
     public static String CL_ITEMS_ID            = "itm_id";
     public static String CL_ITEMS_CODE          = "itm_code";
     public static String CL_ITEMS_DESCRIPTION   = "itm_desc";
-    public static String CL_ITEMS_OLD_CODE      = "itm_oldcode";
+    public static String CL_ITEMS_GROUP_CODE    = "itm_oldcode";
     public static String CL_ITEMS_UNITS = "itm_units";
-    public static final String[] ALL_KEY_ITEMS      = new String[]{CL_ITEMS_ID, CL_ITEMS_CODE, CL_ITEMS_DESCRIPTION, CL_ITEMS_OLD_CODE, CL_ITEMS_UNITS};
+    public static final String[] ALL_KEY_ITEMS      = new String[]{CL_ITEMS_ID, CL_ITEMS_CODE, CL_ITEMS_DESCRIPTION, CL_ITEMS_GROUP_CODE, CL_ITEMS_UNITS};
     public static final String[] ALL_DATATYPE_ITEMS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT};
 
 
@@ -67,12 +67,12 @@ public class DBaseHelper extends SQLiteOpenHelper{
     public static final String[] ALL_DATATYPE_ORDERED_ITEMS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT};
 
 
-
     //connects db
     public DBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        Log.d(LOGTAG, "table " + DATABASE_NAME + " has been opened: " + String.valueOf(context));
+//        Log.d(LOGTAG, "table " + DATABASE_NAME + " has been opened: " + String.valueOf(context));
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -105,7 +105,7 @@ public class DBaseHelper extends SQLiteOpenHelper{
 
         createTablesIfNotExists(db); //step2
 
-        Log.d("DB", "tables updated");
+//        Log.d("DB", "tables updated");
 //        //step3 - list existing columns
 //        List<String> oldItem = GetColumns(db, TBL_ITEMS);
 //        List<String> oldSentHistory = GetColumns(db, TBL_SENTHISTORY);

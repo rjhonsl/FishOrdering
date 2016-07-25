@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +18,7 @@ import com.santeh.rjhonsl.fishtaordering.Util.Helper;
 /**
  * Created by rjhonsl on 5/31/2016.
  */
-public class Activity_LogInScreen extends AppCompatActivity {
+public class ActivityHome extends AppCompatActivity {
 
     Activity activity;
     Context context;
@@ -34,7 +33,7 @@ public class Activity_LogInScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginscreen);
         activity = this;
-        context = Activity_LogInScreen.this;
+        context = ActivityHome.this;
 
         db = new DBaseQuery(this);
         db.open();
@@ -121,11 +120,14 @@ public class Activity_LogInScreen extends AppCompatActivity {
     }
 
     void insertItems(){
+//        Log.d("DB", "INSERTING ITEMS");
 
-        Log.d("DB", "INSERTING ITEMS");
-        String[] itemss = getResources().getStringArray(R.array.fishes);
+        String[] itemss = getResources().getStringArray(R.array.items);
+        String[] units = getResources().getStringArray(R.array.itm_units);
+        String[] group_code = getResources().getStringArray(R.array.group_code);
+
         for (int i = 0; i < itemss.length; i++) {
-            db.insertItems(i + "", itemss[i], "", "KGs,PCs");
+            db.insertItems(i + "", itemss[i], group_code[i], units[i]);
         }
 
     }

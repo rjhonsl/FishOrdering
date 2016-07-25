@@ -10,7 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.LinearLayout;
 
 import com.santeh.rjhonsl.fishtaordering.Adapter.OrderHistoryAdapter;
 import com.santeh.rjhonsl.fishtaordering.R;
@@ -29,12 +31,13 @@ public class Activity_OrderHistory extends AppCompatActivity {
 
     Activity activity;
     Context context;
-    RecyclerView rvOrderHistory;
+    private static RecyclerView rvOrderHistory;
     public OrderHistoryAdapter orderHistoryAdapter;
     LinearLayoutManager mLayoutManager;
     List<VarFishtaOrdering> orderHistoryList;
     public static boolean isActive = false;
     DBaseQuery db;
+    private static LinearLayout llNoHistory;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,6 +55,8 @@ public class Activity_OrderHistory extends AppCompatActivity {
         upArrow.setColorFilter(getResources().getColor(R.color.gray_50), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
+        llNoHistory = (LinearLayout) findViewById(R.id.ll_noHistory);
+
         orderHistoryList = new ArrayList<>();
         orderHistoryList = db.getAllOrderHistory();
 
@@ -68,6 +73,18 @@ public class Activity_OrderHistory extends AppCompatActivity {
         rvOrderHistory.setAdapter(orderHistoryAdapter);
         orderHistoryAdapter.notifyDataSetChanged();
 
+        toggleHistoryVisibility(orderHistoryList.size());
+
+    }
+
+    public static void toggleHistoryVisibility(int listSize) {
+        if (listSize < 1){
+            llNoHistory.setVisibility(View.VISIBLE);
+            rvOrderHistory.setVisibility(View.GONE);
+        }else {
+            llNoHistory.setVisibility(View.GONE);
+            rvOrderHistory.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

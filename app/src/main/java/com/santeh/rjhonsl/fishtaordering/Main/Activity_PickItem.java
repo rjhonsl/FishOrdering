@@ -108,19 +108,19 @@ public class Activity_PickItem extends AppCompatActivity {
                 }
 
                 if (newState == BottomSheetBehavior.STATE_COLLAPSED){
-                    Log.d("BOTTOM", "collapsed");
+//                    Log.d("BOTTOM", "collapsed");
                     isBOttomShow = false;
                     btnShowFav.setImageResource(R.drawable.ic_arrow_upward_white_24dp);
                 }else if (newState == BottomSheetBehavior.STATE_DRAGGING){
-                    Log.d("BOTTOM", "dragging");
+//                    Log.d("BOTTOM", "dragging");
                 }else if (newState == BottomSheetBehavior.STATE_EXPANDED){
                     Log.d("BOTTOM", "expanded");
-                    btnShowFav.setImageResource(R.drawable.ic_arrow_downward_white_24dp);
+//                    btnShowFav.setImageResource(R.drawable.ic_arrow_downward_white_24dp);
                     isBOttomShow = true;
                 }else if (newState == BottomSheetBehavior.STATE_HIDDEN){
-                    Log.d("BOTTOM", "hidden");
+//                    Log.d("BOTTOM", "hidden");
                 }else if (newState == BottomSheetBehavior.STATE_SETTLING){
-                    Log.d("BOTTOM", "settling");
+//                    Log.d("BOTTOM", "settling");
                 }
             }
 

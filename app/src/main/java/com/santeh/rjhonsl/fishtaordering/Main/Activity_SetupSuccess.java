@@ -23,10 +23,10 @@ public class Activity_SetupSuccess extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.ActivityAction.startActivityClearStack(Activity_SetupSuccess.this, Activity_LogInScreen.class);
+                Helper.ActivityAction.startActivityClearStack(Activity_SetupSuccess.this, ActivityHome.class);
 //                startActivity(inte, ActivityOptionsCompat.makeSceneTransitionAnimation(Activity_SetupSuccess.this).toBundle());
 //                finish();
-//                Helper.ActivityAction.startActivityClearStack(Activity_SetupSuccess.this, Activity_LogInScreen.class);
+//                Helper.ActivityAction.startActivityClearStack(Activity_SetupSuccess.this, ActivityHome.class);
             }
         });
     }

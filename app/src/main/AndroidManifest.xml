@@ -64,7 +64,7 @@
                   android:label="Select Fish">
         </activity>
 
-        <activity android:name=".Main.Activity_LogInScreen"
+        <activity android:name=".Main.ActivityHome"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                     android:label="Fishta SMS Ordering">
             <intent-filter>

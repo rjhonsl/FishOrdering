@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.Handler;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.santeh.rjhonsl.fishtaordering.Main.Activity_OrderHistory;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;
@@ -80,7 +82,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         pd = new ProgressDialog(context1);
         pd.setMessage("Resending order please wait...");
 
-        holder.txtItems.setText(sentHistoryList.get(position).getHst_message());
+        holder.txtItems.setText(db.rearrangeItems(sentHistoryList.get(position).getHst_message()));
         holder.txtTimeSent.setText(timeSent);
 
 //        holder.txtIsSent.setText(sentHistoryList.get(position).getHst_isSent());
@@ -160,6 +162,15 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         sentHistoryList.remove(orderingOBJ);
         notifyItemRemoved(position);
         notifyItemRangeRemoved(position, sentHistoryList.size());
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Activity_OrderHistory.toggleHistoryVisibility(sentHistoryList.size());
+            }
+        }, 300);
+
     }
 
 
