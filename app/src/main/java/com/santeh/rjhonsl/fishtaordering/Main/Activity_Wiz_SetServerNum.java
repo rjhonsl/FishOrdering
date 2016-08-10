@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
@@ -25,6 +26,7 @@ public class Activity_Wiz_SetServerNum extends AppCompatActivity {
     DBaseQuery db;
     Button btnSetServerNum;
     EditText edtServerNum;
+    TextView txtprompt;
     Activity activity;
     Context context;
     Intent receivedIntent;
@@ -40,6 +42,7 @@ public class Activity_Wiz_SetServerNum extends AppCompatActivity {
 
         btnSetServerNum = (Button) findViewById(R.id.btnSetServerNum);
         edtServerNum = (EditText) findViewById(R.id.edtServerNum);
+        txtprompt = (TextView) findViewById(R.id.txtServerNumPrompt);
         db = new DBaseQuery(this);
         db.open();
 
@@ -51,8 +54,11 @@ public class Activity_Wiz_SetServerNum extends AppCompatActivity {
         btnSetServerNum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (receivedIntent.hasExtra(Keys.IS_STARTUP)){
-                    Intent intent = new Intent(activity, Activity_Wiz_StoreName.class);
+                if (edtServerNum.getText().toString().length() < 11){
+                    txtprompt.setTextColor(getResources().getColor(R.color.red_800));
+                    txtprompt.setText("Invalid Number");
+                }else if (receivedIntent.hasExtra(Keys.IS_STARTUP)){
+                    Intent intent = new Intent(activity, Activity_Wiz_UserName.class);
                     intent.putExtra(Keys.IS_STARTUP, true);
                     intent.putExtra(Keys.SETTINGS_SERVERNUMBER, edtServerNum.getText().toString());
                     startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
@@ -77,10 +83,12 @@ public class Activity_Wiz_SetServerNum extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (edtServerNum.getText().toString().length() > 0){
+                if (edtServerNum.getText().toString().length() > 10){
                     btnSetServerNum.setEnabled(true);
                 }else{
                     btnSetServerNum.setEnabled(false);
+
+
                 }
             }
         });

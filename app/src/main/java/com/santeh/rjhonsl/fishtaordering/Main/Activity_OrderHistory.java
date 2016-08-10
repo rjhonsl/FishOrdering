@@ -2,8 +2,6 @@ package com.santeh.rjhonsl.fishtaordering.Main;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -32,7 +30,7 @@ public class Activity_OrderHistory extends AppCompatActivity {
     Activity activity;
     Context context;
     private static RecyclerView rvOrderHistory;
-    public OrderHistoryAdapter orderHistoryAdapter;
+    OrderHistoryAdapter orderHistoryAdapter;
     LinearLayoutManager mLayoutManager;
     List<VarFishtaOrdering> orderHistoryList;
     public static boolean isActive = false;
@@ -51,9 +49,7 @@ public class Activity_OrderHistory extends AppCompatActivity {
         db = new DBaseQuery(this);
         db.open();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
-        upArrow.setColorFilter(getResources().getColor(R.color.gray_50), PorterDuff.Mode.SRC_ATOP);
-        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
 
         llNoHistory = (LinearLayout) findViewById(R.id.ll_noHistory);
 
@@ -64,6 +60,7 @@ public class Activity_OrderHistory extends AppCompatActivity {
         assert rvOrderHistory != null;
         rvOrderHistory.setHasFixedSize(true);
 
+
         mLayoutManager = new LinearLayoutManager(this);
         rvOrderHistory.setLayoutManager(mLayoutManager);
         rvOrderHistory.setItemAnimator(new FadeInRightAnimator(new OvershootInterpolator(2f)));
@@ -72,6 +69,7 @@ public class Activity_OrderHistory extends AppCompatActivity {
         orderHistoryAdapter = new OrderHistoryAdapter(orderHistoryList, context, activity);
         rvOrderHistory.setAdapter(orderHistoryAdapter);
         orderHistoryAdapter.notifyDataSetChanged();
+
 
         toggleHistoryVisibility(orderHistoryList.size());
 

@@ -13,6 +13,7 @@ public class VarFishtaOrdering extends Application {
     private String item_description;
     private String item_oldcode;
     private String item_units;
+    private String item_isActive;
 
     private String order_unit;
     private String order_qty;
@@ -36,6 +37,12 @@ public class VarFishtaOrdering extends Application {
     private String oi_id;
     private String oi_itemid;
     private String oi_orderid;
+
+    private String cust_id;
+    private String cust_code;
+    private String cust_name;
+    private String cust_type;
+    private String cust_isactive;
 
 
 
@@ -235,5 +242,53 @@ public class VarFishtaOrdering extends Application {
 
     public void setOi_orderid(String oi_orderid) {
         this.oi_orderid = oi_orderid;
+    }
+
+    public String getCust_id() {
+        return cust_id;
+    }
+
+    public void setCust_id(String cust_id) {
+        this.cust_id = cust_id;
+    }
+
+    public String getCust_code() {
+        return cust_code;
+    }
+
+    public void setCust_code(String cust_code) {
+        this.cust_code = cust_code;
+    }
+
+    public String getCust_name() {
+        return cust_name;
+    }
+
+    public void setCust_name(String cust_name) {
+        this.cust_name = cust_name;
+    }
+
+    public String getCust_type() {
+        return cust_type;
+    }
+
+    public void setCust_type(String cust_type) {
+        this.cust_type = cust_type;
+    }
+
+    public String getCust_isactive() {
+        return cust_isactive;
+    }
+
+    public void setCust_isactive(String cust_isactive) {
+        this.cust_isactive = cust_isactive;
+    }
+
+    public String getItem_isActive() {
+        return item_isActive;
+    }
+
+    public void setItem_isActive(String item_isActive) {
+        this.item_isActive = item_isActive;
     }
 }

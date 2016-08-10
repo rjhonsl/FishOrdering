@@ -20,53 +20,56 @@ import com.santeh.rjhonsl.fishtaordering.Util.Keys;
 /**
  * Created by rjhonsl on 6/3/2016.
  */
-public class Activity_Wiz_StoreName extends AppCompatActivity {
+public class Activity_Wiz_UserName extends AppCompatActivity {
 
     DBaseQuery db;
-    Button betSetSToreName;
-    EditText edtStorename;
+    Button btnSetStoreName;
+    EditText edtUserName;
     Activity activity;
     Context context;
     Intent receivedIntent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setstore_name);
+        setContentView(R.layout.activity_setuser_name);
 
         activity = this;
-        context = Activity_Wiz_StoreName.this;
+        context = Activity_Wiz_UserName.this;
 
         receivedIntent = getIntent();
 
-        betSetSToreName = (Button) findViewById(R.id.btnSetStoreName);
-        edtStorename = (EditText) findViewById(R.id.edtStoreName);
+        btnSetStoreName = (Button) findViewById(R.id.btnSetStoreName);
+        edtUserName = (EditText) findViewById(R.id.edtUserName);
         db = new DBaseQuery(this);
         db.open();
 
-        betSetSToreName.setEnabled(false);
+        btnSetStoreName.setEnabled(false);
 
         if (!receivedIntent.hasExtra(Keys.IS_STARTUP)){
-            edtStorename.setText(db.getStoreName());
+            edtUserName.setText(db.getUserName());
         }
 
 
-        betSetSToreName.setOnClickListener(new View.OnClickListener() {
+        btnSetStoreName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (receivedIntent.hasExtra(Keys.IS_STARTUP)){
-                    db.insertSettings(edtStorename.getText().toString(), receivedIntent.getStringExtra(Keys.SETTINGS_SERVERNUMBER), "1", "123456");
-                    Intent inte = new Intent(activity, Activity_SetupSuccess.class);
+//                    db.insertSettings(edtUserName.getText().toString(), , "1", "123456");
+                    Intent inte = new Intent(activity, Activity_Wiz_Stores.class);
+                    inte.putExtra(Keys.IS_STARTUP, true);
+                    inte.putExtra(Keys.SETTINGS_SERVERNUMBER, receivedIntent.getStringExtra(Keys.SETTINGS_SERVERNUMBER));
+                    inte.putExtra(Keys.SETTINGS_USERNAME, edtUserName.getText().toString());
 //                    inte.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(inte, ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
                 }else{
-                    db.updateSettingsStoreName(edtStorename.getText().toString());
+                    db.updateSettingsStoreName(edtUserName.getText().toString());
                     finish();
                 }
             }
         });
 
 
-        edtStorename.addTextChangedListener(new TextWatcher() {
+        edtUserName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -79,10 +82,10 @@ public class Activity_Wiz_StoreName extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (edtStorename.getText().toString().length() > 0){
-                    betSetSToreName.setEnabled(true);
+                if (edtUserName.getText().toString().length() > 0){
+                    btnSetStoreName.setEnabled(true);
                 }else{
-                    betSetSToreName.setEnabled(false);
+                    btnSetStoreName.setEnabled(false);
                 }
             }
         });

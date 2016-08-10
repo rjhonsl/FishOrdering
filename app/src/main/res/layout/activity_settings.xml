@@ -52,7 +52,7 @@
 
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:text=" "
+                                  android:text="09151234567"
                                   android:id="@+id/lblServerNum"
                         />
 
@@ -73,7 +73,7 @@
                     >
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
-                                  android:text="@string/store_name"
+                                  android:text="@string/user_name"
                                   android:textSize="18sp"
                                   android:textColor="@color/gray_800"
                         />
@@ -81,7 +81,32 @@
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
                                   android:text="@string/puregold_baliwag"
-                                  android:id="@+id/lblStoreName"
+                                  android:id="@+id/lblUserName"
+
+                        />
+
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:paddingTop="24dp"
+                                  android:paddingBottom="24dp"
+                                  android:paddingLeft="10dp"
+                                  android:orientation="vertical"
+                                  android:id="@+id/llStores"
+                                  android:background="@drawable/bg_material_transparent"
+                    >
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="Serviced Store"
+                                  android:textSize="18sp"
+                                  android:textColor="@color/gray_800"
+                        />
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="PG Pulilan"
+                                  android:id="@+id/lblstore"
 
                         />
 
@@ -125,6 +150,30 @@
                               android:layout_marginLeft="24dp"
                               android:layout_marginRight="24dp"
                 >
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:paddingTop="24dp"
+                                  android:paddingBottom="24dp"
+                                  android:paddingLeft="10dp"
+                                  android:id="@+id/txtUpdateDB"
+                                  android:onClick="updateDB"
+                                  android:background="@drawable/bg_material_transparent"
+                                  android:orientation="vertical">
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="Sync Database"
+                                  android:textSize="18sp"
+                                  android:textColor="@color/gray_800"
+                        />
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:text="Update Database to latest "
+                                  android:id="@+id/lblUpdateDB"
+                        />
+
+                    </LinearLayout>
+
                     <LinearLayout android:layout_width="match_parent"
                                   android:layout_height="wrap_content"
                                   android:paddingTop="24dp"
@@ -234,6 +283,7 @@
                         />
 
                     </LinearLayout>
+
 
 
                 </LinearLayout>

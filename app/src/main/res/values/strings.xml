@@ -7,8 +7,8 @@
     <string name="restore_from_local_storage">Restore</string>
     <string name="back_up_to_local_storage">Back Up</string>
     <string name="back_up_and_restore">BACK UP AND RESTORE</string>
-    <string name="store_name">Store Name</string>
-    <string name="puregold_baliwag">Puregold Baliwag</string>
+    <string name="user_name">User Name</string>
+    <string name="puregold_baliwag">Juan Sapangbato</string>
     <string name="device_settings">DEVICE SETTINGS</string>
     <string name="noitems">Good! Everything is clean here!</string>
 
@@ -1253,618 +1253,618 @@
 
 
     <string-array name="itm_units">
-        <!-- 10X1000 PRINTED MODIFY POLYBAG-->  <item>PC/s,BOX/es,N/A</item>
-        <!-- 10X14 HD (USP)                -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- 12X16 HD TORINO               -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- 12X18 HD TORIN0               -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- 12x18PE02                     -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- 18X6 STICKER ON CINTRA        -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- 1X1000 PRINTED MODIFY POLYBAG -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- 4X1000 PRINTED MODIFY POLYBAG -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- 4X15 STICKER ON CINTRA        -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- 8X11 HD TORINO                -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- ADHESIVE TAPE                 -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- AGRILIME                      -->  <item>PC/s,BOX/es,KG/s,N/A</item>
-        <!-- AIR BLOWER                    -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- AIR PUMP                      -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- AIR STONE                     -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- AIRHOSE                       -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- ALCOHOL 500ML                 -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- ALIMANGO CHILLED              -->  <item>KG/s,PC/s,CASE</item>
-        <!-- ALIMANGO LIVE LARGE           -->  <item>KG/s,PC/s,CASE</item>
-        <!-- ALIMANGO LIVE SMALL           -->  <item>KG/s,PC/s,CASE</item>
-        <!-- ALIMASAG                      -->  <item>KG/s,PC/s,CASE</item>
-        <!-- ALIMASAG SMALL                -->  <item>KG/s,PC/s,CASE</item>
-        <!-- ALPINE LOCK SET               -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- ALUMAHAN                      -->  <item>KG/s,PC/s,CASE</item>
-        <!-- ALUMINUM MOP HANDLE           -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- APAHAP                        -->  <item>PC/s,N/A</item>
-        <!-- APRON                         -->  <item>PC/s,N/A</item>
-        <!-- AQUARIUM                      -->  <item>PC/s,N/A</item>
-        <!-- ASSTD SEAFOOD MARINATED       -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- ASUHOS                        -->  <item>KG/s,PC/s,CASE</item>
-        <!-- AYUNGIN                       -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BABY BANGUS                   -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BABY BANGUS BONELESS          -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BABY BANGUS MARINATED         -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BABY BANGUS MARINATED INASAL  -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BABY BANGUS MARINATED SPICY   -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BAGUNGAN                      -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BALLPEN                       -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- BANAK                         -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BAND AID                      -->  <item>PC/s,BOX/es,N/A</item>
-        <!-- BANGUS BELLY                  -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BANGUS BELLY TRIMMED          -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BANGUS BELLY UNTRIMMED        -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BANGUS BONELESS               -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BANGUS BONELESS SMALL         -->  <item>KG/s,PC/s,CASE</item>
-        <!-- BANGUS CHILLED                -->  <item>KG/s,PC/s,CASE</item>
-        <!-->BANGUS CORNER STAINLESS       -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS EXTRA SMALL</item>      -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS FINGER</item>           -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS HEAD</item>             -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS HEAD AND TAIL</item>    -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS INIHAW</item>           -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS LARGE</item>            -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS MARINATED</item>        -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS MEDIUM</item>           -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS PROMO                   -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS SHANGHA                 -->  <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS SHANGHAI ROLLS</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS SMALL</item>         -->     <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS TAIL</item>          -->     <item>KG/s,PC/s,CASE</item>
-        <!--BANGUS XL</item>            -->     <item>KG/s,PC/s,CASE</item>
-        <!--BASKET</item>               -->     <item>PC/s,N/A</item>
-        <!--BASKET TRAY                 -->     <item>PC/s,N/A</item>
-        <!--BASTING SPOON               -->     <item>PC/s,N/A</item>
-        <!--BATFISH                     -->     <item>KG/s,PC/s,CASE</item>
-        <!--BBQ</item>                  -->     <item>KG/s,PC/s,CASE</item>
-        <!--BEAR BRAND BOX</item>       -->     <item>PC/s,KG/s,N/A</item>
-        <!--BESTMEAT P/D (24LBS/BOX) 21/25</item>--><item>KG/s,PC/s,CASE</item>
-        <!--BESTMEAT PD 16-20           -->     <item>KG/s,PC/s,CASE</item>
-        <!--BESTMEAT PD 26-30           -->     <item>KG/s,PC/s,CASE</item>
-        <!--BESTMEAT PD 31/40           -->     <item>KG/s,PC/s,CASE</item>
-        <!--BESTMEAT PD 41-50           -->     <item>KG/s,PC/s,CASE</item>
-        <!--BESTMEAT PD 51-60           -->     <item>KG/s,PC/s,CASE</item>
-        <!--BESTMEAT PD 61-701          -->     <item>KG/s,PC/s,CASE</item>
-        <!--BESTMEAT PND W/ PHOSPHATE VANNAMEI 21/25</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--BETILYA</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--BIG PERFORATED STAINLESS TRAY</item>--><item>PC/s,N/A</item>
-        <!--BINLUAN</item>              -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO</item>               -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO CHILLED 4/6</item>   -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO CHILLED 6/8</item>   -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO CHILLED BIG</item>   -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO CHILLED MEDIUM</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO CHILLED SMALL</item> -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO FROZEN</item>        -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO FROZEN 4/6</item>    -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO FROZEN 6/8</item>    -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO FROZEN 8/10</item>   -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO FROZEN BIG</item>    -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO FROZEN MEDIUM</item> -->     <item>KG/s,PC/s,CASE</item>
-        <!--BISUGO FROZEN SMALL</item>  -->     <item>KG/s,PC/s,CASE</item>
-        <!--BIYA</item>                 -->     <item>KG/s,PC/s,CASE</item>
-        <!--BLEACH</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--BLUE FIN EXPORT</item>      -->     <item>KG/s,PC/s,CASE</item>
-        <!--BLUE HARVEST BOX</item>     -->     <item>KG/s,PC/s,CASE</item>
-        <!--BLUE MARLIN</item>          -->     <item>KG/s,PC/s,CASE</item>
-        <!--BLUE SMALL BOX</item>       -->     <item>PC/s,KG/s,N/A</item>
-        <!--BOND PAPER(LONG)</item>     -->     <item>PC/s,BOX/es,N/A</item>
-        <!--BOND PAPER(SHORT)</item>    -->     <item>PC/s,BOX/es,N/A</item>
-        <!--BONELESS BANGUS PLAIN</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--BONING KNIFE</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--BOWL CONTAINER</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--BREADED SHRIMP 31/40</item> -->     <item>KG/s,PC/s,CASE</item>
-        <!--BROCHURE  FOLDER TYPE 17.5X12</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--BROOMSTICK</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--BRUSH</item>                -->     <item>PC/s,BOX/es,N/A</item>
-        <!--BUGING</item>               -->     <item>KG/s,PC/s,CASE</item>
-        <!--BUTCHER KNIFE</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CABLE TIE</item>            -->     <item>BOX/es,PC/s,N/A</item>
-        <!--CALCULATOR</item>           -->     <item>PC/s,N/A</item>
-        <!--CANDY</item>                -->     <item>KG/s,BOX/es,PC/s,N/A</item>
-        <!--CANON INK BLACK</item>      -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CANON INK COLORED</item>    -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CHAVETA</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CHEF THERMOMETER</item>     -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CHEST FREEZER</item>        -->     <item>PC/s,N/A</item>
-        <!--CHICKEN BALLS</item>        -->     <item>KG/s,PC/s,CASE</item>
-        <!--CHLORINE</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CHOPPING BOARD</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CLAM SHELL</item>           -->     <item>KG/s,PACK/s,N/A</item>
-        <!--CLASSIC</item>              -->     <item>KG/s,PC/s,CASE</item>
-        <!--CLASSIC BISTEK</item>       -->     <item>KG/s,PC/s,CASE</item>
-        <!--CLEAVER KNIFE</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CLIP BOARD</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--COLAPSIBLE BOOTH w/ STICKER</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--COMPRESSOR</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CONTINUOUS FORMS</item>     -->     <item>PC/s,BOX/es,N/A</item>
-        <!--COOLERBOX</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--COVER#14</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CRAB MEAT</item>            -->     <item>KG/s,PC/s,CASE</item>
-        <!--CRABLETS</item>             -->     <item>KG/s,PC/s,CASE</item>
-        <!--CRATE BLACK BIG</item>      -->     <item>PC/s,N/A</item>
-        <!--CRATE BLUE CLOSE</item>     -->     <item>PC/s,N/A</item>
-        <!--CRATE BLUE OPEN</item>      -->     <item>PC/s,N/A</item>
-        <!--CRATE YELLOW SMALL</item>   -->     <item>PC/s,N/A</item>
-        <!--CRATES CA 113</item>        -->     <item>PC/s,N/A</item>
-        <!--CRATES CA-111</item>        -->     <item>PC/s,N/A</item>
-        <!--CREAM DORY</item>           -->     <item>KG/s,PC/s,CASE</item>
-        <!--CREAM DORY PREMIUM</item>   -->     <item>KG/s,PC/s,CASE</item>
-        <!--CREAMDORY PROMO</item>      -->     <item>KG/s,PC/s,CASE</item>
-        <!--CREAMDORY REGULAR</item>    -->     <item>KG/s,PC/s,CASE</item>
-        <!--CUSTOMIZED STAINLESS TRAY</item>--> <item>PC/s,BOX/es,N/A</item>
-        <!--CUTTER</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--CYLINDRICAL TEST WEIGHT 100G M1 S/S</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--CYLINDRICAL TEST WEIGHT 200G M1 S/S</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--CYLINDRICAL TEST WEIGHT 500G M1 S/S</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--DALAGANG BUKID BILOG</item> -->     <item>KG/s,PC/s,CASE</item>
-        <!--DALAGANG BUKID LAPAD</item> -->     <item>KG/s,PC/s,CASE</item>
-        <!--DANGGIT</item>              -->     <item>KG/s,PC/s,CASE</item>
-        <!--DANGGUIT</item>             -->     <item>KG/s,PC/s,CASE</item>
-        <!--DAPA</item>                 -->     <item>KG/s,PC/s,CASE</item>
-        <!--DATER</item>                -->     <item>PC/s,BOX/es,KG/s,N/A</item>
-        <!--DEBONED BANGUS</item>       -->     <item>KG/s,PC/s,CASE</item>
-        <!--DETERGENT POWDER</item>     -->     <item>PC/s,BOX/es,N/A</item>
-        <!--DILAT</item>                -->     <item>KG/s,PC/s,CASE</item>
-        <!--DILIS</item>                -->     <item>KG/s,PC/s,CASE</item>
-        <!--DISPENCER TAPE</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--DISPOSABLE TUPPERWARE</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--DOOR KNOB</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--DOORMAT</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--DRIED ALAMANG 100gm</item>  -->     <item>KG/s,PC/s,CASE</item>
-        <!--dried fish alamang daing</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH ASUHOS</item>    -->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH BISUGO 200gm</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH BUKID</item>     -->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH DANGGIT 100gm</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH DILIS 100gm</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--dried fish dilis 200gr</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH DILIS BIG</item> -->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH DILIS SMALL</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH DULONG</item>    -->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH ESPADA</item>    -->     <item>KG/s,PC/s,CASE</item>
-        <!--Dried Fish Hibi 100g</item> -->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH LABAHITA 100gm</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH LAPAD</item>     -->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH PUSIT 100gm</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED FISH SAPSAP 100gm</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--dried fish tuyo</item>      -->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIED HIBI 100gm</item>     -->     <item>KG/s,PC/s,CASE</item>
-        <!--DRIES FISH TONSOY 200gm</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--DULONG</item>               -->     <item>KG/s,PC/s,CASE</item>
-        <!--DUSTPAN</item>              -->     <item>PC/s,N/A</item>
-        <!--EBI FRY</item>              -->     <item>KG/s,PC/s,CASE</item>
-        <!--EBI FRY 31/40</item>        -->     <item>KG/s,PC/s,CASE</item>
-        <!--ECO BAG 10IN X 10IN</item>  -->     <item>PC/s,BOX/es,N/A</item>
-        <!--ECOBAG</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--EMERGENCY LIGHTS</item>     -->     <item>PC/s,BOX/es,N/A</item>
-        <!--EMPTY CONTAINER</item>      -->     <item>PC/s,BOX/es,N/A</item>
-        <!--EPSON PRINTER LX-300+</item>-->     <item>PC/s,N/A</item>
-        <!--ESPADA</item>               -->     <item>KG/s,PC/s,CASE</item>
-        <!--EXCELLENT COPY 70GSM, SHORT</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--EXPANDABLE STRAINER</item>  -->     <item>PC/s,BOX/es,N/A</item>
-        <!--FEDSEALANT ELASTOSEAL</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--FILTER CLOTH</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--FILTER FLOAT</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--FIRE EXTINGUISHER</item>    -->     <item>PC/s,N/A</item>
-        <!--FISH BALLS</item>           -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--FISH EGGS</item>            -->     <item>KG/s,PC/s,CASE</item>
-        <!--FISH HAMMER</item>          -->     <item>KG/s,PC/s,CASE</item>
-        <!--FISH HOTDOG</item>          -->     <item>KG/s,PC/s,CASE</item>
-        <!--FISH LONGGANISA</item>      -->     <item>KG/s,PC/s,CASE</item>
-        <!--FISH PEELER</item>          -->     <item>PC/s,CASE,N/A</item>
-        <!--FISH SCALER</item>          -->     <item>PC/s,CASE,N/A</item>
-        <!--FISH TAGS-PLASTIC PVC</item>-->     <item>PC/s,CASE,N/A</item>
-        <!--FISH TRAY</item>            -->     <item>PC/s,CASE,N/A</item>
-        <!--FISH WASTE</item>           -->     <item>PC/s,CASE,N/A</item>
-        <!--FISHING BOX 120L</item>     -->     <item>PC/s,N/A</item>
-        <!--FISHNET</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--FISHTA BARCODE LABEL</item> -->     <item>PC/s,BOX/es,N/A</item>
-        <!--FISHTA BOX (12O L)</item>   -->     <item>PC/s,N/A</item>
-        <!--FISHTA BOX (30 L)</item>    -->     <item>PC/s,N/A</item>
-        <!--FISHTA DRIED BARCODE (LABELS)</item> --><item>PC/s,BOX/es,N/A</item>
-        <!--FLOOR BRUSH</item>          -->     <item>PC/s,N/A</item>
-        <!--FLOOR MAT</item>            -->     <item>PC/s,N/A</item>
-        <!--FLOOR WIPER</item>          -->     <item>PC/s,N/A</item>
-        <!--FLOOR WIPER HEAD</item>     -->     <item>PC/s,N/A</item>
-        <!--FLYERS 5.5X8.5 BACK TO BACK PRINT OFFSET</item>-->     <item>PC/s,N/A</item>
-        <!--FOLDER FORMS</item>         -->     <item>PC/s,N/A</item>
-        <!--FOLDER LONG</item>          -->     <item>PC/s,N/A</item>
-        <!--FOLDER SHORT</item>         -->     <item>PC/s,N/A</item>
-        <!--FOOD KEEPER</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--FORTUNE FISH CHILLED</item> -->     <item>KG/s,PC/s,CASE</item>
-        <!--FORTUNE FISH LIVE</item>    -->     <item>KG/s,PC/s,CASE</item>
-        <!--FREEZER READY</item>        -->     <item>KG/s,PC/s,CASE</item>
-        <!--FROZEN POMPANO</item>       -->     <item>KG/s,PC/s,CASE</item>
-        <!--FROZEN SPINY LOBSTER 150/200</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--FROZEN SPINY LOBSTER 250/300</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--FROZEN SQUID INK (500G/PACK)</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--FRUIT TRAY A</item>         -->     <item>PC/s,N/A</item>
-        <!--FRUIT TRAY B</item>         -->     <item>PC/s,N/A</item>
-        <!--GAGAONG</item>              -->     <item>KG/s,PC/s,CASE</item>
-        <!--GALUNGGONG</item>           -->     <item>KG/s,PC/s,CASE</item>
-        <!--GALUNGGONG FROZEN</item>    -->     <item>KG/s,PC/s,CASE</item>
-        <!--GALUNGGONG FROZEN 13/15</item>      -->     <item>KG/s,PC/s,CASE</item>
-        <!--GALUNGGONG MALE 10/12</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--GALUNGGONG MALE 16/20</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--GALUNGGONG MALE 26/30</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--GALUNGGONG MALE FROZEN 16/20</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--GALUNGGONG MALE FROZEN 21/25</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--GALUNGONG 21/25</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--GARBAGE BAG</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--GARBAGE BAG WHITE L</item>  -->     <item>PC/s,BOX/es,N/A</item>
-        <!--GARBAGE BAG WHITE XL</item> -->     <item>PC/s,BOX/es,N/A</item>
-        <!--GARBAGE CAN</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--GARLAND</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--GARLIC</item>               -->     <item>KG/s,PC/s,CASE</item>
-        <!--GINDARA</item>              -->     <item>KG/s,PC/s,CASE</item>
-        <!--GLOVES</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--GRAND MAPLE</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--GRASS PLATE</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--GREEN DELIVERY BOX</item>   -->     <item>PC/s,N/A</item>
-        <!--GREEN PLANT</item>          -->     <item>PC/s,N/A</item>
-        <!--GRINDSTONE</item>           -->     <item>PC/s,N/A</item>
-        <!--GUARANTEED FRESH SEAFOOD LABEL</item>-->     <item>KG/s,PC/s,CASE</item>
-        <!--GULAMAN</item>              -->     <item>KG/s,PC/s,CASE</item>
-        <!--GULYASAN</item>             -->     <item>KG/s,PC/s,CASE</item>
-        <!--GUMAA</item>                -->     <item>KG/s,PC/s,CASE</item>
-        <!--H2O PUMP (1/4HP)</item>     -->     <item>PC/s,N/A</item>
-        <!--H2O PUMP(1/2HP)</item>      -->     <item>PC/s,N/A</item>
-        <!--HAIR NET</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--HALAAN</item>               -->     <item>KG/s,PC/s,CASE</item>
-        <!--HAND SOAP</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--HASA HASA</item>            -->     <item>KG/s,PC/s,CASE</item>
-        <!--HAWK LADY BOOTS</item>      -->     <item>PC/s,BOX/es,N/A</item>
-        <!--HEAVY DUTY REGULATOR</item> -->     <item>PC/s,BOX/es,N/A</item>
-        <!--HIGHLIGHTER</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--HITO CHILLED</item>         -->     <item>KG/s,PC/s,CASE</item>
-        <!--HITO LIVE</item>            -->     <item>KG/s,PC/s,CASE</item>
-        <!--HOSE</item>                 -->     <item>ROLL/s,METER/s,N/A</item>
-        <!--HUMMOCK</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--ICE</item>                  -->     <item>PC/s,BOX/es,KG/s,N/A</item>
-        <!--ICE CHEST</item>            -->     <item>PC/s,N/A</item>
-        <!--ICE CONNECTOR</item>        -->     <item>PC/s,N/A</item>
-        <!--IMELDA</item>               -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--IODIZED SALT</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--JUNGLE BOLO</item>          -->     <item>PC/s,N/A</item>
-        <!--KAGAONG</item>              -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--KAPAS</item>                -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--KAWALI #2</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--KELLY FORCEPS</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--KIKIAM</item>               -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--KING FISH CHILLED</item>    -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--KING FISH LIVE</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--KNIFE</item>                -->     <item>PC/s,BOX/es,N/A</item>
-        <!--KNIFE HOLDER</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--LABAHITA</item>             -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LABORATORY GOWN</item>      -->     <item>PC/s,BOX/es,N/A</item>
-        <!--LADLE</item>                -->     <item>PC/s,BOX/es,N/A</item>
-        <!--LAPU LAPU BROWN</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LAPU LAPU BROWN BIG</item>  -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LAPU LAPU GREEN</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LAPU LAPU LIVE</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LAPU LAPU RED</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LAPU LAPU RED BIG</item>    -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LAPU-LAPU BLACK</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LASTY</item>                -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LATO BIG</item>             -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LATO SMALL</item>           -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LAWIAN</item>               -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LEAN FORCEPS</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--LIQUID BLEACH</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--LIQUID SOAP</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--LOBSTER MIX REJECT</item>   -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LOBSTER MIX SASHIMI GRADE</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--LOG BOOK</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--LORO</item>                 -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MACKEREL</item>             -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MANGAGAT</item>             -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MARINADES SAUCE</item>      -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MARINADES SAUCE BIG</item>  -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MARINATED ASUHOS</item>     -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MARINATED BABY BANGUS</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MARINATED BANGUS BELLY</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MARINATED BANGUS BELLY</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MARINATED BANGUS FINGER</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MARINATED BANGUS FINGERS</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MARINATION CRATE</item>     -->     <item>PC/s,N/A</item>
-        <!--MASK</item>                 -->     <item>PC/s,N/A</item>
-        <!--MATANG BAKA</item>          -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MAYA MAYA</item>            -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MAYA MAYA BIG</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MAYA MAYA HEAD</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--MEASURING CUP</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MEDICAL OXYGEN</item>       -->     <item>PC/s,BOX/es,TANK/s,N/A</item>
-        <!--MEDICAL REGULATOR</item>    -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MICRO HOOK</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MINI JAW</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MO2 F/T FULL STD</item>     -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MODIFIED PLASTIC (POMPANO) 8.5X18</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--MOP</item>                  -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MOP DECK BRUSH</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MOP HANDLE</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MOP HEAD</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--MOTOR PUMP</item>           -->     <item>PC/s,N/A</item>
-        <!--MUKI EBI W/ PHOSPHATE 26/30</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--NANYA WRAP</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--NET 12"</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--NET BAG</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--NOBASHI EBI 41/50</item>    -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--NOBASHI EBI VANNAMEI 31/40</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--NUMBERING MACHINE</item>    -->     <item>PC/s,N/A</item>
-        <!--OLPOT</item>                -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--OPEN WRENCE</item>          -->     <item>PC/s,N/A</item>
-        <!--OXYGEN REGULATOR</item>     -->     <item>PC/s,N/A</item>
-        <!--PACKING MATERIALS</item>    -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PACKING TAPE</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PADLOCK 1 1/2</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PAIL OROCAN</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PAINT</item>                -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PALE</item>                 -->     <item>PC/s,N/A</item>
-        <!--PANGASIUS DORY</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PANGASIUS LIVE</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PANGASIUS STEAK</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PEELED GARLIC</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PEELED VANNAMEI</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PEELED VANNAMEI</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PEELER</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PENTEL PEN</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PEPPER</item>               -->     <item>KG/s,CASE,N/A</item>
-        <!--PEPPER CRACK</item>         -->     <item>KG/s,CASE,N/A</item>
-        <!--PERMANENT MARKER</item>     -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PILIPIT</item>              -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PLAIN BANGUS BELLY</item>   -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PLASTIC 10 X 15</item>      -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 10X14</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 12X16</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 12X18</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 14X24</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 20X20</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 220MMX320MM</item>  -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 40X40</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 40X40</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 5X7</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 6 X 10 PE</item>    -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 7X14 &amp; 1/4</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 8 X 12 PE</item>    -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC 8X11</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC BAG</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC COOLER BOXYELLOW</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC CRATES</item>       -->     <item>PC/s,N/A</item>
-        <!--PLASTIC LIVE</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC STRAINER</item>     -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLASTIC T-2</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PLATTER</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--POLE</item>                 -->     <item>PC/s,BOX/es,N/A</item>
-        <!--POLO SHIRT</item>           -->     <item>PC/s,N/A</item>
-        <!--POLY BAG 40X23X002</item>   -->     <item>PC/s,BOX/es,N/A</item>
-        <!--POMPANO BLACK</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO BOX</item>          -->     <item>KG/s,PC/s,N/A</item>
-        <!--POMPANO CHILLED</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO CHILLED REJECT</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO ESCABECHE FLYERS</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO FROZEN 200-300gm</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO FROZEN 300-400gm</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO FROZEN 400-500gm</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO FROZEN 400-600gm</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO FROZEN 600gm-UP</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO FROZEN 800gm-UP</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO LIVE</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO PROMO</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--POMPANO WHITE</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PONV FISH WGGS 75</item>    -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PONV FISH WGGS GUTTED GUTTED 50</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PONV FISH WHOLE ROUND W/ EGG0</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PONV FISH WHOLE ROUND W/ EGG50</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PONV FISH WHOLE ROUND W/ EGG75</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PORTER</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PRICE TAG</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PRICING MACHINE PLM979</item>-->     <item>PC/s,N/A</item>
-        <!--PRINTER CANON MP28</item>   -->     <item>PC/s,N/A</item>
-        <!--PULL UP BANNER 2.75FT X 7.25FT</item>-->     <item>PC/s,N/A</item>
-        <!--PUMP SP-9500S</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PUSH BRUSH</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--PUSIT BISAYA</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PUSIT BISAYA SMALL</item>   -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PUSIT LUMOT</item>          -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--PVC PIPE</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--Q2612A(CARTRIDGE)</item>    -->     <item>PC/s,BOX/es,N/A</item>
-        <!--RAG</item>                  -->     <item>PC/s,BOX/es,N/A</item>
-        <!--RAIN BOOTS</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--RAIN COAT</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--RAT CAGE</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--RECORD BOOK</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--RECTANGLE LABEL PLAIN WHITE</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--RED PACO</item>             -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--REGULATOR</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--RELYENONG BANGUS</item>     -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--REUSABLE CONTAINER</item>   -->     <item>PC/s,BOX/es,N/A</item>
-        <!--ROLL BASE</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--ROPE</item>                 -->     <item>ROLL/s,METER/s,N/A</item>
-        <!--ROPE # 1</item>             -->     <item>ROLL/s,METER/s,N/A</item>
-        <!--RUBBER HAMMER</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SAFEGUARD SOAP</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SALAY BATANG</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALAY GINTO</item>          -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON</item>               -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON BELLY</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON CUTLET</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON FILLET</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON HEAD</item>          -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON HEAD &amp; TAIL</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON LOIN SKIN ON</item>  -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON LOIN SKINLESS</item> -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON PORTION</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON SCRAP</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON STEAK</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON TAIL</item>          -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMON WHOLE(HEADLESS)</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMONETE</item>            -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALMORETE</item>            -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SALT</item>                 -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SAMARAL</item>              -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SAND PAPER</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SANDO BAG</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SANDOK</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SAPSAP</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SCALER</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SCALOPS</item>              -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SCISSORS</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SCOOP NET</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SCOTCH BRIGHT</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SCREEN BAG</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SCREW DRIVER</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SEABASS CHILLED</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SEABASS LIVE</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SEAFOOD MIXED</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SEAFOOD PLATTER</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SHARPENING STONE</item>     -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SHOE ROCK</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SIGNAGE STAND</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SILICON GUN</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SINAING NA TULINGAN</item>  -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SINK STRAINER</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SIOMAI</item>               -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SMALL PERFORATED STAINLESS TRAY</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--SMOKE DETECTOR</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SMOKED BANGUS</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SMOKED GALUNGGONG</item>    -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SMOKED SALINAS</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SMOKED TAWILIS</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SMOKED TUNA</item>          -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SMOKED TUNA BELLY</item>    -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SMOKED TUNA PANGA</item>    -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SNACKS</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SNAPPER CHILLED</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SNAPPER LIVE</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SNIPER</item>               -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SOLVENT CEMENT</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SPAGHETTI MATT</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SPONGE</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SPRAYER</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SQUID BALLS</item>          -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SQUID RINGS</item>          -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--STAINLESS TRAY</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STAINLESS TRAY LARGE</item> -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STAINLESS TRAY MEDIUM</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--STAINLESS TRAY SMALL</item> -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STAINLESS TRAY WITH PERFORATION</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--STAMP PAD</item>            -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STAPLER</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STEEL WOOL</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STERILIZER</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STICKER(FISHTA LABEL)</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--STORAGE BOX</item>          -->     <item>PC/s,N/A</item>
-        <!--STRAIGHT</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STRAINER</item>             -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STRAINER/PERFORATED</item>  -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STRAINER/PERFORATION(QUARTER ROUND)</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--STRYRO MEDUIM</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STSP3N TAT INK</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STYRO BLACK</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STYRO EXTRA LARGE</item>    -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STYRO LARGE</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--STYRO SMALL</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--SUGAR</item>                -->     <item>KG/s,PC/s,BOX/es,N/A</item>
-        <!--SUGPO BIG</item>            -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SUGPO HEADLESS</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SUGPO MEDIUM</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SUGPO SMALL</item>          -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--SURGICAL MASK</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TABO</item>                 -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TAG</item>                  -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TAG STICKER 2IN X 2IN</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--TAHONG</item>               -->     <item>KG/s,PACK/s,N/A</item>
-        <!--TAKSAY</item>               -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TALABA</item>               -->     <item>KG/s,PACK/s,N/A</item>
-        <!--TALAKITOK</item>            -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TALAKITOK BIG</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TAMBAKOL</item>             -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TAMBAN</item>               -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TAMBOL</item>               -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TANIGUE</item>              -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TANIGUE HEAD</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TANIGUE LOIN</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TAPE</item>                 -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TAPE DESPINSER</item>       -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TAPE PRODUCE</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TARU IKA BAR CUT (SC)</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TAWILIS</item>              -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TEMPURA BOX</item>          -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--THERMAL PAPER</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--THERMAL STICKER BIG</item>  -->     <item>PC/s,BOX/es,N/A</item>
-        <!--THERMAL STICKER SMALL</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--TIGER LAPU-LAPU CHILLED</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TIGER LAPU-LAPU LIVE</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TILAPIA CHILLED</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TILAPIA CHILLED SMALL</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TILAPIA FILLET</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TILAPIA LARGE</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TILAPIA LIVE</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TILAPIA MEDIUM</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TILAPIA PROMO</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TILAPIA SMALL</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TILAPIA SMOKED</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TILAPIA XL</item>           -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TIMBA</item>                -->     <item>PC/s,N/A</item>
-        <!--TINAPA</item>               -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TISSUE</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TONGS</item>                -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TORCILLO</item>             -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TOWEL (FACE TOWEL)</item>   -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TRANSPARENT STYRO LARGE</item> -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TRANSPARENT STYRO MEDIUM</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--TRASH BAG LARGE</item>      -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TRAY</item>                 -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TSF A+ PLAIN/2X2 PLY, CARBONLESS</item> -->     <item>PC/s,BOX/es,N/A</item>
-        <!--TULINGAN</item>             -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TUNA BELLY</item>           -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TUNA LOIN</item>            -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TUNA PANGA</item>           -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TUNA SASHIMI</item>         -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TUNA STEAK</item>           -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--TUNA TRIMMINGS</item>       -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--ULPOT</item>                -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--UTILITY BOX</item>          -->     <item>PC/s,N/A</item>
-        <!--VACCUM BAG 175mmx305mmx65mic</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--VACUUM BAG</item>           -->     <item>PC/s,BOX/es,N/A</item>
-        <!--VACUUM BAG (120MM X 310MM X 65MIC)</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--VACUUM BAG 175MMX180MMX65MIC</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--VACUUM BAG 175MMX220MMX65MIC</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--VACUUM BAG 180MM X 330MM 65MIC</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--VACUUM BAG 230MMX320MMX65MIC</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--VACUUM BAG 230mmx370mmx65mic</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--VACUUM BAG 340MMX300MMX65MIC</item>-->     <item>PC/s,BOX/es,N/A</item>
-        <!--VANNAMEI CHILLED</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI FROZEN</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI HEAD ON 30/40</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI HEAD ON 40/50</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI HEAD ON 50/60</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI HEAD ON 50/60</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI HEADLESS 21/25</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI LIVE</item>        -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI NOBASHI</item>     -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI SOFTSHELLED</item> -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI-NOBASHI EBI 26/30</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VANNAMEI-NOBASHI EBI PINK 26/30</item>-->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--VINEGAR</item>              -->     <item>PC/s,BOX/es,N/A</item>
-        <!--VINEGAR 26LX1</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--VINYL STICKER</item>        -->     <item>PC/s,BOX/es,N/A</item>
-        <!--WATER PUMP</item>           -->     <item>PC/s,N/A</item>
-        <!--WEIGHING SCALE</item>       -->     <item>PC/s,N/A</item>
-        <!--WHEEL SR4 FIX</item>        -->     <item>PC/s,N/A</item>
-        <!--WHEITY BOX</item>           -->     <item>PC/s,N/A</item>
-        <!--WHITE BOARD MARKER</item>   -->     <item>PC/s,N/A</item>
-        <!--WHITE GOLDEN TORINO</item>  -->     <item>PC/s,N/A</item>
-        <!--WINROX</item>               -->     <item>PC/s,BOX/es,N/A</item>
-        <!--WIPE OUT MOP</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--WOODEN BRUSH</item>         -->     <item>PC/s,BOX/es,N/A</item>
-        <!--X CONNECTOR</item>          -->     <item>PC/s,BOX/es,N/A</item>
-        <!--YAMATO REGULATOR</item>     -->     <item>PC/s,BOX/es,N/A</item>
-        <!--YELLOW FIN TUNA</item>      -->     <item>KG/s,PC/s,CASE,N/A</item>
-        <!--YELLOW FIN TUNA HEAD</item>-->      <item>KG/s,PC/s,CASE,N/A</item>
+        <!-- 10X1000 PRINTED MODIFY POLYBAG-->  <item>PC,BOX,N/A</item>
+        <!-- 10X14 HD (USP)                -->  <item>PC,BOX,N/A</item>
+        <!-- 12X16 HD TORINO               -->  <item>PC,BOX,N/A</item>
+        <!-- 12X18 HD TORIN0               -->  <item>PC,BOX,N/A</item>
+        <!-- 12x18PE02                     -->  <item>PC,BOX,N/A</item>
+        <!-- 18X6 STICKER ON CINTRA        -->  <item>PC,BOX,N/A</item>
+        <!-- 1X1000 PRINTED MODIFY POLYBAG -->  <item>PC,BOX,N/A</item>
+        <!-- 4X1000 PRINTED MODIFY POLYBAG -->  <item>PC,BOX,N/A</item>
+        <!-- 4X15 STICKER ON CINTRA        -->  <item>PC,BOX,N/A</item>
+        <!-- 8X11 HD TORINO                -->  <item>PC,BOX,N/A</item>
+        <!-- ADHESIVE TAPE                 -->  <item>PC,BOX,N/A</item>
+        <!-- AGRILIME                      -->  <item>PC,BOX,KG,N/A</item>
+        <!-- AIR BLOWER                    -->  <item>PC,BOX,N/A</item>
+        <!-- AIR PUMP                      -->  <item>PC,BOX,N/A</item>
+        <!-- AIR STONE                     -->  <item>PC,BOX,N/A</item>
+        <!-- AIRHOSE                       -->  <item>PC,BOX,N/A</item>
+        <!-- ALCOHOL 500ML                 -->  <item>PC,BOX,N/A</item>
+        <!-- ALIMANGO CHILLED              -->  <item>KG,PC,CASE</item>
+        <!-- ALIMANGO LIVE LARGE           -->  <item>KG,PC,CASE</item>
+        <!-- ALIMANGO LIVE SMALL           -->  <item>KG,PC,CASE</item>
+        <!-- ALIMASAG                      -->  <item>KG,PC,CASE</item>
+        <!-- ALIMASAG SMALL                -->  <item>KG,PC,CASE</item>
+        <!-- ALPINE LOCK SET               -->  <item>PC,BOX,N/A</item>
+        <!-- ALUMAHAN                      -->  <item>KG,PC,CASE</item>
+        <!-- ALUMINUM MOP HANDLE           -->  <item>PC,BOX,N/A</item>
+        <!-- APAHAP                        -->  <item>PC,N/A</item>
+        <!-- APRON                         -->  <item>PC,N/A</item>
+        <!-- AQUARIUM                      -->  <item>PC,N/A</item>
+        <!-- ASSTD SEAFOOD MARINATED       -->  <item>PC,BOX,N/A</item>
+        <!-- ASUHOS                        -->  <item>KG,PC,CASE</item>
+        <!-- AYUNGIN                       -->  <item>KG,PC,CASE</item>
+        <!-- BABY BANGUS                   -->  <item>KG,PC,CASE</item>
+        <!-- BABY BANGUS BONELESS          -->  <item>KG,PC,CASE</item>
+        <!-- BABY BANGUS MARINATED         -->  <item>KG,PC,CASE</item>
+        <!-- BABY BANGUS MARINATED INASAL  -->  <item>KG,PC,CASE</item>
+        <!-- BABY BANGUS MARINATED SPICY   -->  <item>KG,PC,CASE</item>
+        <!-- BAGUNGAN                      -->  <item>KG,PC,CASE</item>
+        <!-- BALLPEN                       -->  <item>PC,BOX,N/A</item>
+        <!-- BANAK                         -->  <item>KG,PC,CASE</item>
+        <!-- BAND AID                      -->  <item>PC,BOX,N/A</item>
+        <!-- BANGUS BELLY                  -->  <item>KG,PC,CASE</item>
+        <!-- BANGUS BELLY TRIMMED          -->  <item>KG,PC,CASE</item>
+        <!-- BANGUS BELLY UNTRIMMED        -->  <item>KG,PC,CASE</item>
+        <!-- BANGUS BONELESS               -->  <item>KG,PC,CASE</item>
+        <!-- BANGUS BONELESS SMALL         -->  <item>KG,PC,CASE</item>
+        <!-- BANGUS CHILLED                -->  <item>KG,PC,CASE</item>
+        <!-->BANGUS CORNER STAINLESS       -->  <item>KG,PC,CASE</item>
+        <!--BANGUS EXTRA SMALL</item>      -->  <item>KG,PC,CASE</item>
+        <!--BANGUS FINGER</item>           -->  <item>KG,PC,CASE</item>
+        <!--BANGUS HEAD</item>             -->  <item>KG,PC,CASE</item>
+        <!--BANGUS HEAD AND TAIL</item>    -->  <item>KG,PC,CASE</item>
+        <!--BANGUS INIHAW</item>           -->  <item>KG,PC,CASE</item>
+        <!--BANGUS LARGE</item>            -->  <item>KG,PC,CASE</item>
+        <!--BANGUS MARINATED</item>        -->  <item>KG,PC,CASE</item>
+        <!--BANGUS MEDIUM</item>           -->  <item>KG,PC,CASE</item>
+        <!--BANGUS PROMO                   -->  <item>KG,PC,CASE</item>
+        <!--BANGUS SHANGHA                 -->  <item>KG,PC,CASE</item>
+        <!--BANGUS SHANGHAI ROLLS</item>-->     <item>KG,PC,CASE</item>
+        <!--BANGUS SMALL</item>         -->     <item>KG,PC,CASE</item>
+        <!--BANGUS TAIL</item>          -->     <item>KG,PC,CASE</item>
+        <!--BANGUS XL</item>            -->     <item>KG,PC,CASE</item>
+        <!--BASKET</item>               -->     <item>PC,N/A</item>
+        <!--BASKET TRAY                 -->     <item>PC,N/A</item>
+        <!--BASTING SPOON               -->     <item>PC,N/A</item>
+        <!--BATFISH                     -->     <item>KG,PC,CASE</item>
+        <!--BBQ</item>                  -->     <item>KG,PC,CASE</item>
+        <!--BEAR BRAND BOX</item>       -->     <item>PC,KG,N/A</item>
+        <!--BESTMEAT P/D (24LBS/BOX) 21/25</item>--><item>KG,PC,CASE</item>
+        <!--BESTMEAT PD 16-20           -->     <item>KG,PC,CASE</item>
+        <!--BESTMEAT PD 26-30           -->     <item>KG,PC,CASE</item>
+        <!--BESTMEAT PD 31/40           -->     <item>KG,PC,CASE</item>
+        <!--BESTMEAT PD 41-50           -->     <item>KG,PC,CASE</item>
+        <!--BESTMEAT PD 51-60           -->     <item>KG,PC,CASE</item>
+        <!--BESTMEAT PD 61-701          -->     <item>KG,PC,CASE</item>
+        <!--BESTMEAT PND W/ PHOSPHATE VANNAMEI 21/25</item>-->     <item>KG,PC,CASE</item>
+        <!--BETILYA</item>-->     				<item>KG,PC,CASE</item>
+        <!--BIG PERFORATED STAINLESS TRAY</item>--><item>PC,N/A</item>
+        <!--BINLUAN</item>              -->     <item>KG,PC,CASE</item>
+        <!--BISUGO</item>               -->     <item>KG,PC,CASE</item>
+        <!--BISUGO CHILLED 4/6</item>   -->     <item>KG,PC,CASE</item>
+        <!--BISUGO CHILLED 6/8</item>   -->     <item>KG,PC,CASE</item>
+        <!--BISUGO CHILLED BIG</item>   -->     <item>KG,PC,CASE</item>
+        <!--BISUGO CHILLED MEDIUM</item>-->     <item>KG,PC,CASE</item>
+        <!--BISUGO CHILLED SMALL</item> -->     <item>KG,PC,CASE</item>
+        <!--BISUGO FROZEN</item>        -->     <item>KG,PC,CASE</item>
+        <!--BISUGO FROZEN 4/6</item>    -->     <item>KG,PC,CASE</item>
+        <!--BISUGO FROZEN 6/8</item>    -->     <item>KG,PC,CASE</item>
+        <!--BISUGO FROZEN 8/10</item>   -->     <item>KG,PC,CASE</item>
+        <!--BISUGO FROZEN BIG</item>    -->     <item>KG,PC,CASE</item>
+        <!--BISUGO FROZEN MEDIUM</item> -->     <item>KG,PC,CASE</item>
+        <!--BISUGO FROZEN SMALL</item>  -->     <item>KG,PC,CASE</item>
+        <!--BIYA</item>                 -->     <item>KG,PC,CASE</item>
+        <!--BLEACH</item>               -->     <item>PC,BOX,N/A</item>
+        <!--BLUE FIN EXPORT</item>      -->     <item>KG,PC,CASE</item>
+        <!--BLUE HARVEST BOX</item>     -->     <item>KG,PC,CASE</item>
+        <!--BLUE MARLIN</item>          -->     <item>KG,PC,CASE</item>
+        <!--BLUE SMALL BOX</item>       -->     <item>PC,KG,N/A</item>
+        <!--BOND PAPER(LONG)</item>     -->     <item>PC,BOX,N/A</item>
+        <!--BOND PAPER(SHORT)</item>    -->     <item>PC,BOX,N/A</item>
+        <!--BONELESS BANGUS PLAIN</item>-->     <item>KG,PC,CASE</item>
+        <!--BONING KNIFE</item>         -->     <item>PC,BOX,N/A</item>
+        <!--BOWL CONTAINER</item>       -->     <item>PC,BOX,N/A</item>
+        <!--BREADED SHRIMP 31/40</item> -->     <item>KG,PC,CASE</item>
+        <!--BROCHURE  FOLDER TYPE 17.5X12</item>-->     <item>PC,BOX,N/A</item>
+        <!--BROOMSTICK</item>           -->     <item>PC,BOX,N/A</item>
+        <!--BRUSH</item>                -->     <item>PC,BOX,N/A</item>
+        <!--BUGING</item>               -->     <item>KG,PC,CASE</item>
+        <!--BUTCHER KNIFE</item>        -->     <item>PC,BOX,N/A</item>
+        <!--CABLE TIE</item>            -->     <item>BOX,PC,N/A</item>
+        <!--CALCULATOR</item>           -->     <item>PC,N/A</item>
+        <!--CANDY</item>                -->     <item>KG,BOX,PC,N/A</item>
+        <!--CANON INK BLACK</item>      -->     <item>PC,BOX,N/A</item>
+        <!--CANON INK COLORED</item>    -->     <item>PC,BOX,N/A</item>
+        <!--CHAVETA</item>              -->     <item>PC,BOX,N/A</item>
+        <!--CHEF THERMOMETER</item>     -->     <item>PC,BOX,N/A</item>
+        <!--CHEST FREEZER</item>        -->     <item>PC,N/A</item>
+        <!--CHICKEN BALLS</item>        -->     <item>KG,PC,CASE</item>
+        <!--CHLORINE</item>             -->     <item>PC,BOX,N/A</item>
+        <!--CHOPPING BOARD</item>       -->     <item>PC,BOX,N/A</item>
+        <!--CLAM SHELL</item>           -->     <item>KG,PACK,N/A</item>
+        <!--CLASSIC</item>              -->     <item>KG,PC,CASE</item>
+        <!--CLASSIC BISTEK</item>       -->     <item>KG,PC,CASE</item>
+        <!--CLEAVER KNIFE</item>        -->     <item>PC,BOX,N/A</item>
+        <!--CLIP BOARD</item>           -->     <item>PC,BOX,N/A</item>
+        <!--COLAPSIBLE BOOTH w/ STICKER</item>-->     <item>PC,BOX,N/A</item>
+        <!--COMPRESSOR</item>           -->     <item>PC,BOX,N/A</item>
+        <!--CONTINUOUS FORMS</item>     -->     <item>PC,BOX,N/A</item>
+        <!--COOLERBOX</item>            -->     <item>PC,BOX,N/A</item>
+        <!--COVER#14</item>             -->     <item>PC,BOX,N/A</item>
+        <!--CRAB MEAT</item>            -->     <item>KG,PC,CASE</item>
+        <!--CRABLETS</item>             -->     <item>KG,PC,CASE</item>
+        <!--CRATE BLACK BIG</item>      -->     <item>PC,N/A</item>
+        <!--CRATE BLUE CLOSE</item>     -->     <item>PC,N/A</item>
+        <!--CRATE BLUE OPEN</item>      -->     <item>PC,N/A</item>
+        <!--CRATE YELLOW SMALL</item>   -->     <item>PC,N/A</item>
+        <!--CRATES CA 113</item>        -->     <item>PC,N/A</item>
+        <!--CRATES CA-111</item>        -->     <item>PC,N/A</item>
+        <!--CREAM DORY</item>           -->     <item>KG,PC,CASE</item>
+        <!--CREAM DORY PREMIUM</item>   -->     <item>KG,PC,CASE</item>
+        <!--CREAMDORY PROMO</item>      -->     <item>KG,PC,CASE</item>
+        <!--CREAMDORY REGULAR</item>    -->     <item>KG,PC,CASE</item>
+        <!--CUSTOMIZED STAINLESS TRAY</item>--> <item>PC,BOX,N/A</item>
+        <!--CUTTER</item>               -->     <item>PC,BOX,N/A</item>
+        <!--CYLINDRICAL TEST WEIGHT 100G M1 S</item>-->     <item>PC,BOX,N/A</item>
+        <!--CYLINDRICAL TEST WEIGHT 200G M1 S</item>-->     <item>PC,BOX,N/A</item>
+        <!--CYLINDRICAL TEST WEIGHT 500G M1 S</item>-->     <item>PC,BOX,N/A</item>
+        <!--DALAGANG BUKID BILOG</item> -->     <item>KG,PC,CASE</item>
+        <!--DALAGANG BUKID LAPAD</item> -->     <item>KG,PC,CASE</item>
+        <!--DANGGIT</item>              -->     <item>KG,PC,CASE</item>
+        <!--DANGGUIT</item>             -->     <item>KG,PC,CASE</item>
+        <!--DAPA</item>                 -->     <item>KG,PC,CASE</item>
+        <!--DATER</item>                -->     <item>PC,BOX,KG,N/A</item>
+        <!--DEBONED BANGUS</item>       -->     <item>KG,PC,CASE</item>
+        <!--DETERGENT POWDER</item>     -->     <item>PC,BOX,N/A</item>
+        <!--DILAT</item>                -->     <item>KG,PC,CASE</item>
+        <!--DILIS</item>                -->     <item>KG,PC,CASE</item>
+        <!--DISPENCER TAPE</item>       -->     <item>PC,BOX,N/A</item>
+        <!--DISPOSABLE TUPPERWARE</item>-->     <item>PC,BOX,N/A</item>
+        <!--DOOR KNOB</item>            -->     <item>PC,BOX,N/A</item>
+        <!--DOORMAT</item>              -->     <item>PC,BOX,N/A</item>
+        <!--DRIED ALAMANG 100gm</item>  -->     <item>KG,PC,CASE</item>
+        <!--dried fish alamang daing</item>-->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH ASUHOS</item>    -->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH BISUGO 200gm</item>-->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH BUKID</item>     -->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH DANGGIT 100gm</item>-->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH DILIS 100gm</item>-->     <item>KG,PC,CASE</item>
+        <!--dried fish dilis 200gr</item>-->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH DILIS BIG</item> -->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH DILIS SMALL</item>-->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH DULONG</item>    -->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH ESPADA</item>    -->     <item>KG,PC,CASE</item>
+        <!--Dried Fish Hibi 100g</item> -->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH LABAHITA 100gm</item>-->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH LAPAD</item>     -->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH PUSIT 100gm</item>-->     <item>KG,PC,CASE</item>
+        <!--DRIED FISH SAPSAP 100gm</item>-->     <item>KG,PC,CASE</item>
+        <!--dried fish tuyo</item>      -->     <item>KG,PC,CASE</item>
+        <!--DRIED HIBI 100gm</item>     -->     <item>KG,PC,CASE</item>
+        <!--DRIES FISH TONSOY 200gm</item>-->     <item>KG,PC,CASE</item>
+        <!--DULONG</item>               -->     <item>KG,PC,CASE</item>
+        <!--DUSTPAN</item>              -->     <item>PC,N/A</item>
+        <!--EBI FRY</item>              -->     <item>KG,PC,CASE</item>
+        <!--EBI FRY 31/40</item>        -->     <item>KG,PC,CASE</item>
+        <!--ECO BAG 10IN X 10IN</item>  -->     <item>PC,BOX,N/A</item>
+        <!--ECOBAG</item>               -->     <item>PC,BOX,N/A</item>
+        <!--EMERGENCY LIGHTS</item>     -->     <item>PC,BOX,N/A</item>
+        <!--EMPTY CONTAINER</item>      -->     <item>PC,BOX,N/A</item>
+        <!--EPSON PRINTER LX-300+</item>-->     <item>PC,N/A</item>
+        <!--ESPADA</item>               -->     <item>KG,PC,CASE</item>
+        <!--EXCELLENT COPY 70GSM, SHORT</item>-->     <item>PC,BOX,N/A</item>
+        <!--EXPANDABLE STRAINER</item>  -->     <item>PC,BOX,N/A</item>
+        <!--FEDSEALANT ELASTOSEAL</item>-->     <item>PC,BOX,N/A</item>
+        <!--FILTER CLOTH</item>         -->     <item>PC,BOX,N/A</item>
+        <!--FILTER FLOAT</item>         -->     <item>PC,BOX,N/A</item>
+        <!--FIRE EXTINGUISHER</item>    -->     <item>PC,N/A</item>
+        <!--FISH BALLS</item>           -->     <item>KG,PC,CASE,N/A</item>
+        <!--FISH EGGS</item>            -->     <item>KG,PC,CASE</item>
+        <!--FISH HAMMER</item>          -->     <item>KG,PC,CASE</item>
+        <!--FISH HOTDOG</item>          -->     <item>KG,PC,CASE</item>
+        <!--FISH LONGGANISA</item>      -->     <item>KG,PC,CASE</item>
+        <!--FISH PEELER</item>          -->     <item>PC,CASE,N/A</item>
+        <!--FISH SCALER</item>          -->     <item>PC,CASE,N/A</item>
+        <!--FISH TAGS-PLASTIC PVC</item>-->     <item>PC,CASE,N/A</item>
+        <!--FISH TRAY</item>            -->     <item>PC,CASE,N/A</item>
+        <!--FISH WASTE</item>           -->     <item>PC,CASE,N/A</item>
+        <!--FISHING BOX 120L</item>     -->     <item>PC,N/A</item>
+        <!--FISHNET</item>              -->     <item>PC,BOX,N/A</item>
+        <!--FISHTA BARCODE LABEL</item> -->     <item>PC,BOX,N/A</item>
+        <!--FISHTA BOX (12O L)</item>   -->     <item>PC,N/A</item>
+        <!--FISHTA BOX (30 L)</item>    -->     <item>PC,N/A</item>
+        <!--FISHTA DRIED BARCODE (LABELS)</item> --><item>PC,BOX,N/A</item>
+        <!--FLOOR BRUSH</item>          -->     <item>PC,N/A</item>
+        <!--FLOOR MAT</item>            -->     <item>PC,N/A</item>
+        <!--FLOOR WIPER</item>          -->     <item>PC,N/A</item>
+        <!--FLOOR WIPER HEAD</item>     -->     <item>PC,N/A</item>
+        <!--FLYERS 5.5X8.5 BACK TO BACK PRINT OFFSET</item>-->     <item>PC,N/A</item>
+        <!--FOLDER FORMS</item>         -->     <item>PC,N/A</item>
+        <!--FOLDER LONG</item>          -->     <item>PC,N/A</item>
+        <!--FOLDER SHORT</item>         -->     <item>PC,N/A</item>
+        <!--FOOD KEEPER</item>          -->     <item>PC,BOX,N/A</item>
+        <!--FORTUNE FISH CHILLED</item> -->     <item>KG,PC,CASE</item>
+        <!--FORTUNE FISH LIVE</item>    -->     <item>KG,PC,CASE</item>
+        <!--FREEZER READY</item>        -->     <item>KG,PC,CASE</item>
+        <!--FROZEN POMPANO</item>       -->     <item>KG,PC,CASE</item>
+        <!--FROZEN SPINY LOBSTER 150/200</item>-->     <item>KG,PC,CASE</item>
+        <!--FROZEN SPINY LOBSTER 250/300</item>-->     <item>KG,PC,CASE</item>
+        <!--FROZEN SQUID INK (500G/PACK)</item>-->     <item>KG,PC,CASE</item>
+        <!--FRUIT TRAY A</item>         -->     <item>PC,N/A</item>
+        <!--FRUIT TRAY B</item>         -->     <item>PC,N/A</item>
+        <!--GAGAONG</item>              -->     <item>KG,PC,CASE</item>
+        <!--GALUNGGONG</item>           -->     <item>KG,PC,CASE</item>
+        <!--GALUNGGONG FROZEN</item>    -->     <item>KG,PC,CASE</item>
+        <!--GALUNGGONG FROZEN 13/15</item>      -->     <item>KG,PC,CASE</item>
+        <!--GALUNGGONG MALE 10/12</item>-->     <item>KG,PC,CASE</item>
+        <!--GALUNGGONG MALE 16/20</item>-->     <item>KG,PC,CASE</item>
+        <!--GALUNGGONG MALE 26/30</item>-->     <item>KG,PC,CASE</item>
+        <!--GALUNGGONG MALE FROZEN 16/20</item>-->     <item>KG,PC,CASE</item>
+        <!--GALUNGGONG MALE FROZEN 21/25</item>-->     <item>KG,PC,CASE</item>
+        <!--GALUNGONG 21/25</item>		-->     <item>KG,PC,CASE</item>
+        <!--GARBAGE BAG</item>          -->     <item>PC,BOX,N/A</item>
+        <!--GARBAGE BAG WHITE L</item>  -->     <item>PC,BOX,N/A</item>
+        <!--GARBAGE BAG WHITE XL</item> -->     <item>PC,BOX,N/A</item>
+        <!--GARBAGE CAN</item>          -->     <item>PC,BOX,N/A</item>
+        <!--GARLAND</item>              -->     <item>PC,BOX,N/A</item>
+        <!--GARLIC</item>               -->     <item>KG,PC,CASE</item>
+        <!--GINDARA</item>              -->     <item>KG,PC,CASE</item>
+        <!--GLOVES</item>               -->     <item>PC,BOX,N/A</item>
+        <!--GRAND MAPLE</item>          -->     <item>PC,BOX,N/A</item>
+        <!--GRASS PLATE</item>          -->     <item>PC,BOX,N/A</item>
+        <!--GREEN DELIVERY BOX</item>   -->     <item>PC,N/A</item>
+        <!--GREEN PLANT</item>          -->     <item>PC,N/A</item>
+        <!--GRINDSTONE</item>           -->     <item>PC,N/A</item>
+        <!--GUARANTEED FRESH SEAFOOD LABEL</item>-->     <item>KG,PC,CASE</item>
+        <!--GULAMAN</item>              -->     <item>KG,PC,CASE</item>
+        <!--GULYASAN</item>             -->     <item>KG,PC,CASE</item>
+        <!--GUMAA</item>                -->     <item>KG,PC,CASE</item>
+        <!--H2O PUMP (1/4HP)</item>     -->     <item>PC,N/A</item>
+        <!--H2O PUMP(1/2HP)</item>      -->     <item>PC,N/A</item>
+        <!--HAIR NET</item>             -->     <item>PC,BOX,N/A</item>
+        <!--HALAAN</item>               -->     <item>KG,PC,CASE</item>
+        <!--HAND SOAP</item>            -->     <item>PC,BOX,N/A</item>
+        <!--HASA HASA</item>            -->     <item>KG,PC,CASE</item>
+        <!--HAWK LADY BOOTS</item>      -->     <item>PC,BOX,N/A</item>
+        <!--HEAVY DUTY REGULATOR</item> -->     <item>PC,BOX,N/A</item>
+        <!--HIGHLIGHTER</item>          -->     <item>PC,BOX,N/A</item>
+        <!--HITO CHILLED</item>         -->     <item>KG,PC,CASE</item>
+        <!--HITO LIVE</item>            -->     <item>KG,PC,CASE</item>
+        <!--HOSE</item>                 -->     <item>ROLL,METER,N/A</item>
+        <!--HUMMOCK</item>              -->     <item>PC,BOX,N/A</item>
+        <!--ICE</item>                  -->     <item>PC,BOX,KG,N/A</item>
+        <!--ICE CHEST</item>            -->     <item>PC,N/A</item>
+        <!--ICE CONNECTOR</item>        -->     <item>PC,N/A</item>
+        <!--IMELDA</item>               -->     <item>KG,PC,CASE,N/A</item>
+        <!--IODIZED SALT</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--JUNGLE BOLO</item>          -->     <item>PC,N/A</item>
+        <!--KAGAONG</item>              -->     <item>KG,PC,CASE,N/A</item>
+        <!--KAPAS</item>                -->     <item>KG,PC,CASE,N/A</item>
+        <!--KAWALI #2</item>            -->     <item>PC,BOX,N/A</item>
+        <!--KELLY FORCEPS</item>        -->     <item>PC,BOX,N/A</item>
+        <!--KIKIAM</item>               -->     <item>KG,PC,CASE,N/A</item>
+        <!--KING FISH CHILLED</item>    -->     <item>KG,PC,CASE,N/A</item>
+        <!--KING FISH LIVE</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--KNIFE</item>                -->     <item>PC,BOX,N/A</item>
+        <!--KNIFE HOLDER</item>         -->     <item>PC,BOX,N/A</item>
+        <!--LABAHITA</item>             -->     <item>KG,PC,CASE,N/A</item>
+        <!--LABORATORY GOWN</item>      -->     <item>PC,BOX,N/A</item>
+        <!--LADLE</item>                -->     <item>PC,BOX,N/A</item>
+        <!--LAPU LAPU BROWN</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--LAPU LAPU BROWN BIG</item>  -->     <item>KG,PC,CASE,N/A</item>
+        <!--LAPU LAPU GREEN</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--LAPU LAPU LIVE</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--LAPU LAPU RED</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--LAPU LAPU RED BIG</item>    -->     <item>KG,PC,CASE,N/A</item>
+        <!--LAPU-LAPU BLACK</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--LASTY</item>                -->     <item>KG,PC,CASE,N/A</item>
+        <!--LATO BIG</item>             -->     <item>KG,PC,CASE,N/A</item>
+        <!--LATO SMALL</item>           -->     <item>KG,PC,CASE,N/A</item>
+        <!--LAWIAN</item>               -->     <item>KG,PC,CASE,N/A</item>
+        <!--LEAN FORCEPS</item>         -->     <item>PC,BOX,N/A</item>
+        <!--LIQUID BLEACH</item>        -->     <item>PC,BOX,N/A</item>
+        <!--LIQUID SOAP</item>          -->     <item>PC,BOX,N/A</item>
+        <!--LOBSTER MIX REJECT</item>   -->     <item>KG,PC,CASE,N/A</item>
+        <!--LOBSTER MIX SASHIMI GRADE</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--LOG BOOK</item>             -->     <item>PC,BOX,N/A</item>
+        <!--LORO</item>                 -->     <item>KG,PC,CASE,N/A</item>
+        <!--MACKEREL</item>             -->     <item>KG,PC,CASE,N/A</item>
+        <!--MANGAGAT</item>             -->     <item>KG,PC,CASE,N/A</item>
+        <!--MARINADES SAUCE</item>      -->     <item>PC,BOX,N/A</item>
+        <!--MARINADES SAUCE BIG</item>  -->     <item>PC,BOX,N/A</item>
+        <!--MARINATED ASUHOS</item>     -->     <item>KG,PC,CASE,N/A</item>
+        <!--MARINATED BABY BANGUS</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--MARINATED BANGUS BELLY</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--MARINATED BANGUS BELLY</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--MARINATED BANGUS FINGER</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--MARINATED BANGUS FINGERS</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--MARINATION CRATE</item>     -->     <item>PC,N/A</item>
+        <!--MASK</item>                 -->     <item>PC,N/A</item>
+        <!--MATANG BAKA</item>          -->     <item>KG,PC,CASE,N/A</item>
+        <!--MAYA MAYA</item>            -->     <item>KG,PC,CASE,N/A</item>
+        <!--MAYA MAYA BIG</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--MAYA MAYA HEAD</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--MEASURING CUP</item>        -->     <item>PC,BOX,N/A</item>
+        <!--MEDICAL OXYGEN</item>       -->     <item>PC,BOX,TANK,N/A</item>
+        <!--MEDICAL REGULATOR</item>    -->     <item>PC,BOX,N/A</item>
+        <!--MICRO HOOK</item>           -->     <item>PC,BOX,N/A</item>
+        <!--MINI JAW</item>             -->     <item>PC,BOX,N/A</item>
+        <!--MO2 F/T FULL STD</item>     -->     <item>PC,BOX,N/A</item>
+        <!--MODIFIED PLASTIC (POMPANO) 8.5X18</item>-->     <item>PC,BOX,N/A</item>
+        <!--MOP</item>                  -->     <item>PC,BOX,N/A</item>
+        <!--MOP DECK BRUSH</item>       -->     <item>PC,BOX,N/A</item>
+        <!--MOP HANDLE</item>           -->     <item>PC,BOX,N/A</item>
+        <!--MOP HEAD</item>             -->     <item>PC,BOX,N/A</item>
+        <!--MOTOR PUMP</item>           -->     <item>PC,N/A</item>
+        <!--MUKI EBI W/ PHOSPHATE 26/30</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--NANYA WRAP</item>           -->     <item>PC,BOX,N/A</item>
+        <!--NET 12"</item>              -->     <item>PC,BOX,N/A</item>
+        <!--NET BAG</item>              -->     <item>PC,BOX,N/A</item>
+        <!--NOBASHI EBI 41/50</item>    -->     <item>KG,PC,CASE,N/A</item>
+        <!--NOBASHI EBI VANNAMEI 31/40</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--NUMBERING MACHINE</item>    -->     <item>PC,N/A</item>
+        <!--OLPOT</item>                -->     <item>KG,PC,CASE,N/A</item>
+        <!--OPEN WRENCE</item>          -->     <item>PC,N/A</item>
+        <!--OXYGEN REGULATOR</item>     -->     <item>PC,N/A</item>
+        <!--PACKING MATERIALS</item>    -->     <item>PC,BOX,N/A</item>
+        <!--PACKING TAPE</item>         -->     <item>PC,BOX,N/A</item>
+        <!--PADLOCK 1 1/2</item>        -->     <item>PC,BOX,N/A</item>
+        <!--PAIL OROCAN</item>          -->     <item>PC,BOX,N/A</item>
+        <!--PAINT</item>                -->     <item>PC,BOX,N/A</item>
+        <!--PALE</item>                 -->     <item>PC,N/A</item>
+        <!--PANGASIUS DORY</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--PANGASIUS LIVE</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--PANGASIUS STEAK</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--PEELED GARLIC</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--PEELED VANNAMEI</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--PEELED VANNAMEI</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--PEELER</item>               -->     <item>PC,BOX,N/A</item>
+        <!--PENTEL PEN</item>           -->     <item>PC,BOX,N/A</item>
+        <!--PEPPER</item>               -->     <item>KG,CASE,N/A</item>
+        <!--PEPPER CRACK</item>         -->     <item>KG,CASE,N/A</item>
+        <!--PERMANENT MARKER</item>     -->     <item>PC,BOX,N/A</item>
+        <!--PILIPIT</item>              -->     <item>KG,PC,CASE,N/A</item>
+        <!--PLAIN BANGUS BELLY</item>   -->     <item>KG,PC,CASE,N/A</item>
+        <!--PLASTIC 10 X 15</item>      -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 10X14</item>        -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 12X16</item>        -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 12X18</item>        -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 14X24</item>        -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 20X20</item>        -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 220MMX320MM</item>  -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 40X40</item>        -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 40X40</item>        -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 5X7</item>          -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 6 X 10 PE</item>    -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 7X14 &amp; 1/4</item>-->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 8 X 12 PE</item>    -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC 8X11</item>         -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC BAG</item>          -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC COOLER BOXYELLOW</item>-->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC CRATES</item>       -->     <item>PC,N/A</item>
+        <!--PLASTIC LIVE</item>         -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC STRAINER</item>     -->     <item>PC,BOX,N/A</item>
+        <!--PLASTIC T-2</item>          -->     <item>PC,BOX,N/A</item>
+        <!--PLATTER</item>              -->     <item>PC,BOX,N/A</item>
+        <!--POLE</item>                 -->     <item>PC,BOX,N/A</item>
+        <!--POLO SHIRT</item>           -->     <item>PC,N/A</item>
+        <!--POLY BAG 40X23X002</item>   -->     <item>PC,BOX,N/A</item>
+        <!--POMPANO BLACK</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO BOX</item>          -->     <item>KG,PC,N/A</item>
+        <!--POMPANO CHILLED</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO CHILLED REJECT</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO ESCABECHE FLYERS</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO FROZEN 200-300gm</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO FROZEN 300-400gm</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO FROZEN 400-500gm</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO FROZEN 400-600gm</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO FROZEN 600gm-UP</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO FROZEN 800gm-UP</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO LIVE</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO PROMO</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--POMPANO WHITE</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--PONV FISH WGGS 75</item>    -->     <item>KG,PC,CASE,N/A</item>
+        <!--PONV FISH WGGS GUTTED GUTTED 50</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--PONV FISH WHOLE ROUND W/ EGG0</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--PONV FISH WHOLE ROUND W/ EGG50</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--PONV FISH WHOLE ROUND W/ EGG75</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--PORTER</item>               -->     <item>PC,BOX,N/A</item>
+        <!--PRICE TAG</item>            -->     <item>PC,BOX,N/A</item>
+        <!--PRICING MACHINE PLM979</item>-->     <item>PC,N/A</item>
+        <!--PRINTER CANON MP28</item>   -->     <item>PC,N/A</item>
+        <!--PULL UP BANNER 2.75FT X 7.25FT</item>-->     <item>PC,N/A</item>
+        <!--PUMP SP-9500S</item>        -->     <item>PC,BOX,N/A</item>
+        <!--PUSH BRUSH</item>           -->     <item>PC,BOX,N/A</item>
+        <!--PUSIT BISAYA</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--PUSIT BISAYA SMALL</item>   -->     <item>KG,PC,CASE,N/A</item>
+        <!--PUSIT LUMOT</item>          -->     <item>KG,PC,CASE,N/A</item>
+        <!--PVC PIPE</item>             -->     <item>PC,BOX,N/A</item>
+        <!--Q2612A(CARTRIDGE)</item>    -->     <item>PC,BOX,N/A</item>
+        <!--RAG</item>                  -->     <item>PC,BOX,N/A</item>
+        <!--RAIN BOOTS</item>           -->     <item>PC,BOX,N/A</item>
+        <!--RAIN COAT</item>            -->     <item>PC,BOX,N/A</item>
+        <!--RAT CAGE</item>             -->     <item>PC,BOX,N/A</item>
+        <!--RECORD BOOK</item>          -->     <item>PC,BOX,N/A</item>
+        <!--RECTANGLE LABEL PLAIN WHITE</item>-->     <item>PC,BOX,N/A</item>
+        <!--RED PACO</item>             -->     <item>KG,PC,CASE,N/A</item>
+        <!--REGULATOR</item>            -->     <item>PC,BOX,N/A</item>
+        <!--RELYENONG BANGUS</item>     -->     <item>KG,PC,CASE,N/A</item>
+        <!--REUSABLE CONTAINER</item>   -->     <item>PC,BOX,N/A</item>
+        <!--ROLL BASE</item>            -->     <item>PC,BOX,N/A</item>
+        <!--ROPE</item>                 -->     <item>ROLL,METER,N/A</item>
+        <!--ROPE # 1</item>             -->     <item>ROLL,METER,N/A</item>
+        <!--RUBBER HAMMER</item>        -->     <item>PC,BOX,N/A</item>
+        <!--SAFEGUARD SOAP</item>       -->     <item>PC,BOX,N/A</item>
+        <!--SALAY BATANG</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALAY GINTO</item>          -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON</item>               -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON BELLY</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON CUTLET</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON FILLET</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON HEAD</item>          -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON HEAD &amp; TAIL</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON LOIN SKIN ON</item>  -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON LOIN SKINLESS</item> -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON PORTION</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON SCRAP</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON STEAK</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON TAIL</item>          -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMON WHOLE(HEADLESS)</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMONETE</item>            -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALMORETE</item>            -->     <item>KG,PC,CASE,N/A</item>
+        <!--SALT</item>                 -->     <item>KG,PC,CASE,N/A</item>
+        <!--SAMARAL</item>              -->     <item>KG,PC,CASE,N/A</item>
+        <!--SAND PAPER</item>           -->     <item>PC,BOX,N/A</item>
+        <!--SANDO BAG</item>            -->     <item>PC,BOX,N/A</item>
+        <!--SANDOK</item>               -->     <item>PC,BOX,N/A</item>
+        <!--SAPSAP</item>               -->     <item>PC,BOX,N/A</item>
+        <!--SCALER</item>               -->     <item>PC,BOX,N/A</item>
+        <!--SCALOPS</item>              -->     <item>KG,PC,CASE,N/A</item>
+        <!--SCISSORS</item>             -->     <item>PC,BOX,N/A</item>
+        <!--SCOOP NET</item>            -->     <item>PC,BOX,N/A</item>
+        <!--SCOTCH BRIGHT</item>        -->     <item>PC,BOX,N/A</item>
+        <!--SCREEN BAG</item>           -->     <item>PC,BOX,N/A</item>
+        <!--SCREW DRIVER</item>         -->     <item>PC,BOX,N/A</item>
+        <!--SEABASS CHILLED</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--SEABASS LIVE</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--SEAFOOD MIXED</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--SEAFOOD PLATTER</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--SHARPENING STONE</item>     -->     <item>PC,BOX,N/A</item>
+        <!--SHOE ROCK</item>            -->     <item>PC,BOX,N/A</item>
+        <!--SIGNAGE STAND</item>        -->     <item>PC,BOX,N/A</item>
+        <!--SILICON GUN</item>          -->     <item>PC,BOX,N/A</item>
+        <!--SINAING NA TULINGAN</item>  -->     <item>KG,PC,CASE,N/A</item>
+        <!--SINK STRAINER</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--SIOMAI</item>               -->     <item>KG,PC,CASE,N/A</item>
+        <!--SMALL PERFORATED STAINLESS TRAY</item>-->     <item>PC,BOX,N/A</item>
+        <!--SMOKE DETECTOR</item>       -->     <item>PC,BOX,N/A</item>
+        <!--SMOKED BANGUS</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--SMOKED GALUNGGONG</item>    -->     <item>KG,PC,CASE,N/A</item>
+        <!--SMOKED SALINAS</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--SMOKED TAWILIS</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--SMOKED TUNA</item>          -->     <item>KG,PC,CASE,N/A</item>
+        <!--SMOKED TUNA BELLY</item>    -->     <item>KG,PC,CASE,N/A</item>
+        <!--SMOKED TUNA PANGA</item>    -->     <item>KG,PC,CASE,N/A</item>
+        <!--SNACKS</item>               -->     <item>PC,BOX,N/A</item>
+        <!--SNAPPER CHILLED</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--SNAPPER LIVE</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--SNIPER</item>               -->     <item>KG,PC,CASE,N/A</item>
+        <!--SOLVENT CEMENT</item>       -->     <item>PC,BOX,N/A</item>
+        <!--SPAGHETTI MATT</item>       -->     <item>PC,BOX,N/A</item>
+        <!--SPONGE</item>               -->     <item>PC,BOX,N/A</item>
+        <!--SPRAYER</item>              -->     <item>PC,BOX,N/A</item>
+        <!--SQUID BALLS</item>          -->     <item>KG,PC,CASE,N/A</item>
+        <!--SQUID RINGS</item>          -->     <item>KG,PC,CASE,N/A</item>
+        <!--STAINLESS TRAY</item>       -->     <item>PC,BOX,N/A</item>
+        <!--STAINLESS TRAY LARGE</item> -->     <item>PC,BOX,N/A</item>
+        <!--STAINLESS TRAY MEDIUM</item>-->     <item>PC,BOX,N/A</item>
+        <!--STAINLESS TRAY SMALL</item> -->     <item>PC,BOX,N/A</item>
+        <!--STAINLESS TRAY WITH PERFORATION</item>-->     <item>PC,BOX,N/A</item>
+        <!--STAMP PAD</item>            -->     <item>PC,BOX,N/A</item>
+        <!--STAPLER</item>              -->     <item>PC,BOX,N/A</item>
+        <!--STEEL WOOL</item>           -->     <item>PC,BOX,N/A</item>
+        <!--STERILIZER</item>           -->     <item>PC,BOX,N/A</item>
+        <!--STICKER(FISHTA LABEL)</item>-->     <item>PC,BOX,N/A</item>
+        <!--STORAGE BOX</item>          -->     <item>PC,N/A</item>
+        <!--STRAIGHT</item>             -->     <item>PC,BOX,N/A</item>
+        <!--STRAINER</item>             -->     <item>PC,BOX,N/A</item>
+        <!--STRAINER/PERFORATED</item>  -->     <item>PC,BOX,N/A</item>
+        <!--STRAINER/PERFORATION(QUARTER ROUND)</item>-->     <item>PC,BOX,N/A</item>
+        <!--STRYRO MEDUIM</item>        -->     <item>PC,BOX,N/A</item>
+        <!--STSP3N TAT INK</item>       -->     <item>PC,BOX,N/A</item>
+        <!--STYRO BLACK</item>          -->     <item>PC,BOX,N/A</item>
+        <!--STYRO EXTRA LARGE</item>    -->     <item>PC,BOX,N/A</item>
+        <!--STYRO LARGE</item>          -->     <item>PC,BOX,N/A</item>
+        <!--STYRO SMALL</item>          -->     <item>PC,BOX,N/A</item>
+        <!--SUGAR</item>                -->     <item>KG,PC,BOX,N/A</item>
+        <!--SUGPO BIG</item>            -->     <item>KG,PC,CASE,N/A</item>
+        <!--SUGPO HEADLESS</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--SUGPO MEDIUM</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--SUGPO SMALL</item>          -->     <item>KG,PC,CASE,N/A</item>
+        <!--SURGICAL MASK</item>        -->     <item>PC,BOX,N/A</item>
+        <!--TABO</item>                 -->     <item>PC,BOX,N/A</item>
+        <!--TAG</item>                  -->     <item>PC,BOX,N/A</item>
+        <!--TAG STICKER 2IN X 2IN</item>-->     <item>PC,BOX,N/A</item>
+        <!--TAHONG</item>               -->     <item>KG,PACK,N/A</item>
+        <!--TAKSAY</item>               -->     <item>KG,PC,CASE,N/A</item>
+        <!--TALABA</item>               -->     <item>KG,PACK,N/A</item>
+        <!--TALAKITOK</item>            -->     <item>KG,PC,CASE,N/A</item>
+        <!--TALAKITOK BIG</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--TAMBAKOL</item>             -->     <item>KG,PC,CASE,N/A</item>
+        <!--TAMBAN</item>               -->     <item>KG,PC,CASE,N/A</item>
+        <!--TAMBOL</item>               -->     <item>KG,PC,CASE,N/A</item>
+        <!--TANIGUE</item>              -->     <item>KG,PC,CASE,N/A</item>
+        <!--TANIGUE HEAD</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--TANIGUE LOIN</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--TAPE</item>                 -->     <item>PC,BOX,N/A</item>
+        <!--TAPE DESPINSER</item>       -->     <item>PC,BOX,N/A</item>
+        <!--TAPE PRODUCE</item>         -->     <item>PC,BOX,N/A</item>
+        <!--TARU IKA BAR CUT (SC)</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--TAWILIS</item>              -->     <item>KG,PC,CASE,N/A</item>
+        <!--TEMPURA BOX</item>          -->     <item>KG,PC,CASE,N/A</item>
+        <!--THERMAL PAPER</item>        -->     <item>PC,BOX,N/A</item>
+        <!--THERMAL STICKER BIG</item>  -->     <item>PC,BOX,N/A</item>
+        <!--THERMAL STICKER SMALL</item>-->     <item>PC,BOX,N/A</item>
+        <!--TIGER LAPU-LAPU CHILLED</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--TIGER LAPU-LAPU LIVE</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--TILAPIA CHILLED</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--TILAPIA CHILLED SMALL</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--TILAPIA FILLET</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--TILAPIA LARGE</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--TILAPIA LIVE</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--TILAPIA MEDIUM</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--TILAPIA PROMO</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--TILAPIA SMALL</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--TILAPIA SMOKED</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--TILAPIA XL</item>           -->     <item>KG,PC,CASE,N/A</item>
+        <!--TIMBA</item>                -->     <item>PC,N/A</item>
+        <!--TINAPA</item>               -->     <item>KG,PC,CASE,N/A</item>
+        <!--TISSUE</item>               -->     <item>PC,BOX,N/A</item>
+        <!--TONGS</item>                -->     <item>PC,BOX,N/A</item>
+        <!--TORCILLO</item>             -->     <item>KG,PC,CASE,N/A</item>
+        <!--TOWEL (FACE TOWEL)</item>   -->     <item>PC,BOX,N/A</item>
+        <!--TRANSPARENT STYRO LARGE</item> -->     <item>PC,BOX,N/A</item>
+        <!--TRANSPARENT STYRO MEDIUM</item>-->     <item>PC,BOX,N/A</item>
+        <!--TRASH BAG LARGE</item>      -->     <item>PC,BOX,N/A</item>
+        <!--TRAY</item>                 -->     <item>PC,BOX,N/A</item>
+        <!--TSF A+ PLAIN/2X2 PLY, CARBONLESS</item> -->     <item>PC,BOX,N/A</item>
+        <!--TULINGAN</item>             -->     <item>KG,PC,CASE,N/A</item>
+        <!--TUNA BELLY</item>           -->     <item>KG,PC,CASE,N/A</item>
+        <!--TUNA LOIN</item>            -->     <item>KG,PC,CASE,N/A</item>
+        <!--TUNA PANGA</item>           -->     <item>KG,PC,CASE,N/A</item>
+        <!--TUNA SASHIMI</item>         -->     <item>KG,PC,CASE,N/A</item>
+        <!--TUNA STEAK</item>           -->     <item>KG,PC,CASE,N/A</item>
+        <!--TUNA TRIMMINGS</item>       -->     <item>KG,PC,CASE,N/A</item>
+        <!--ULPOT</item>                -->     <item>KG,PC,CASE,N/A</item>
+        <!--UTILITY BOX</item>          -->     <item>PC,N/A</item>
+        <!--VACCUM BAG 175mmx305mmx65mic</item>-->     <item>PC,BOX,N/A</item>
+        <!--VACUUM BAG</item>           -->     <item>PC,BOX,N/A</item>
+        <!--VACUUM BAG (120MM X 310MM X 65MIC)</item>-->     <item>PC,BOX,N/A</item>
+        <!--VACUUM BAG 175MMX180MMX65MIC</item>-->     <item>PC,BOX,N/A</item>
+        <!--VACUUM BAG 175MMX220MMX65MIC</item>-->     <item>PC,BOX,N/A</item>
+        <!--VACUUM BAG 180MM X 330MM 65MIC</item>-->     <item>PC,BOX,N/A</item>
+        <!--VACUUM BAG 230MMX320MMX65MIC</item>-->     <item>PC,BOX,N/A</item>
+        <!--VACUUM BAG 230mmx370mmx65mic</item>-->     <item>PC,BOX,N/A</item>
+        <!--VACUUM BAG 340MMX300MMX65MIC</item>-->     <item>PC,BOX,N/A</item>
+        <!--VANNAMEI CHILLED</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI FROZEN</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI HEAD ON 30/40</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI HEAD ON 40/50</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI HEAD ON 50/60</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI HEAD ON 50/60</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI HEADLESS 21/25</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI LIVE</item>        -->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI NOBASHI</item>     -->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI SOFTSHELLED</item> -->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI-NOBASHI EBI 26/30</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--VANNAMEI-NOBASHI EBI PINK 26/30</item>-->     <item>KG,PC,CASE,N/A</item>
+        <!--VINEGAR</item>              -->     <item>PC,BOX,N/A</item>
+        <!--VINEGAR 26LX1</item>        -->     <item>PC,BOX,N/A</item>
+        <!--VINYL STICKER</item>        -->     <item>PC,BOX,N/A</item>
+        <!--WATER PUMP</item>           -->     <item>PC,N/A</item>
+        <!--WEIGHING SCALE</item>       -->     <item>PC,N/A</item>
+        <!--WHEEL SR4 FIX</item>        -->     <item>PC,N/A</item>
+        <!--WHEITY BOX</item>           -->     <item>PC,N/A</item>
+        <!--WHITE BOARD MARKER</item>   -->     <item>PC,N/A</item>
+        <!--WHITE GOLDEN TORINO</item>  -->     <item>PC,N/A</item>
+        <!--WINROX</item>               -->     <item>PC,BOX,N/A</item>
+        <!--WIPE OUT MOP</item>         -->     <item>PC,BOX,N/A</item>
+        <!--WOODEN BRUSH</item>         -->     <item>PC,BOX,N/A</item>
+        <!--X CONNECTOR</item>          -->     <item>PC,BOX,N/A</item>
+        <!--YAMATO REGULATOR</item>     -->     <item>PC,BOX,N/A</item>
+        <!--YELLOW FIN TUNA</item>      -->     <item>KG,PC,CASE,N/A</item>
+        <!--YELLOW FIN TUNA HEAD</item>-->      <item>KG,PC,CASE,N/A</item>
 
     </string-array>
 

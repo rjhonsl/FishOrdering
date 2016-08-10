@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 
     <!--READ WRITE-->
@@ -49,7 +53,7 @@
                   android:label="Set Server Number">
         </activity>
 
-        <activity android:name=".Main.Activity_Wiz_StoreName"
+        <activity android:name=".Main.Activity_Wiz_UserName"
                   android:theme="@style/CustomActionBarTheme"
                   android:label="Set Store Name">
         </activity>
@@ -61,10 +65,15 @@
 
         <activity android:name=".Main.Activity_SetupSuccess"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-                  android:label="Select Fish">
+                  android:label="Sucess">
         </activity>
 
-        <activity android:name=".Main.ActivityHome"
+        <activity android:name=".Main.Activity_Wiz_Stores"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+                  android:label="Select Stores">
+        </activity>
+
+        <activity android:name=".Main.Activity_Home"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                     android:label="Fishta SMS Ordering">
             <intent-filter>

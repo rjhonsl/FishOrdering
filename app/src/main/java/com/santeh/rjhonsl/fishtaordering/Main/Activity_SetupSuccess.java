@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.santeh.rjhonsl.fishtaordering.R;
+import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;
 
 /**
@@ -23,10 +24,14 @@ public class Activity_SetupSuccess extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.ActivityAction.startActivityClearStack(Activity_SetupSuccess.this, ActivityHome.class);
+                Helper.ActivityAction.startActivityClearStack(Activity_SetupSuccess.this, Activity_Home.class);
+                DBaseQuery db = new DBaseQuery(Activity_SetupSuccess.this);
+                db.open();
+
+
 //                startActivity(inte, ActivityOptionsCompat.makeSceneTransitionAnimation(Activity_SetupSuccess.this).toBundle());
 //                finish();
-//                Helper.ActivityAction.startActivityClearStack(Activity_SetupSuccess.this, ActivityHome.class);
+//                Helper.ActivityAction.startActivityClearStack(Activity_SetupSuccess.this, Activity_Home.class);
             }
         });
     }

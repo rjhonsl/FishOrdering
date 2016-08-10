@@ -1,6 +1,7 @@
 package com.santeh.rjhonsl.fishtaordering.Main;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,16 +14,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import com.santeh.rjhonsl.fishtaordering.Adapter.ItemsAdapter;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;
+import com.santeh.rjhonsl.fishtaordering.Util.Keys;
 import com.santeh.rjhonsl.fishtaordering.Util.SendSMS;
 import com.santeh.rjhonsl.fishtaordering.Util.VarFishtaOrdering;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.FadeInRightAnimator;
 
@@ -33,16 +39,17 @@ public class MainActivity extends AppCompatActivity {
     static FloatingActionButton btnSendOrder;
     Activity activity;
     Context context;
+    Button btnSelectStore;
     public static int INTENT_SELECT_ITEM = 0;
-
     public static ArrayList<VarFishtaOrdering> orderList = new ArrayList<>();
 
     RecyclerView rvItems;
     Toolbar myToolbar;
     public static ItemsAdapter itemsViewAdapter;
     LinearLayoutManager mLayoutManager;
-    //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
     static LinearLayout imgNoItems;
+    List<VarFishtaOrdering> storeList = new ArrayList<>();
+    String selectedStoreID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
         activity = this;
         context = MainActivity.this;
 
-
         db = new DBaseQuery(this);
         db.open();
 
+        btnSelectStore = (Button) findViewById(R.id.btnSelectedStores);
         myToolbar = (Toolbar) findViewById(R.id.toolbar2);
         assert myToolbar != null;
         myToolbar.setBackgroundColor(getResources().getColor(R.color.orange_fishta));
@@ -80,19 +87,92 @@ public class MainActivity extends AppCompatActivity {
         imgNoItems = (LinearLayout) findViewById(R.id.img_noitems);
         showNoItemImage();
 
+
+
+        storeList = db.getFilteredStores(db.getKeyVal(Keys.SETTINGS_STOREIDS));
+        if (storeList.size()<2){
+            selectedStoreID = storeList.get(0).getCust_id();
+            btnSelectStore.setText(storeList.get(0).getCust_name());
+        }
+        btnSelectStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final String[] storeNames = new String[storeList.size()];
+                final String[] storeID = new String[storeList.size()];
+
+                for (int i = 0; i < storeList.size(); i++) {
+                    storeNames[i] = storeList.get(i).getCust_name();
+                    storeID[i] = storeList.get(i).getCust_id();
+                }
+
+                final Dialog d = Helper.dialogBox.list(activity, storeNames, "STORES", R.color.orange_fishta_darker);
+                ListView lvStore = (ListView) d.findViewById(R.id.dialog_list_listview);
+                lvStore.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        btnSelectStore.setText(storeNames[i]);
+                        selectedStoreID = storeID[i];
+
+                        d.dismiss();
+                    }
+                });
+//                AlertDialog dialog = new AlertDialog.Builder(context)
+//                        .setTitle("CATEGORIES")
+//                        .setMultiChoiceItems(storeNames, null, new DialogInterface.OnMultiChoiceClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int indexSelected, boolean isChecked) {
+//                                if (isChecked) {
+//                                    seletedItems.add(indexSelected);
+//                                } else if (seletedItems.contains(indexSelected)) {
+//                                    seletedItems.remove(Integer.valueOf(indexSelected));
+//                                }
+//                            }
+//                        }).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int id) {
+//
+//                                String[] selectedStores = new String[seletedItems.size()];
+//                                String stores = "";
+//                                for (int i = 0; i < seletedItems.size(); i++) {
+//
+////                                    selectedStores[i] = storeNames[Integer.valueOf(seletedItems.get(i)+"")];
+//                                    if (i > 1){
+//                                        stores = stores + ", " + storeNames[Integer.valueOf(seletedItems.get(i)+"")];
+//                                        allitems = allitems + "," + storeID[Integer.valueOf(seletedItems.get(i)+"")];
+//                                    }else{
+//                                        allitems = storeID[Integer.valueOf(seletedItems.get(i)+"")];
+//                                        stores =  storeNames[Integer.valueOf(seletedItems.get(i)+"")];
+//                                    }
+//
+//                                    btnSelectStore.setText(stores);
+//                                }
+//                            }
+//                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int id) {
+//                                //  Your code when user clicked on Cancel
+//
+//                            }
+//                        }).create();
+//                dialog.show();
+            }
+        });
+
+
         btnSendOrder = (FloatingActionButton) findViewById(R.id.btnSendOrder);
         btnSendOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (orderList != null){
+                if(selectedStoreID.equalsIgnoreCase("")){
+                    Helper.toast.short_(activity, "No store selected.");
+                }else if (orderList != null){
 
                     if (orderList.size() > 0){
-                        String formattedOrder = ""
-//                               + db.getStoreName()
-                                ;
+                        String formattedOrder = selectedStoreID+";";
                         for (int i = 0; i <orderList.size() ; i++) {
                             if (i==0){
-                                formattedOrder =  orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
+                                formattedOrder = formattedOrder + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
                             }else{
                                 formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
                             }
@@ -182,12 +262,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void addItems(VarFishtaOrdering item) {
         orderList.add(item);
-//        itemsViewAdapter.notifyDataSetChanged();
-
         itemsViewAdapter.notifyItemInserted(orderList.size());
         itemsViewAdapter.notifyItemRangeInserted(orderList.size(), orderList.size());
-
-//        refreshView();
     }
 
 

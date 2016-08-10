@@ -4,6 +4,8 @@
               android:orientation="vertical"
               android:background="@color/orange_600"
               android:layout_width="match_parent"
+              android:layout_gravity="center"
+              android:gravity="center"
               android:layout_height="match_parent">
 
     <TextView android:layout_width="match_parent"
@@ -12,20 +14,37 @@
               android:text="hello!"
               android:textSize="35sp"
               android:textStyle="bold"
-              android:layout_weight="1"
-              android:gravity="center_horizontal|bottom"
+              android:gravity="center_horizontal"
     />
+
     <TextView android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:textColor="@color/orange_50"
-                 android:text="let's set a few things up before we get started\n\n..."
-                 android:textSize="12sp"
-                 android:gravity="center_horizontal|bottom"/>
+             android:layout_height="wrap_content"
+             android:textColor="@color/orange_50"
+             android:text="Enter PIN to get started\n\n..."
+             android:paddingBottom="25dp"
+             android:gravity="center_horizontal"
+             android:textSize="12sp"/>
+
+    <EditText android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textColor="@color/gray_50"
+              android:hint="PIN"
+              android:layout_marginLeft="40dp"
+              android:layout_marginRight="40dp"
+              android:inputType="number"
+              android:id="@+id/edtPin"
+              android:gravity="center_horizontal"
+              android:textColorHint="@color/orange_300"
+    />
+
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:gravity="center"
+                  android:visibility="gone"
+                  android:orientation="vertical"
                   android:layout_weight="1.1">
+
 
         <android.support.design.widget.FloatingActionButton
             android:layout_width="70dp"

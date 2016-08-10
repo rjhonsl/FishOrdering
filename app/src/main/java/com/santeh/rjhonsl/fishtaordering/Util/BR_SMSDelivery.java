@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.santeh.rjhonsl.fishtaordering.Main.Activity_OrderHistory;
@@ -26,6 +27,8 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 		ctx=context;
 		db = new DBaseQuery(context);
 		db.open();
+		SendSMS.loopCount = SendSMS.loopCount+ 1;
+		Log.d("RECEIVER","Loopcount: "+ SendSMS.loopCount + "    intParts:" + SendSMS.intMessageParts );
 
 		String action = intent.getAction();
 		String timesend = intent.getStringExtra("timesent");
@@ -36,29 +39,43 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 		String isSent = "0";
 
 
-//		Log.d("DELIVERY", "SENDING INTENT");
-		//checks if intent action passed is equals to sms sent
-		if (action.equals(ACTION_SMS_SENT)) {
+		if (SendSMS.loopCount == SendSMS.intMessageParts){
+//			Log.d("DELIVERY", "SENDING INTENT");
+			//checks if intent action passed is equals to sms sent
+			Log.d("RECEIVER","Start: "+ number );
+			checkifSent(context, intent, action, timesend, SendSMS.wholeContent, number, type, isSent);
+
+		}
+	}
+
+	private void checkifSent(Context context, Intent intent, String action, String timesend, String content, String number, String type, String isSent) {
+		if (action.equals( SendSMS.ACTION_SENDORDER )) {
 			switch (getResultCode()) {
 			case Activity.RESULT_OK:
 				isSent = "1";
+				Log.d("RECEIVER","OK");
 				break;
 			case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
 				isSent = "0";
+				Log.d("GENERIC FAILURE","OK");
 				break;
 			case SmsManager.RESULT_ERROR_NO_SERVICE:
 				isSent = "0";
+				Log.d("NO SERVICE","OK");
 				break;
 			case SmsManager.RESULT_ERROR_NULL_PDU:
+				Log.d("RECEIVER","NULL PDU");
 				isSent = "0";
 				break;
 			case SmsManager.RESULT_ERROR_RADIO_OFF:
+				Log.d("RECEIVER","RADIO OFF");
 				isSent = "0";
 				break;
 			}
 
-
+			SendSMS.loopCount = 0;
 			SendSMS.pd_sending.dismiss();
+
 			if (type.equalsIgnoreCase(SendSMS.MESSAGE_TYPE_SENDORDER)){
 				if (isSent.equalsIgnoreCase("0")){
 					Toast.makeText(context, "Sending Failed. Please try again", Toast.LENGTH_LONG).show();
@@ -80,17 +97,11 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 
 					String[] contentss = content.split(";");
 					for (int i = 0; i < contentss.length; i++) {
-
 						if (i > 0){
 							String[] itemdetails = contentss[i].split(",");
-//							itemdetails[0] //itemid
-//							itemdetails[1] //itemqty
-//							itemdetails[2] //itemunits
 							db.insertOrderedItems(itemdetails[0], orderID + "");
 						}
 					}
-
-
 
 				}
 
@@ -103,8 +114,8 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 				}
 
 				String hstid = intent.getStringExtra("hstid");
-				int itemcount = Integer.valueOf(intent.getStringExtra("listcount"));
-				int itemPosition = Integer.valueOf(intent.getStringExtra("pos"));
+//				int itemcount = Integer.valueOf(intent.getStringExtra("listcount"));
+//				int itemPosition = Integer.valueOf(intent.getStringExtra("pos"));
 
 				db.updateSentHistory(hstid, number, content, timesend, "0", isSent, "0");
 				if (Activity_OrderHistory.isActive) {
@@ -113,18 +124,9 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 					context.startActivity(refresh);
 				}
 
-//				if (Activity_OrderHistory.orderHistoryAdapter!=null) {
-//					Activity_OrderHistory.orderHistoryAdapter.notifyDataSetChanged();
-////					Activity_OrderHistory.orderHistoryAdapter.notifyItemRangeChanged(itemPosition, itemcount);
-////					Activity_OrderHistory.orderHistoryAdapter.notifyItemRangeChanged(Integer.valueOf(itemPosition), Integer.valueOf(itemcount));
-////					Activity_OrderHistory.orderHistoryAdapter.notifyItemChanged(Integer.valueOf(itemPosition));
-//				}
 			}
 		}
 	}
-
-
-
 
 
 }

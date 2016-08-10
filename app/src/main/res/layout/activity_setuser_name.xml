@@ -9,14 +9,14 @@
               android:inputType="textCapSentences"
               android:padding="24dp"
               android:layout_margin="5dp"
-              android:hint="New store name..."
-              android:id="@+id/edtStoreName"
+              android:hint="New User Name..."
+              android:id="@+id/edtUserName"
               android:maxLength="50"
     />
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-              android:text="Ex: Puregold Baliwag"
-              android:layout_below="@id/edtStoreName"
+              android:text="Ex: Lito Sapangbato"
+              android:layout_below="@id/edtUserName"
               android:paddingLeft="24dp"
     />
 

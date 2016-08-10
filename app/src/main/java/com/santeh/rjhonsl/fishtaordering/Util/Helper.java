@@ -63,9 +63,9 @@ public class Helper {
 
 
     public static class variables{
-        public static String sourceAddress_goDaddy                  = "http://santeh-webservice.com/php/android_json_post/";
-        public static String URL_PHP_INSERT_FEEDPOST                    = sourceAddress_goDaddy + "insertFeedContent.php";
-        public static String URL_PHP_INSERT_FEEDPOST_PHOTO              = sourceAddress_goDaddy + "uploadimage.php";
+        public static String sourceAddress_TatehPH = "http://www.tateh.ph/aquabiz/";
+        public static String selectItems = sourceAddress_TatehPH + "selectAllActiveItems.php";
+        public static String selectAllCust = sourceAddress_TatehPH + "selectAllCustomers.php";
 
     }
 
@@ -277,6 +277,7 @@ public class Helper {
 
             d.setContentView(R.layout.dialog_numberandpaxpicker);
             d.setTitle(dialogTitle);
+
             NumberPicker wholeNum = (NumberPicker) d.findViewById(R.id.dialog_numandpax_value);
             wholeNum.setMaxValue(maxValue);
             wholeNum.setMinValue(minVal);

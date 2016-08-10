@@ -3,6 +3,7 @@ package com.santeh.rjhonsl.fishtaordering.Main;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -25,10 +27,12 @@ import android.widget.ListView;
 import android.widget.NumberPicker;
 
 import com.santeh.rjhonsl.fishtaordering.R;
+import com.santeh.rjhonsl.fishtaordering.Util.DBaseHelper;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;
 import com.santeh.rjhonsl.fishtaordering.Util.VarFishtaOrdering;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,6 +51,7 @@ public class Activity_PickItem extends AppCompatActivity {
 
     String[] itemsArray;
     List<VarFishtaOrdering> itemList;
+    boolean[] checkedItems;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,6 +63,10 @@ public class Activity_PickItem extends AppCompatActivity {
 
         db = new DBaseQuery(this);
         db.open();
+//        String value =  db.getKeyVal("1");
+
+
+
 
         lvItems = (ListView) findViewById(R.id.lvFishes);
         lvFavorites = (ListView) findViewById(R.id.lvFavorites);
@@ -66,6 +75,7 @@ public class Activity_PickItem extends AppCompatActivity {
         myToolbar.setBackgroundColor(getResources().getColor(R.color.orange_fishta));
         setSupportActionBar(myToolbar);
         myToolbar.inflateMenu(R.menu.menu_search);
+
 
         ActionBar ab = getSupportActionBar();
         assert ab != null;
@@ -232,7 +242,7 @@ public class Activity_PickItem extends AppCompatActivity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_search, menu);
 
@@ -269,6 +279,61 @@ public class Activity_PickItem extends AppCompatActivity {
         SearchView searchView =
                 (SearchView) MenuItemCompat.getActionView(actionMenuItem);
 
+        final MenuItem actionFilter = menu.findItem(R.id.action_filter);
+        actionFilter.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+
+                final CharSequence[] group_name = {"Bangus","Cream Dorry", "Galunggong", "Pompano", "Pusit", "Salmon", "Tilapia", "Tanig", "Vanammei", "Supplies", "Storage", "Dried", "Frozen", "Fixtures & Furnitures", "Power Plant Equipment", "Various"};
+                final CharSequence[] group_Code = {"BANG","CREDOR", "GALUNG", "POM", "PUSIT", "SALM", "TIL", "TANIG", "VAN", "SUPP", "STOR", "DRIED", "FRO", "FF", "PPE", "VAR"};
+                final ArrayList seletedItems=new ArrayList();
+
+                AlertDialog dialog = new AlertDialog.Builder(context)
+                        .setTitle("CATEGORIES")
+                        .setMultiChoiceItems(group_name, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int indexSelected, boolean isChecked) {
+                                if (isChecked) {
+                                    seletedItems.add(indexSelected);
+                                } else if (seletedItems.contains(indexSelected)) {
+                                    seletedItems.remove(Integer.valueOf(indexSelected));
+                                }
+                            }
+                        }).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                String allitems = "";
+                                for (int i = 0; i < seletedItems.size(); i++) {
+
+                                    if (i < 1){
+                                        allitems = DBaseHelper.CL_ITEMS_GROUP_CODE + " ='" + group_Code[Integer.valueOf(seletedItems.get(i)+"")]+"' ";
+                                    }else{
+                                        allitems = allitems + " OR "+ DBaseHelper.CL_ITEMS_GROUP_CODE + " ='" + group_Code[Integer.valueOf(seletedItems.get(i)+"")]+"' ";
+                                    }
+
+                                }
+
+                                itemList = db.getSearchItems("", allitems);
+                                itemsArray = new String[itemList.size()];
+
+                                for (int i = 0; i < itemList.size(); i++) {
+                                    itemsArray[i] = itemList.get(i).getItem_description();
+                                }
+
+                                adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, itemsArray);
+                                lvItems.setAdapter(adapter);
+                            }
+                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                //  Your code when user clicked on Cancel
+                            }
+                        }).create();
+                dialog.show();
+
+                return false;
+            }
+        });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

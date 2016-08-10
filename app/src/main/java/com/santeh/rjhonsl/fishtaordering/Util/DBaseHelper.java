@@ -1,5 +1,6 @@
 package com.santeh.rjhonsl.fishtaordering.Util;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,7 +17,7 @@ import java.util.List;
 public class DBaseHelper extends SQLiteOpenHelper{
 
     private static String DATABASE_NAME = "fishta_ordering.db";
-    private static int DATABASE_VERSION = 2;
+    private static int DATABASE_VERSION = 6;
     private static String LOGTAG = "DB_FishtaOrdering";
 
     public static String DATE = "DATE", TEXT = "TEXT", INTEGER = "INTEGER", DOUBLE = "DOUBLE", DATETIME = "DATETIME",
@@ -29,9 +30,10 @@ public class DBaseHelper extends SQLiteOpenHelper{
     public static String CL_ITEMS_CODE          = "itm_code";
     public static String CL_ITEMS_DESCRIPTION   = "itm_desc";
     public static String CL_ITEMS_GROUP_CODE    = "itm_oldcode";
-    public static String CL_ITEMS_UNITS = "itm_units";
-    public static final String[] ALL_KEY_ITEMS      = new String[]{CL_ITEMS_ID, CL_ITEMS_CODE, CL_ITEMS_DESCRIPTION, CL_ITEMS_GROUP_CODE, CL_ITEMS_UNITS};
-    public static final String[] ALL_DATATYPE_ITEMS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT};
+    public static String CL_ITEMS_UNITS         = "itm_units";
+    public static String CL_ITEMS_isActive      = "itm_isactive";
+    public static final String[] ALL_KEY_ITEMS      = new String[]{CL_ITEMS_ID, CL_ITEMS_CODE, CL_ITEMS_DESCRIPTION, CL_ITEMS_GROUP_CODE, CL_ITEMS_UNITS, CL_ITEMS_isActive};
+    public static final String[] ALL_DATATYPE_ITEMS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT, TEXT};
 
 
 
@@ -67,6 +69,27 @@ public class DBaseHelper extends SQLiteOpenHelper{
     public static final String[] ALL_DATATYPE_ORDERED_ITEMS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT};
 
 
+    //TBL for SETTINGS_KEYVAL_PAIR
+    public static String TBL_SETINGS_KEYVAL_PAIR   = "tbl_keyvalPair";
+    public static String CL_KV_ID           = "kv_id";
+    public static String CL_KV_KEY          = "kv_key";
+    public static String CL_KV_VALUE        = "kv_value";
+    public static final String[] ALL_KEY_KV = new String[]{CL_KV_ID, CL_KV_KEY, CL_KV_VALUE};
+    public static final String[] ALL_DATATYPE_KV = new String[]{ROWID_AUTOINCRE, TEXT, TEXT};
+
+
+
+    //TBL for CUSTOMERS
+    public static String TBL_CUST       = "tbl_cust";
+    public static String CL_CUST_ID         = "cust_id";
+    public static String CL_CUST_CODE       = "cust_code";
+    public static String CL_CUST_NAME       = "cust_name";
+    public static String CL_CUST_TYPE       = "cust_type";
+    public static String CL_CUST_isActive   = "cust_isactive";
+    public static final String[] ALL_KEY_CUST = new String[]{CL_CUST_ID, CL_CUST_CODE, CL_CUST_NAME ,CL_CUST_TYPE, CL_CUST_isActive};
+    public static final String[] ALL_DATATYPE_CUST = new String[]{ROWID_AUTOINCRE, TEXT, TEXT , TEXT, TEXT};
+
+
     //connects db
     public DBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -84,6 +107,8 @@ public class DBaseHelper extends SQLiteOpenHelper{
         db.execSQL(createTableString(TBL_SENTHISTORY, ALL_KEY_HISTORY, ALL_DATATYPE_HISTORY));
         db.execSQL(createTableString(TBL_SETTINGS, ALL_KEY_SETTINGS, ALL_DATATYPE_SETTINGS));
         db.execSQL(createTableString(TBL_ORDEREDITEMS, ALL_KEY_ORDERED_ITEMS, ALL_DATATYPE_ORDERED_ITEMS));
+        db.execSQL(createTableString(TBL_SETINGS_KEYVAL_PAIR, ALL_KEY_KV, ALL_DATATYPE_KV));
+        db.execSQL(createTableString(TBL_CUST, ALL_KEY_CUST, ALL_DATATYPE_CUST));
     }
 
     /**
@@ -103,14 +128,29 @@ public class DBaseHelper extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        createTablesIfNotExists(db); //step2
+//        createTablesIfNotExists(db); //step2
 
+        if (oldVersion< 3){
+            db.execSQL(createTableString(TBL_SETINGS_KEYVAL_PAIR, ALL_KEY_KV, ALL_DATATYPE_KV));
+        }
+        if (oldVersion< 5){
+            db.execSQL(createTableString(TBL_CUST, ALL_KEY_CUST, ALL_DATATYPE_CUST));
+        }
+
+        if (oldVersion< 6){
+            db.execSQL("ALTER TABLE "+TBL_ITEMS+" ADD COLUMN "+CL_ITEMS_isActive+" "+TEXT+"");
+
+            ContentValues values = new ContentValues();
+            values.put(DBaseHelper.CL_ITEMS_isActive, "1");
+            db.update(TBL_ITEMS, values, null, null );
+        }
 //        Log.d("DB", "tables updated");
 //        //step3 - list existing columns
 //        List<String> oldItem = GetColumns(db, TBL_ITEMS);
 //        List<String> oldSentHistory = GetColumns(db, TBL_SENTHISTORY);
 //        List<String> oldSettings = GetColumns(db, TBL_SETTINGS);
 //        List<String> oldOrderedItems = GetColumns(db, TBL_ORDEREDITEMS);
+
 
         //step4 - backup table
         

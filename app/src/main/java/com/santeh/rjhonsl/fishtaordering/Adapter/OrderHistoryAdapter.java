@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -61,6 +62,8 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         db = new DBaseQuery(context);
         db.open();
 
+        Log.d("BINDVIEW", "Static Main" + sentHistoryList.size());
+
     }
 
     @Override
@@ -71,6 +74,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
+
         final VarFishtaOrdering orderingOB = sentHistoryList.get(position);
         String timeSent = Helper.convert.LongToDateTime_Gregorian(Long.parseLong(sentHistoryList.get(position).getHst_timesent()));
         if (sentHistoryList.get(position).getHst_isSent().equalsIgnoreCase("0")){
@@ -79,12 +83,15 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
             holder.txtIsSent.setVisibility(View.GONE);
         }
 
+        Log.d("BINDVIEW", "ORDER HISTORY" + sentHistoryList.size());
+
         pd = new ProgressDialog(context1);
         pd.setMessage("Resending order please wait...");
+        Log.d("BINDVIEW", "AFTER PD" + sentHistoryList.size());
 
         holder.txtItems.setText(db.rearrangeItems(sentHistoryList.get(position).getHst_message()));
         holder.txtTimeSent.setText(timeSent);
-
+        Log.d("BINDVIEW", "AFTER TIME SENT" + sentHistoryList.size());
 //        holder.txtIsSent.setText(sentHistoryList.get(position).getHst_isSent());
 
         holder.btnResend.setOnClickListener(new View.OnClickListener() {

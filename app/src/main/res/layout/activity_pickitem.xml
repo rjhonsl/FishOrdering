@@ -47,6 +47,7 @@
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
         >
+
             <android.support.design.widget.FloatingActionButton
                     android:layout_width="60dp"
                     android:layout_height="60dp"
