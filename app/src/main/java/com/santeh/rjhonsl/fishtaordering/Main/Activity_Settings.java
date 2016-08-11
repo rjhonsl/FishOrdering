@@ -301,6 +301,7 @@ public class Activity_Settings extends AppCompatActivity {
                     @Override
                     public void afterTextChanged(Editable editable) {
                         if (edtpin.getText().toString().equalsIgnoreCase("1425")){
+                            d.dismiss();
                             startActivity(new Intent(Activity_Settings.this, Activity_Wiz_Stores.class));
                         }
                     }

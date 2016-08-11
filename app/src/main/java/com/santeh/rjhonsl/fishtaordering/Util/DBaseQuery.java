@@ -53,6 +53,18 @@ public class DBaseQuery {
     }
 
 
+    public long insertCustomer(String id, String code, String name, String type, String isActive) {
+
+        ContentValues values = new ContentValues();
+        values.put(DBaseHelper.CL_CUST_ID, id);
+        values.put(DBaseHelper.CL_CUST_CODE, code);
+        values.put(DBaseHelper.CL_CUST_NAME, name);
+        values.put(DBaseHelper.CL_CUST_TYPE, type);
+        values.put(DBaseHelper.CL_CUST_isActive, isActive);
+
+        return db.insert(DBaseHelper.TBL_CUST, null, values);
+    }
+
     public long insertItems(String id, String code, String description, String oldCOde, String units, String isactive) {
 
         ContentValues values = new ContentValues();

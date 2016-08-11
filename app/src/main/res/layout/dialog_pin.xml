@@ -15,7 +15,7 @@
 
     <EditText android:layout_width="200dp"
               android:layout_height="wrap_content"
-              android:inputType="number"
+              android:inputType="numberPassword"
               android:textColor="@color/white_200"
               android:id="@+id/dialog_edt_pin"
               android:textSize="20sp"
