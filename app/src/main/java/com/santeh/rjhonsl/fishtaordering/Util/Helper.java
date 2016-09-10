@@ -66,6 +66,9 @@ public class Helper {
         public static String sourceAddress_TatehPH = "http://www.tateh.ph/aquabiz/";
         public static String selectItems = sourceAddress_TatehPH + "selectAllActiveItems.php";
         public static String selectAllCust = sourceAddress_TatehPH + "selectAllCustomers.php";
+        public static String login = sourceAddress_TatehPH + "login.php";
+        public static String getStoresByArrayID = sourceAddress_TatehPH + "getStoresByID.php";
+        public static String getDefaultSettings = sourceAddress_TatehPH + "getDefaultSettings.php";
 
     }
 

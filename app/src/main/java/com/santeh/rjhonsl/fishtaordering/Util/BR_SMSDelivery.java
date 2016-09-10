@@ -89,7 +89,7 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 								list.remove(0);
 							}
 							MainActivity.itemsViewAdapter.notifyItemRangeRemoved(0, size);
-							MainActivity.showNoItemImage();
+							MainActivity.toggleNoItemImage();
 						}
 					}
 
@@ -98,8 +98,8 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 					String[] contentss = content.split(";");
 					for (int i = 0; i < contentss.length; i++) {
 						if (i > 0){
-							String[] itemdetails = contentss[i].split(",");
-							db.insertOrderedItems(itemdetails[0], orderID + "");
+							String[] itemDetails = contentss[i].split(",");
+							db.insertOrderedItems(itemDetails[0], orderID + "");
 						}
 					}
 

@@ -143,7 +143,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.MyViewHolder
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    MainActivity.showNoItemImage();
+                    MainActivity.toggleNoItemImage();
                 }
             }, 300);
             MainActivity.toggleSendButtonVisibility();

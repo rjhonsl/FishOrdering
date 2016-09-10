@@ -5,11 +5,15 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -24,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -63,6 +68,11 @@ public class Activity_Settings extends AppCompatActivity {
     LinearLayout txtServerNum, txtStoreName, txtBackup, txtRestore, txtAbout, llStores;
     TextView lblServerNum, lblUserName, lblAbout, lblStore;
     ProgressDialog pd;
+    private String assignedCustomers;
+    private String wholeName;
+    private String username;
+    private String pass;
+    private String serverNumber;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -94,6 +104,16 @@ public class Activity_Settings extends AppCompatActivity {
         lblAbout= (TextView) findViewById(R.id.lblAbout);
         lblStore= (TextView) findViewById(R.id.lblstore);
 
+
+        PackageInfo pInfo = null;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            String version = pInfo.versionName;
+            int versionCode = pInfo.versionCode;
+            lblAbout.setText("Fishta Ordering App " + version + "    rev."+ versionCode );
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
 
 
@@ -316,25 +336,57 @@ public class Activity_Settings extends AppCompatActivity {
 
     public void updateDB(View v){
         if (Helper.getDeviceInfo.isNetworkAvailable(context)){
-            final Dialog d = Helper.dialogBox.yesNo(activity, "Sync now?", "UPDATE", "NO", "YES");
-            Button btnNo = (Button) d.findViewById(R.id.btn_dialog_yesno_opt1);
-            Button btnYes = (Button) d.findViewById(R.id.btn_dialog_yesno_opt2);
 
-            btnNo.setOnClickListener(new View.OnClickListener() {
+
+            final Dialog d = new Dialog(activity);//
+            d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            d.setContentView(R.layout.dialog_login);
+            d.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            d.show();
+
+
+            final EditText edtusername = (EditText) d.findViewById(R.id.dialog_edt_username);
+            final EditText edtPassword = (EditText) d.findViewById(R.id.dialog_edt_password);
+            Button btnLogin = (Button) d.findViewById(R.id.btnLogin);
+            btnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    d.dismiss();
+                    if (edtPassword.getText().toString().equalsIgnoreCase("") || edtusername.getText().toString().equalsIgnoreCase(""))
+                    {
+                        Helper.toast.short_(activity, "Fill both fields to continue");
+                        d.dismiss();
+                    }else{
+                        login(edtusername.getText().toString(), edtPassword.getText().toString());
+                        username = edtusername.getText().toString();
+                        pass = edtPassword.getText().toString();
+                        d.dismiss();
+
+                    }
                 }
             });
 
-            btnYes.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    getItems();
-//                    getCustomers();
-                    d.dismiss();
-                }
-            });
+
+
+
+//            final Dialog d = Helper.dialogBox.yesNo(activity, "Sync now?", "UPDATE", "NO", "YES");
+//            Button btnNo = (Button) d.findViewById(R.id.btn_dialog_yesno_opt1);
+//            Button btnYes = (Button) d.findViewById(R.id.btn_dialog_yesno_opt2);
+//
+//            btnNo.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    d.dismiss();
+//                }
+//            });
+//
+//            btnYes.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+////                    getItems();
+////                    getCustomers();
+//                    d.dismiss();
+//                }
+//            });
         }else{
             Helper.toast.long_(activity, "No internet connection...");
         }
@@ -389,45 +441,103 @@ public class Activity_Settings extends AppCompatActivity {
     }
 
 
-    private void getItems() {
+
+
+
+
+
+
+    private void login(final String email, final String password){
 
         pd.setCancelable(false);
-        pd.setMessage("Updating items...");
+        pd.setMessage("Validating your account...");
         pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pd.setProgress(100/4);
         pd.show();
-        StringRequest postRequest = new StringRequest(Request.Method.POST, Helper.variables.selectItems,
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST,
+                Helper.variables.login+"?" +
+                        "username="+email+"&" +
+                        "password="+password+"",
                 new Response.Listener<String>() {
-                     @Override
+                    @Override
                     public void onResponse(final String response) {
 
-                        if (!response.substring(0,1).equalsIgnoreCase("0")) {
-                            db.deleteALL(DBaseHelper.TBL_ITEMS);
-                            List<VarFishtaOrdering> itemsList = Parser.parseFeed(response, context);
+                        if (Parser.parseFeed(response, context) != null) {
+                            if (Parser.parseFeed(response,context).size() > 0){
+                                VarFishtaOrdering userDetail =  Parser.parseFeed(response,context).get(0);
 
-                            String itm_query = "INSERT INTO tbl_items ( itm_id, itm_code, itm_desc, itm_oldcode, itm_units, itm_isactive ) " +
-                                    "VALUES ";
-                            for (int i = 0; i < itemsList.size(); i++) {
-                                if (i > 0){
-                                    itm_query = itm_query + " ,( '"+itemsList.get(i).getItem_id()+"', '"+itemsList.get(i).getItem_code().replace("\'","")+"', '"+itemsList.get(i).getItem_description().replace("\'"," ")+"', '"+itemsList.get(i).getItem_oldcode().replace("'","\'")+"', '"+itemsList.get(i).getItem_units()+"', '"+itemsList.get(i).getItem_isActive() +"')";
-                                }else{
-                                    itm_query = itm_query + " ( '"+itemsList.get(i).getItem_id()+"', '"+itemsList.get(i).getItem_code().replace("\'","")+"', '"+itemsList.get(i).getItem_description().replace("\'"," ")+"', '"+itemsList.get(i).getItem_oldcode().replace("'","\'")+"', '"+itemsList.get(i).getItem_units()+"', '"+itemsList.get(i).getItem_isActive() +"')";
-                                }
+                                assignedCustomers = userDetail.getUsr_assignedCust();
+                                wholeName = userDetail.getUsr_fname() + " " + userDetail.getUsr_lname();
+                                getStoresAssigned(assignedCustomers);
+
+                            }else{
+                                pd.dismiss();
+                                Helper.toast.long_(activity, "Wrong username and password.");
                             }
-
-                            itm_query = itm_query + ";";
-                            db.rawQuery(itm_query);
-                            getCustomers();
-
-
-
-//                            Helper.toast.indefinite(activity, "Post successful");
-//                            Helper.dialogBox.okOnly_Scrolling(activity, "TITLE",  + varFishtaOrderings.size() +" " + Build.SERIAL, "OK", R.color.red);
-
-
-                        } else {
+                        }else {
                             pd.dismiss();
-                            Helper.toast.short_(activity, "Sync failed. Please try again...");
-                            Helper.dialogBox.okOnly_Scrolling(activity, "TITLE", response + " " + Build.SERIAL, "OK", R.color.red);
+                            Helper.toast.long_(activity, "Wrong username and password.");
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        pd.dismiss();
+                        Helper.toast.long_(activity, "Sync Failed: "+error.toString());
+                    }
+                });
+
+        postRequest.setRetryPolicy(new DefaultRetryPolicy(3000, 2, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        VolleyAPI api = new VolleyAPI();
+        api.addToReqQueue(postRequest, context);
+
+
+    }
+
+    private void getStoresAssigned(String assignedCustomers){
+        pd.setCancelable(false);
+        pd.setMessage("Getting your assigned customers");
+        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pd.setProgress(100/3);
+        pd.show();
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST,
+                Helper.variables.getStoresByArrayID+"?" +
+                        "username="+username+"&" +
+                        "password="+pass+"&" +
+                        "storeArray="+assignedCustomers,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(final String response) {
+
+                        List<VarFishtaOrdering> custlist = Parser.parseFeed(response, context);
+                        if (custlist!=null){
+                            if (custlist.size()> 0){
+                                String cust_query1 = "INSERT INTO tbl_cust ( cust_id, cust_code, cust_name, cust_type, cust_isactive, "+ DBaseHelper.CL_CUST_assignedItems+") " +
+                                        "VALUES ";
+
+                                for (int i = 0; i < custlist.size(); i++) {
+                                    if (i > 0){
+                                        cust_query1 = cust_query1 + " ,( '"+custlist.get(i).getCust_id()+"', '"+custlist.get(i).getCust_code().replace("\'","")+"', '"+custlist.get(i).getCust_name().replace("\'"," ")+"', '"+custlist.get(i).getCust_type().replace("'","\'")+"', '"+custlist.get(i).getCust_isactive()+"', '"+custlist.get(i).getAp_prodsarray()+"')";
+                                    }else{
+                                        cust_query1 = cust_query1 + " ( '"+custlist.get(i).getCust_id()+"', '"+custlist.get(i).getCust_code().replace("\'","")+"', '"+custlist.get(i).getCust_name().replace("\'"," ")+"', '"+custlist.get(i).getCust_type().replace("'","\'")+"', '"+custlist.get(i).getCust_isactive()+"', '"+custlist.get(i).getAp_prodsarray()+"')";
+                                    }
+                                }
+
+                                populateCustomerDB(cust_query1);
+                                getItems();
+
+                            }else{
+                                pd.dismiss();
+                                Helper.toast.long_(activity, "You have no assigned customer. Please contact administrator.");
+                            }
+                        }else {
+                            pd.dismiss();
+                            Helper.toast.long_(activity, "You have no assigned customer. Please contact administrator.");
                         }
                     }
                 },
@@ -435,59 +545,125 @@ public class Activity_Settings extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         pd.dismiss();
-                        Helper.toast.short_(activity, "Sync failed. Please try again...");
+                        Helper.toast.long_(activity, "Sync interrupted. Please logging in again");
                     }
                 })
         {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("serial", Build.SERIAL);
-
-                return params;
-            }
         };
+
+        VolleyAPI api = new VolleyAPI();
+        api.addToReqQueue(postRequest, context);
+
+    }
+
+    private void populateCustomerDB(String cust_query1) {
+        db.deleteALL(DBaseHelper.TBL_CUST);
+        cust_query1 = cust_query1 + ";";
+        db.rawQuery(cust_query1);
+    }
+
+    private void getItems() {
+        pd.setCancelable(false);
+        pd.setMessage("Getting items...");
+        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pd.setProgress(100/2);
+        pd.show();
+        StringRequest postRequest = new StringRequest(Request.Method.POST, Helper.variables.selectItems+"?username="+username,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(final String response) {
+                        if (!response.substring(0,1).equalsIgnoreCase("0")) {
+                            final List<VarFishtaOrdering> itemsList = Parser.parseFeed(response, context);
+                            if (itemsList != null) {
+                                if (itemsList.size()>0){
+                                    pd.setMessage("Putting items on local DB.. ");
+                                    pd.show();
+                                    db.deleteALL(DBaseHelper.TBL_ITEMS);
+                                    AsyncTask.execute(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            for (int i = 0; i < itemsList.size(); i++) {
+                                                db.insertItems(itemsList.get(i).getItem_id(), itemsList.get(i).getItem_code().replace("\'", ""), itemsList.get(i).getItem_description().replace("\'", " "), itemsList.get(i).getItem_oldcode().replace("'", "\'"), itemsList.get(i).getItem_units(), itemsList.get(i).getItem_isActive(), itemsList.get(i).getItem_class());
+                                            }
+                                        }
+                                    });
+                                    Handler postDelayed = new Handler();
+                                    postDelayed.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            getDefaultSettings();
+                                        }
+                                    }, 7000);
+
+                                }else {
+                                    pd.dismiss();
+                                    Helper.toast.long_(activity, "No items assigned to your customers. Please contact administrator");
+                                }
+                            }
+                        } else {
+                            pd.dismiss();
+                            Helper.toast.long_(activity, "Server authentication failed. Please contact admin");
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        pd.dismiss();
+                        Helper.toast.long_(activity, "Sync failed. Please try again...");
+                    }
+                });
 
 
         VolleyAPI api = new VolleyAPI();
         api.addToReqQueue(postRequest, context);
     }
 
-
-
-    private void getCustomers() {
-
+    private void getDefaultSettings() {
         pd.setCancelable(false);
-        pd.setMessage("Updating Customers db...");
+        pd.setMessage("Finalizing setup...");
         pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pd.setProgress(100/1);
         pd.show();
-        StringRequest postRequest = new StringRequest(Request.Method.POST, Helper.variables.selectAllCust,
+        StringRequest postRequest = new StringRequest(Request.Method.POST, Helper.variables.getDefaultSettings+"?"+
+                "username="+username+"&" +
+                "password="+pass,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(final String response) {
-
                         if (!response.substring(0,1).equalsIgnoreCase("0")) {
-                            db.deleteALL(DBaseHelper.TBL_CUST);
-                            List<VarFishtaOrdering> custlist = Parser.parseFeed(response, context);
-                            String cust_query = "INSERT INTO tbl_cust ( cust_id, cust_code, cust_name, cust_type, cust_isactive) " +
-                                    "VALUES ";
-                            for (int i = 0; i < custlist.size(); i++) {
-                                if (i > 0){
-                                    cust_query = cust_query + " ,( '"+custlist.get(i).getCust_id()+"', '"+custlist.get(i).getCust_code().replace("\'","")+"', '"+custlist.get(i).getCust_name().replace("\'"," ")+"', '"+custlist.get(i).getCust_type().replace("'","\'")+"', '"+custlist.get(i).getCust_isactive()+"')";
-                                }else{
-                                    cust_query = cust_query + " ( '"+custlist.get(i).getCust_id()+"', '"+custlist.get(i).getCust_code().replace("\'","")+"', '"+custlist.get(i).getCust_name().replace("\'"," ")+"', '"+custlist.get(i).getCust_type().replace("'","\'")+"', '"+custlist.get(i).getCust_isactive()+"')";
+                            final List<VarFishtaOrdering> itemsList = Parser.parseFeed(response, context);
+                            if (itemsList != null) {
+                                if (itemsList.size()>0){
+                                    db.deleteALL(DBaseHelper.TBL_SETINGS_KEYVAL_PAIR);
+                                    db.deleteALL(DBaseHelper.TBL_SETTINGS);
+                                    serverNumber = itemsList.get(Keys.SETTINGS_DEFAULT_SERVERNUM).getDs_value();
+
+//                                    Helper.toast.indefinite(activity, response + " " + serverNumber + " " + wholeName + " " + assignedCustomers + " ");
+
+                                    db.insertKeyValSettings(Keys.SETTINGS_STOREIDS, assignedCustomers);
+                                    lblServerNum.setText(serverNumber);
+                                    lblUserName.setText(wholeName);
+                                    db.insertSettings(
+                                            wholeName, //full name
+                                            serverNumber, //server number
+                                            assignedCustomers, //all customers
+                                            "1425");
+//
+                                    pd.dismiss();
+                                    Helper.toast.indefinite(activity, "Sync Success");
+
+//                                    Intent intent = new Intent(activity, Activity_SetupSuccess.class);
+//                                    startActivity(intent);
+
+                                }else {
+                                    pd.dismiss();
+                                    Helper.toast.long_(activity, "Cant get your settings. Please contact admin for further support");
                                 }
                             }
-
-                            cust_query = cust_query + ";";
-                            db.rawQuery(cust_query);
-                            pd.dismiss();
-                            Helper.toast.short_(activity, "Update successful");
-
                         } else {
                             pd.dismiss();
-                            Helper.toast.short_(activity, "Sync failed. Please try again...");
-                            Helper.dialogBox.okOnly_Scrolling(activity, "TITLE", response + " " + Build.SERIAL, "OK", R.color.red);
+                            Helper.toast.long_(activity, "Server authentication failed. Please contact admin");
                         }
                     }
                 },
@@ -495,18 +671,9 @@ public class Activity_Settings extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         pd.dismiss();
-                        Helper.toast.short_(activity, "Sync failed. Please try again..."+error);
+                        Helper.toast.long_(activity, "Sync failed. Please try again...");
                     }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("serial", Build.SERIAL);
-
-                return params;
-            }
-        };
+                });
 
 
         VolleyAPI api = new VolleyAPI();

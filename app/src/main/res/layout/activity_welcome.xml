@@ -20,30 +20,44 @@
     <TextView android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:textColor="@color/orange_50"
-             android:text="Enter PIN to get started\n\n..."
+             android:text="Enter User Name and Password to get started\n\n..."
              android:paddingBottom="25dp"
              android:gravity="center_horizontal"
              android:textSize="12sp"/>
 
+
+    <EditText android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray_50"
+        android:hint="User Name"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:id="@+id/edtUserName"
+        android:gravity="center_horizontal"
+        android:textColorHint="@color/orange_300"
+        />
+
     <EditText android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:textColor="@color/gray_50"
-              android:hint="PIN"
+              android:hint="Password"
               android:layout_marginLeft="40dp"
               android:layout_marginRight="40dp"
-              android:inputType="numberPassword"
-              android:id="@+id/edtPin"
+              android:inputType="textPassword"
+              android:id="@+id/edtPassword"
               android:gravity="center_horizontal"
               android:textColorHint="@color/orange_300"
     />
 
 
+
+
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:gravity="center"
-                  android:visibility="gone"
                   android:orientation="vertical"
-                  android:layout_weight="1.1">
+                    android:layout_marginTop="20dp"
+                  android:layout_weight="0">
 
 
         <android.support.design.widget.FloatingActionButton

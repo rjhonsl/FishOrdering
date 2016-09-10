@@ -34,7 +34,7 @@
 
         <activity android:name=".Main.Activity_PickItem"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-                    android:label="Select Fish">
+                    android:label="Select Item">
         </activity>
 
 

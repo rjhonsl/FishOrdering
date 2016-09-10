@@ -59,16 +59,12 @@ public class Activity_Wiz_Stores extends AppCompatActivity {
         assert myToolbar != null;
         myToolbar.setBackgroundColor(getResources().getColor(R.color.orange_fishta));
         setSupportActionBar(myToolbar);
-//        myToolbar.inflateMenu(R.menu.menu_add);
-
-
         storeList = db.getCust_OUTLET();
 
         if (!receivedIntent.hasExtra(Keys.IS_STARTUP)){
             selectedstoreList = db.getFilteredStores(db.getKeyVal(Keys.SETTINGS_STOREIDS));
             final String[] storeNames = new String[selectedstoreList.size()];
             final String[] storeID = new String[selectedstoreList.size()];
-//            Helper.dialogBox.okOnly(activity, "Stores", storeNames.length + " " + storeID.length, "OK");
 
             for (int i = 0; i < selectedstoreList.size(); i++) {
                 storeNames[i] = storeList.get(i).getCust_name();
@@ -87,12 +83,10 @@ public class Activity_Wiz_Stores extends AppCompatActivity {
                 if (!receivedIntent.hasExtra(Keys.IS_STARTUP)){
                     if (allitems.equalsIgnoreCase("")){
                         Helper.toast.short_(activity, "No changes has been made.");
-
                     }else{
                         db.updateKeyVal(Keys.SETTINGS_STOREIDS, allitems);
                         finish();
                     }
-
                 }else{
                     if (lvStores.getCount()>0){
                         db.insertSettings(

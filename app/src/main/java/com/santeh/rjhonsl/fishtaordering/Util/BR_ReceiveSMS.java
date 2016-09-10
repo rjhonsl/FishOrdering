@@ -95,13 +95,6 @@ public class BR_ReceiveSMS extends BroadcastReceiver {
 //						Log.d("Receive", "Pin Updated");
 					}else if (key.equalsIgnoreCase(AddItem)) {
 
-						long i = db.insertItems(
-								value.split(";")[0],
-								value.split(";")[1],
-								value.split(";")[2],
-								value.split(";")[3],
-								"1"
-						);
 //						Log.d("Receive", "Added Item: "+ i +" : " + key + " : "+ value);
 					}
 

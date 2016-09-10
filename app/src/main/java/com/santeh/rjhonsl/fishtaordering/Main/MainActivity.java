@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,11 +15,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.OvershootInterpolator;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.santeh.rjhonsl.fishtaordering.Adapter.ItemsAdapter;
 import com.santeh.rjhonsl.fishtaordering.R;
@@ -32,11 +39,14 @@ import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.FadeInRightAnimator;
 
+import static com.santeh.rjhonsl.fishtaordering.R.id.btnSend;
+import static com.santeh.rjhonsl.fishtaordering.R.id.btnSendOrder;
+
 public class MainActivity extends AppCompatActivity {
 
     DBaseQuery db;
     FloatingActionButton btnAddITem;
-    static FloatingActionButton btnSendOrder;
+//    static FloatingActionButton btnSendOrder;
     Activity activity;
     Context context;
     Button btnSelectStore;
@@ -50,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
     static LinearLayout imgNoItems;
     List<VarFishtaOrdering> storeList = new ArrayList<>();
     String selectedStoreID = "";
+    String selectedStoreName = "";
+
+    public static Button btnSend, btnAddProduct;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         assert rvItems != null;
         rvItems.setHasFixedSize(true);
 
-        // use a linear layout manager
+        // use a linear layout list
         mLayoutManager = new LinearLayoutManager(this);
         rvItems.setLayoutManager(mLayoutManager);
         rvItems.setItemAnimator(new FadeInRightAnimator(new OvershootInterpolator(2f)));
@@ -83,15 +97,16 @@ public class MainActivity extends AppCompatActivity {
         rvItems.setAdapter(itemsViewAdapter);
         itemsViewAdapter.notifyDataSetChanged();
 
-
         imgNoItems = (LinearLayout) findViewById(R.id.img_noitems);
-        showNoItemImage();
+        toggleNoItemImage();
 
-
+//        Helper.toast.indefinite(activity, db.getKeyVal(Keys.SETTINGS_STOREIDS));
 
         storeList = db.getFilteredStores(db.getKeyVal(Keys.SETTINGS_STOREIDS));
-        if (storeList.size()<2){
+
+        if (storeList.size()<=1){
             selectedStoreID = storeList.get(0).getCust_id();
+            selectedStoreName = storeList.get(0).getCust_name();
             btnSelectStore.setText(storeList.get(0).getCust_name());
         }
         btnSelectStore.setOnClickListener(new View.OnClickListener() {
@@ -107,68 +122,65 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 final Dialog d = Helper.dialogBox.list(activity, storeNames, "STORES", R.color.orange_fishta_darker);
-                ListView lvStore = (ListView) d.findViewById(R.id.dialog_list_listview);
+                final ListView lvStore = (ListView) d.findViewById(R.id.dialog_list_listview);
                 lvStore.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         btnSelectStore.setText(storeNames[i]);
+                        selectedStoreName = storeNames[i];
                         selectedStoreID = storeID[i];
-
+                        orderList = new ArrayList<>();
                         d.dismiss();
+                        itemsViewAdapter = new ItemsAdapter(orderList, context, activity);
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                rvItems.setAdapter(itemsViewAdapter);
+                                itemsViewAdapter.notifyDataSetChanged();
+                                toggleNoItemImage();
+                            }
+                        }, 300);
                     }
                 });
-//                AlertDialog dialog = new AlertDialog.Builder(context)
-//                        .setTitle("CATEGORIES")
-//                        .setMultiChoiceItems(storeNames, null, new DialogInterface.OnMultiChoiceClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int indexSelected, boolean isChecked) {
-//                                if (isChecked) {
-//                                    seletedItems.add(indexSelected);
-//                                } else if (seletedItems.contains(indexSelected)) {
-//                                    seletedItems.remove(Integer.valueOf(indexSelected));
-//                                }
-//                            }
-//                        }).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int id) {
-//
-//                                String[] selectedStores = new String[seletedItems.size()];
-//                                String stores = "";
-//                                for (int i = 0; i < seletedItems.size(); i++) {
-//
-////                                    selectedStores[i] = storeNames[Integer.valueOf(seletedItems.get(i)+"")];
-//                                    if (i > 1){
-//                                        stores = stores + ", " + storeNames[Integer.valueOf(seletedItems.get(i)+"")];
-//                                        allitems = allitems + "," + storeID[Integer.valueOf(seletedItems.get(i)+"")];
-//                                    }else{
-//                                        allitems = storeID[Integer.valueOf(seletedItems.get(i)+"")];
-//                                        stores =  storeNames[Integer.valueOf(seletedItems.get(i)+"")];
-//                                    }
-//
-//                                    btnSelectStore.setText(stores);
-//                                }
-//                            }
-//                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int id) {
-//                                //  Your code when user clicked on Cancel
-//
-//                            }
-//                        }).create();
-//                dialog.show();
             }
         });
 
-
-        btnSendOrder = (FloatingActionButton) findViewById(R.id.btnSendOrder);
-        btnSendOrder.setOnClickListener(new View.OnClickListener() {
+        btnAddProduct = (Button) findViewById(R.id.btnAddproduct);
+        btnAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                if (selectedStoreID.equalsIgnoreCase("")) {
+                    Helper.toast.short_(activity, "Select a Customer First");
+                }else{
+                    Intent intent = new Intent(MainActivity.this, Activity_PickItem.class);
+                    intent.putExtra("storeid", selectedStoreID);
+                    startActivityForResult(intent, INTENT_SELECT_ITEM);
+                }
+            }
+        });
+
+        btnSend = (Button) findViewById(R.id.btnSend);
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 if(selectedStoreID.equalsIgnoreCase("")){
                     Helper.toast.short_(activity, "No store selected.");
                 }else if (orderList != null){
-
                     if (orderList.size() > 0){
+
+                        final Dialog d = new Dialog(activity);//
+                        d.requestWindowFeature(Window.FEATURE_NO_TITLE); //notitle
+                        d.setContentView(R.layout.dialog_sendingconf);//Set the xml view of the dialog
+                        d.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                        Window window = d.getWindow();
+                        lp.copyFrom(window.getAttributes());
+                        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                        window.setAttributes(lp);
+                        d.show();
+
                         String formattedOrder = selectedStoreID+";";
                         for (int i = 0; i <orderList.size() ; i++) {
                             if (i==0){
@@ -178,7 +190,49 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                         }
-                        SendSMS.sendOrder(activity, context, db.getServerNum(), formattedOrder);
+
+                        TextView txtstore = (TextView) d.findViewById(R.id.txtStoreName);
+                        TextView txtCurrent = (TextView) d.findViewById(R.id.txtcurrentTime);
+                        TextView txtItems = (TextView) d.findViewById(R.id.txtItem);
+                        TextView txtClose = (TextView) d.findViewById(R.id.txtCloseDialog);
+                        ImageView imgButton = (ImageView) d.findViewById(R.id.btnFinalSend);
+                        txtItems.setText(db.rearrangeItems(formattedOrder));
+
+                        txtstore.setText(selectedStoreName);
+                        txtCurrent.setText(Helper.convert.LongToDateTime_Gregorian(System.currentTimeMillis()));
+
+
+                        final String finalFormattedOrder = formattedOrder;
+                        imgButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                final Dialog ddd = Helper.dialogBox.yesNo(activity, "Send this order to warehouse?", "Send Order", "YES", "NO");
+                                Button yes = (Button) ddd.findViewById(R.id.btn_dialog_yesno_opt1);
+                                Button no = (Button) ddd.findViewById(R.id.btn_dialog_yesno_opt2);
+                                yes.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        ddd.dismiss();
+                                        d.dismiss();
+                                        SendSMS.sendOrder(activity, context, db.getServerNum(), finalFormattedOrder);
+                                    }
+                                });
+
+                                no.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        ddd.dismiss();
+                                    }
+                                });
+                            }
+                        });
+
+                        txtClose.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                d.dismiss();
+                            }
+                        });
                     }else{
                         Helper.toast.short_(activity, "No items to send.");
                     }
@@ -186,19 +240,55 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     Helper.toast.short_(activity, "No items to send.");
                 }
-
             }
         });
 
 
-        btnAddITem = (FloatingActionButton) findViewById(R.id.btnAdditem);
-        btnAddITem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Activity_PickItem.class);
-                startActivityForResult(intent, INTENT_SELECT_ITEM);
-            }
-        });
+//        btnSendOrder = (FloatingActionButton) findViewById(R.id.btnSendOrder);
+//        btnSendOrder.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(selectedStoreID.equalsIgnoreCase("")){
+//                    Helper.toast.short_(activity, "No store selected.");
+//                }else if (orderList != null){
+//
+//                    if (orderList.size() > 0){
+//                        String formattedOrder = selectedStoreID+";";
+//                        for (int i = 0; i <orderList.size() ; i++) {
+//                            if (i==0){
+//                                formattedOrder = formattedOrder + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
+//                            }else{
+//                                formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
+//                            }
+//
+//                        }
+//                        SendSMS.sendOrder(activity, context, db.getServerNum(), formattedOrder);
+//                    }else{
+//                        Helper.toast.short_(activity, "No items to send.");
+//                    }
+//
+//                }else{
+//                    Helper.toast.short_(activity, "No items to send.");
+//                }
+//
+//            }
+//        });
+
+
+//        btnAddITem = (FloatingActionButton) findViewById(R.id.btnAdditem);
+//        btnAddITem.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (selectedStoreID.equalsIgnoreCase("")) {
+//                    Helper.toast.short_(activity, "Select a Customer First");
+//                }else{
+//                    Intent intent = new Intent(MainActivity.this, Activity_PickItem.class);
+//                    intent.putExtra("storeid", selectedStoreID);
+//                    startActivityForResult(intent, INTENT_SELECT_ITEM);
+//                }
+//
+//            }
+//        });
 
         toggleSendButtonVisibility();
 
@@ -207,14 +297,14 @@ public class MainActivity extends AppCompatActivity {
 
     public static void toggleSendButtonVisibility() {
         if (orderList.size() > 0){
-            btnSendOrder.setVisibility(View.VISIBLE);
+            btnSend.setVisibility(View.VISIBLE);
         }else{
-            btnSendOrder.setVisibility(View.GONE);
+            btnSend.setVisibility(View.GONE);
         }
     }
 
 
-    public static void showNoItemImage() {
+    public static void toggleNoItemImage() {
         if (orderList != null){
             if (orderList.size() <= 0){
                 imgNoItems.setVisibility(View.VISIBLE);
@@ -254,7 +344,7 @@ public class MainActivity extends AppCompatActivity {
 //            Helper.dialogBox.okOnly(activity, "Result", data.getStringExtra("code") + "\n" + data.getStringExtra("item") + "\n" + data.getStringExtra("pax"), "OK");
                 addItems(selectedItem);
                 toggleSendButtonVisibility();
-                showNoItemImage();
+                toggleNoItemImage();
             }
         }
     }
@@ -262,6 +352,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void addItems(VarFishtaOrdering item) {
         orderList.add(item);
+//        itemsViewAdapter.notifyDataSetChanged();
         itemsViewAdapter.notifyItemInserted(orderList.size());
         itemsViewAdapter.notifyItemRangeInserted(orderList.size(), orderList.size());
     }

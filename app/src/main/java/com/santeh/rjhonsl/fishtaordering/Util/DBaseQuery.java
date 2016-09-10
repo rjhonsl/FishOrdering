@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,17 +41,7 @@ public class DBaseQuery {
     /**
      * INSERTS
      **/
-    public long insertItems(String code, String description, String oldCOde, String units, String isactive) {
 
-        ContentValues values = new ContentValues();
-        values.put(DBaseHelper.CL_ITEMS_CODE, code);
-        values.put(DBaseHelper.CL_ITEMS_DESCRIPTION, description);
-        values.put(DBaseHelper.CL_ITEMS_GROUP_CODE, oldCOde);
-        values.put(DBaseHelper.CL_ITEMS_UNITS, units);
-        values.put(DBaseHelper.CL_ITEMS_isActive, isactive);
-
-        return db.insert(DBaseHelper.TBL_ITEMS, null, values);
-    }
 
 
     public long insertCustomer(String id, String code, String name, String type, String isActive) {
@@ -65,7 +56,7 @@ public class DBaseQuery {
         return db.insert(DBaseHelper.TBL_CUST, null, values);
     }
 
-    public long insertItems(String id, String code, String description, String oldCOde, String units, String isactive) {
+    public long insertItems(String id, String code, String description, String oldCOde, String units, String isactive, String itemclass) {
 
         ContentValues values = new ContentValues();
         values.put(DBaseHelper.CL_ITEMS_ID, id);
@@ -74,6 +65,7 @@ public class DBaseQuery {
         values.put(DBaseHelper.CL_ITEMS_GROUP_CODE, oldCOde);
         values.put(DBaseHelper.CL_ITEMS_UNITS, units);
         values.put(DBaseHelper.CL_ITEMS_isActive, isactive);
+        values.put(DBaseHelper.CL_ITEMS_classification, itemclass);
 
         return db.insert(DBaseHelper.TBL_ITEMS, null, values);
     }
@@ -96,12 +88,12 @@ public class DBaseQuery {
     }
 
 
-    public long insertSettings(String storeName, String serverNum, String increCount, String pin) {
+    public long insertSettings(String userName, String serverNum, String storesOfUser, String pin) {
 
         ContentValues values = new ContentValues();
-        values.put(DBaseHelper.CL_SET_STORENAME, storeName);
+        values.put(DBaseHelper.CL_SET_UserName, userName);
         values.put(DBaseHelper.CL_SET_SERVERNUM, serverNum);
-        values.put(DBaseHelper.CL_SET_INCRECOUNT, increCount);
+        values.put(DBaseHelper.CL_SET_INCRECOUNT, storesOfUser);
         values.put(DBaseHelper.CL_SET_PIN, pin);
 
         return db.insert(DBaseHelper.TBL_SETTINGS, null, values);
@@ -160,6 +152,62 @@ public class DBaseQuery {
     }
 
 
+    public List<VarFishtaOrdering> getStoreItems(String storeID) {
+        List<VarFishtaOrdering> itemsList = new ArrayList<>();
+        String[] params = new String[]{};
+        String itemArray;
+        String where1 = "";
+        String query_itemArray = "SELECT cust_assigneditems FROM tbl_cust where cust_id='"+storeID+"';";
+        Cursor cur_custitem = db.rawQuery(query_itemArray, params);
+        if (cur_custitem!=null){
+            if (cur_custitem.getCount()>0){
+                cur_custitem.moveToFirst();
+                do {
+                    itemArray = cur_custitem.getString(cur_custitem.getColumnIndex(DBaseHelper.CL_CUST_assignedItems));
+                } while (cur_custitem.moveToNext());
+
+                String[] splitteditems = itemArray.split(",");
+
+                for (int i = 0; i < splitteditems.length; i++) {
+                    if (i==0){
+                        where1 = where1 + " "+DBaseHelper.CL_ITEMS_ID + " = '" + splitteditems[i] + "' ";
+                    }else{
+                        where1 = where1 + " OR "+DBaseHelper.CL_ITEMS_ID + " = '" + splitteditems[i] + "' ";
+                    }
+                }
+
+
+            }
+        }
+
+
+        String query = "SELECT * FROM " + DBaseHelper.TBL_ITEMS + " " +
+                " WHERE " + DBaseHelper.CL_ITEMS_isActive + " = '1' AND "+
+                where1 +
+                " ORDER BY " + DBaseHelper.CL_ITEMS_DESCRIPTION + " ASC";
+        Log.d(LOGTAG, query);
+
+        Cursor cur = db.rawQuery(query, params);
+//        Log.d("COUNTER", "getAllItems: "+cur.getCount());
+
+        if (cur != null && cur.getCount() > 0) {
+            cur.moveToFirst();
+            do {
+                VarFishtaOrdering queriedItem = new VarFishtaOrdering();
+                queriedItem.setItem_id(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_ID)));
+                queriedItem.setItem_code(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_CODE)));
+                queriedItem.setItem_description(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_DESCRIPTION)));
+                queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_GROUP_CODE)));
+                queriedItem.setItem_units(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_UNITS)));
+                itemsList.add(queriedItem);
+            } while (cur.moveToNext());
+        }
+
+        return itemsList;
+    }
+
+
+
     public List<VarFishtaOrdering> getAllCustomers() {
         List<VarFishtaOrdering> itemsList = new ArrayList<>();
 
@@ -180,6 +228,7 @@ public class DBaseQuery {
                 queriedItem.setCust_name(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_NAME)));
                 queriedItem.setCust_type(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_TYPE)));
                 queriedItem.setCust_isactive(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_isActive)));
+                queriedItem.setCust_assignedItems(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_assignedItems)));
                 itemsList.add(queriedItem);
             } while (cur.moveToNext());
         }
@@ -209,6 +258,7 @@ public class DBaseQuery {
                 queriedItem.setCust_name(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_NAME)));
                 queriedItem.setCust_type(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_TYPE)));
                 queriedItem.setCust_isactive(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_isActive)));
+                queriedItem.setCust_assignedItems(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_assignedItems)));
                 itemsList.add(queriedItem);
             } while (cur.moveToNext());
         }
@@ -249,6 +299,7 @@ public class DBaseQuery {
                 queriedItem.setCust_name(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_NAME)));
                 queriedItem.setCust_type(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_TYPE)));
                 queriedItem.setCust_isactive(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_isActive)));
+                queriedItem.setCust_assignedItems(cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_assignedItems)));
                 itemsList.add(queriedItem);
             } while (cur.moveToNext());
         }
@@ -310,7 +361,7 @@ public class DBaseQuery {
                 queriedItem.setSet_servernum(cur.getString(cur.getColumnIndex(DBaseHelper.CL_SET_SERVERNUM)));
                 queriedItem.setSet_increCount(cur.getString(cur.getColumnIndex(DBaseHelper.CL_SET_INCRECOUNT)));
                 queriedItem.setSet_setPin(cur.getString(cur.getColumnIndex(DBaseHelper.CL_SET_PIN)));
-                queriedItem.setSet_storeName(cur.getString(cur.getColumnIndex(DBaseHelper.CL_SET_STORENAME)));
+                queriedItem.setSet_storeName(cur.getString(cur.getColumnIndex(DBaseHelper.CL_SET_UserName)));
             } while ((cur.moveToNext()));
         }
 
@@ -330,6 +381,25 @@ public class DBaseQuery {
             do {
 
                 values = values + cur.getString(cur.getColumnIndex(DBaseHelper.CL_KV_VALUE));
+            } while (cur.moveToNext());
+        }
+
+
+        return values;
+    }
+
+    public String getStoreName(String storeID) {
+
+        String query = "SELECT * FROM " + DBaseHelper.TBL_CUST + " WHERE " + DBaseHelper.CL_CUST_ID + "" +
+                "='" + storeID + "'";
+        String[] params = new String[]{};
+        String values = "";
+        Cursor cur = db.rawQuery(query, params);
+        if (cur != null && cur.getCount() > 0) {
+            cur.moveToFirst();
+            do {
+
+                values = values + cur.getString(cur.getColumnIndex(DBaseHelper.CL_CUST_NAME));
             } while (cur.moveToNext());
         }
 
@@ -399,6 +469,7 @@ public class DBaseQuery {
         String query = "SELECT * from tbl_items WHERE " +
                 "tbl_items.itm_isactive = '1' AND tbl_items.itm_desc LIKE '%" + keyword + "%' AND " + where_group;
 
+        Log.d("QUERY", query);
         String[] params = new String[]{};
 
         Cursor cur = db.rawQuery(query, params);
@@ -412,6 +483,7 @@ public class DBaseQuery {
                 queriedItem.setItem_description(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_DESCRIPTION)));
                 queriedItem.setItem_oldcode(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_GROUP_CODE)));
                 queriedItem.setItem_units(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_UNITS)));
+                queriedItem.setItem_class(cur.getString(cur.getColumnIndex(DBaseHelper.CL_ITEMS_classification)));
                 itemsList.add(queriedItem);
             } while (cur.moveToNext());
         }
@@ -428,7 +500,7 @@ public class DBaseQuery {
         if (cur != null && cur.getCount() > 0) {
             cur.moveToFirst();
             do {
-                storeName = cur.getString(cur.getColumnIndex(DBaseHelper.CL_SET_STORENAME));
+                storeName = cur.getString(cur.getColumnIndex(DBaseHelper.CL_SET_UserName));
             } while ((cur.moveToNext()));
         }
 
@@ -495,7 +567,7 @@ public class DBaseQuery {
         String arranged = "";
         for (int i = 1; i < splitted.length; i++) {
             if (i == 1) {
-                arranged = getitemDescription(splitted[i].split(",")[0]) + " " + splitted[i].split(",")[1] + "" + splitted[i].split(",")[2];
+                arranged = arranged +  getitemDescription(splitted[i].split(",")[0]) + " " + splitted[i].split(",")[1] + "" + splitted[i].split(",")[2];
             } else {
                 arranged = arranged + ",\n" + getitemDescription(splitted[i].split(",")[0]) + " " + splitted[i].split(",")[1] + "" + splitted[i].split(",")[2];
                 ;
@@ -534,7 +606,7 @@ public class DBaseQuery {
     public int updateSettingsStoreName(String storeName) {
         ContentValues newValues = new ContentValues();
         String where = DBaseHelper.CL_SET_ID = "1";
-        newValues.put(DBaseHelper.CL_SET_STORENAME, storeName);
+        newValues.put(DBaseHelper.CL_SET_UserName, storeName);
 
         return db.update(DBaseHelper.TBL_SETTINGS, newValues, where, null);
     }

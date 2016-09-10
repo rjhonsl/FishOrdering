@@ -52,6 +52,7 @@ public class Activity_PickItem extends AppCompatActivity {
     String[] itemsArray;
     List<VarFishtaOrdering> itemList;
     boolean[] checkedItems;
+    String storeid;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,6 +66,9 @@ public class Activity_PickItem extends AppCompatActivity {
         db.open();
 //        String value =  db.getKeyVal("1");
 
+        if (getIntent().hasExtra("storeid")){
+            storeid = getIntent().getStringExtra("storeid");
+        }
 
 
 
@@ -92,8 +96,12 @@ public class Activity_PickItem extends AppCompatActivity {
         mBottomSheetBehavior.setPeekHeight(Helper.convert.dpToPixels(context, 35));
         mBottomSheetBehavior.setHideable(false);
 
+        itemList = db.getStoreItems(storeid);
+        if (itemList.size() < 1) {
+            db.getAllItems();
+            Helper.toast.long_(activity, "This customer has no assigned items...switching to default.");
+        }
 
-        itemList = db.getAllItems();
         final List<VarFishtaOrdering> favList = db.getTopTenFav();
 
         itemsArray = new String[itemList.size()];
@@ -165,6 +173,7 @@ public class Activity_PickItem extends AppCompatActivity {
 
                 final String units = itemList.get(i).getItem_units();
                 final String[] pax = units.split(",");
+//                Helper.dialogBox.okOnly(activity, "OK", "fave", "OK");
 
                 final Dialog d = Helper.dialogBox.numberAndPAXpicker(activity, favesArray[i], 1, 1000, pax);
                 Button btnOk = (Button) d.findViewById(R.id.btn_numberAndPaxPicekr_set);
@@ -183,9 +192,10 @@ public class Activity_PickItem extends AppCompatActivity {
                         returnIntent.putExtra("item",  favesArray[i]+"");
                         returnIntent.putExtra("pax", pax[pax1.getValue()]+"");
                         returnIntent.putExtra("units", units);
-                        returnIntent.putExtra("code", itemList.get(i).getItem_code()+"");
+                        returnIntent.putExtra("code", favList.get(i).getItem_code()+"");
                         d.dismiss();
                         setResult(Activity.RESULT_OK,returnIntent);
+
                         finish();
                     }
                 });
@@ -284,13 +294,12 @@ public class Activity_PickItem extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
 
-                final CharSequence[] group_name = {"Bangus","Cream Dorry", "Galunggong", "Pompano", "Pusit", "Salmon", "Tilapia", "Tanig", "Vanammei", "Supplies", "Storage", "Dried", "Frozen", "Fixtures & Furnitures", "Power Plant Equipment", "Various"};
-                final CharSequence[] group_Code = {"BANG","CREDOR", "GALUNG", "POM", "PUSIT", "SALM", "TIL", "TANIG", "VAN", "SUPP", "STOR", "DRIED", "FRO", "FF", "PPE", "VAR"};
+                final CharSequence[] classfications = {"BANGUS","FROZEN", "LIVE", "SPECIAL PRODUCTS", "SUPPLIES", "TILAPIA", "VARIOUS SEACATCH"};
                 final ArrayList seletedItems=new ArrayList();
 
                 AlertDialog dialog = new AlertDialog.Builder(context)
-                        .setTitle("CATEGORIES")
-                        .setMultiChoiceItems(group_name, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                        .setTitle("CLASSIFICATIONS")
+                        .setMultiChoiceItems(classfications, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int indexSelected, boolean isChecked) {
                                 if (isChecked) {
@@ -306,9 +315,9 @@ public class Activity_PickItem extends AppCompatActivity {
                                 for (int i = 0; i < seletedItems.size(); i++) {
 
                                     if (i < 1){
-                                        allitems = DBaseHelper.CL_ITEMS_GROUP_CODE + " ='" + group_Code[Integer.valueOf(seletedItems.get(i)+"")]+"' ";
+                                        allitems = DBaseHelper.CL_ITEMS_classification + " ='" + classfications[Integer.valueOf(seletedItems.get(i)+"")]+"' ";
                                     }else{
-                                        allitems = allitems + " OR "+ DBaseHelper.CL_ITEMS_GROUP_CODE + " ='" + group_Code[Integer.valueOf(seletedItems.get(i)+"")]+"' ";
+                                        allitems = allitems + " OR "+ DBaseHelper.CL_ITEMS_classification+ " ='" + classfications[Integer.valueOf(seletedItems.get(i)+"")]+"' ";
                                     }
 
                                 }

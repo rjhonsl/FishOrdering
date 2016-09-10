@@ -99,17 +99,25 @@ public class SendSMS  {
         PendingIntent piDelivered = PendingIntent.getBroadcast(context, 0, deliverIntent, 0);
 
         if (content.length() > 160){
-            Helper.toast.short_(activity, "Sending Multipart Message");
             ArrayList<String> parts = sms.divideMessage(content);
 
-            sms.sendMultipartTextMessage(number, content, parts, null, null );
+            ArrayList<String> messageParts = sms.divideMessage(content);
+            ArrayList<PendingIntent> piSents = new ArrayList<>(messageParts.size());
+            ArrayList<PendingIntent> piDelivers = new ArrayList<>(messageParts.size());
+            intMessageParts = messageParts.size();
+
+            for (int i = 0; i < messageParts.size(); i++) {
+                piSents.add(PendingIntent.getBroadcast(context, 0, sendIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+                piDelivers.add(PendingIntent.getBroadcast(context, 0, deliverIntent, 0));
+            }
+
+            sms.sendMultipartTextMessage(number, null, parts, piSents, null );
         }else{
             Helper.toast.short_(activity, "Sending Single Message");
             sms.sendTextMessage(number, null, content, piSent, piDelivered );
         }
 
     }
-
 
 
 //    private void sendLongSmsMessage4(Context context, final SmsMessageInfo messageInfo) {

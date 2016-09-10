@@ -9,6 +9,7 @@ public class VarFishtaOrdering extends Application {
 
 
     private String item_id;
+    private String item_class;
     private String item_code;
     private String item_description;
     private String item_oldcode;
@@ -43,8 +44,27 @@ public class VarFishtaOrdering extends Application {
     private String cust_name;
     private String cust_type;
     private String cust_isactive;
+    private String cust_AssignedStores;
 
+    private String usr_id;
+    private String usr_fname;
+    private String usr_lname;
+    private String usr_deviceid;
+    private String usr_devicename;
+    private String usr_isactive;
+    private String usr_username;
+    private String usr_password;
+    private String usr_assignedCust;
 
+    private String ds_skey;
+    private String ds_value;
+
+    private String ap_id;
+    private String ap_custidFk;
+    private String ap_prodsarray;
+
+    public VarFishtaOrdering() {
+    }
 
 
     /**
@@ -290,5 +310,133 @@ public class VarFishtaOrdering extends Application {
 
     public void setItem_isActive(String item_isActive) {
         this.item_isActive = item_isActive;
+    }
+
+    public String getUsr_id() {
+        return usr_id;
+    }
+
+    public void setUsr_id(String usr_id) {
+        this.usr_id = usr_id;
+    }
+
+    public String getUsr_fname() {
+        return usr_fname;
+    }
+
+    public void setUsr_fname(String usr_fname) {
+        this.usr_fname = usr_fname;
+    }
+
+    public String getUsr_deviceid() {
+        return usr_deviceid;
+    }
+
+    public void setUsr_deviceid(String usr_deviceid) {
+        this.usr_deviceid = usr_deviceid;
+    }
+
+    public String getUsr_lname() {
+        return usr_lname;
+    }
+
+    public void setUsr_lname(String usr_lname) {
+        this.usr_lname = usr_lname;
+    }
+
+    public String getUsr_devicename() {
+        return usr_devicename;
+    }
+
+    public void setUsr_devicename(String usr_devicename) {
+        this.usr_devicename = usr_devicename;
+    }
+
+    public String getUsr_isactive() {
+        return usr_isactive;
+    }
+
+    public void setUsr_isactive(String usr_isactive) {
+        this.usr_isactive = usr_isactive;
+    }
+
+    public String getUsr_username() {
+        return usr_username;
+    }
+
+    public void setUsr_username(String usr_username) {
+        this.usr_username = usr_username;
+    }
+
+    public String getUsr_password() {
+        return usr_password;
+    }
+
+    public void setUsr_password(String usr_password) {
+        this.usr_password = usr_password;
+    }
+
+    public String getUsr_assignedCust() {
+        return usr_assignedCust;
+    }
+
+    public void setUsr_assignedCust(String usr_assignedCust) {
+        this.usr_assignedCust = usr_assignedCust;
+    }
+
+    public String getAp_id() {
+        return ap_id;
+    }
+
+    public void setAp_id(String ap_id) {
+        this.ap_id = ap_id;
+    }
+
+    public String getAp_custidFk() {
+        return ap_custidFk;
+    }
+
+    public void setAp_custidFk(String ap_custidFk) {
+        this.ap_custidFk = ap_custidFk;
+    }
+
+    public String getAp_prodsarray() {
+        return ap_prodsarray;
+    }
+
+    public void setAp_prodsarray(String ap_prodsarray) {
+        this.ap_prodsarray = ap_prodsarray;
+    }
+
+    public String getCust_AssignedStores() {
+        return cust_AssignedStores;
+    }
+
+    public void setCust_assignedItems(String cust_AssignedStores) {
+        this.cust_AssignedStores = cust_AssignedStores;
+    }
+
+    public String getDs_skey() {
+        return ds_skey;
+    }
+
+    public void setDs_skey(String ds_skey) {
+        this.ds_skey = ds_skey;
+    }
+
+    public String getDs_value() {
+        return ds_value;
+    }
+
+    public void setDs_value(String ds_value) {
+        this.ds_value = ds_value;
+    }
+
+    public String getItem_class() {
+        return item_class;
+    }
+
+    public void setItem_class(String item_class) {
+        this.item_class = item_class;
     }
 }

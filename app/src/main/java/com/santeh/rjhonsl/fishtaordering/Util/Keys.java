@@ -11,4 +11,9 @@ public class Keys {
     public static String SETTINGS_kv_CATSEL     = "category_selection";
     public static String CUST_TYPE_OUTLET     = "OUTLET";
     public static String CUST_TYPE_DIRECT     = "DIRECT";
+
+    public static int SETTINGS_DEFAULT_SERVERNUM = 0;
+    public static int SETTINGS_DEFAULT_SUPPORTEMAIL = 1;
+
+
 }

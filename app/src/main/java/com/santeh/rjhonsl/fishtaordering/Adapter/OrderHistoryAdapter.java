@@ -39,15 +39,16 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
     DBaseQuery db;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtTimeSent, txtItems, txtIsSent;
+        public TextView txtTimeSent, txtItems, txtIsSent, txtStoreName;
         public ImageView btnResend;
         public LinearLayout llItems;
 
         public MyViewHolder(View view) {
             super(view);
-            txtTimeSent = (TextView) view.findViewById(R.id.txtTimeSent);
+            txtTimeSent = (TextView) view.findViewById(R.id.txtcurrentTime);
             txtIsSent = (TextView) view.findViewById(R.id.txtIsFailed);
             txtItems = (TextView) view.findViewById(R.id.txtItem);
+            txtStoreName = (TextView) view.findViewById(R.id.txtStoreName);
             btnResend = (ImageView) view.findViewById(R.id.btnResend);
 
             llItems = (LinearLayout) view.findViewById(R.id.ll_items);
@@ -63,7 +64,6 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
         db.open();
 
         Log.d("BINDVIEW", "Static Main" + sentHistoryList.size());
-
     }
 
     @Override
@@ -83,15 +83,16 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
             holder.txtIsSent.setVisibility(View.GONE);
         }
 
-        Log.d("BINDVIEW", "ORDER HISTORY" + sentHistoryList.size());
+//        Log.d("BINDVIEW", "ORDER HISTORY" + sentHistoryList.size());
 
         pd = new ProgressDialog(context1);
         pd.setMessage("Resending order please wait...");
-        Log.d("BINDVIEW", "AFTER PD" + sentHistoryList.size());
+//        Log.d("BINDVIEW", "AFTER PD" + sentHistoryList.size());
 
+        holder.txtStoreName.setText(db.getStoreName( sentHistoryList.get(position).getHst_message().split(";")[0]) );
         holder.txtItems.setText(db.rearrangeItems(sentHistoryList.get(position).getHst_message()));
         holder.txtTimeSent.setText(timeSent);
-        Log.d("BINDVIEW", "AFTER TIME SENT" + sentHistoryList.size());
+//        Log.d("BINDVIEW", "AFTER TIME SENT" + sentHistoryList.size());
 //        holder.txtIsSent.setText(sentHistoryList.get(position).getHst_isSent());
 
         holder.btnResend.setOnClickListener(new View.OnClickListener() {

@@ -17,7 +17,7 @@ import java.util.List;
 public class DBaseHelper extends SQLiteOpenHelper{
 
     private static String DATABASE_NAME = "fishta_ordering.db";
-    private static int DATABASE_VERSION = 6;
+    private static int DATABASE_VERSION = 9;
     private static String LOGTAG = "DB_FishtaOrdering";
 
     public static String DATE = "DATE", TEXT = "TEXT", INTEGER = "INTEGER", DOUBLE = "DOUBLE", DATETIME = "DATETIME",
@@ -32,8 +32,9 @@ public class DBaseHelper extends SQLiteOpenHelper{
     public static String CL_ITEMS_GROUP_CODE    = "itm_oldcode";
     public static String CL_ITEMS_UNITS         = "itm_units";
     public static String CL_ITEMS_isActive      = "itm_isactive";
-    public static final String[] ALL_KEY_ITEMS      = new String[]{CL_ITEMS_ID, CL_ITEMS_CODE, CL_ITEMS_DESCRIPTION, CL_ITEMS_GROUP_CODE, CL_ITEMS_UNITS, CL_ITEMS_isActive};
-    public static final String[] ALL_DATATYPE_ITEMS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT, TEXT};
+    public static String CL_ITEMS_classification= "itm_class";
+    public static final String[] ALL_KEY_ITEMS      = new String[]{CL_ITEMS_ID, CL_ITEMS_CODE, CL_ITEMS_DESCRIPTION, CL_ITEMS_GROUP_CODE, CL_ITEMS_UNITS, CL_ITEMS_isActive, CL_ITEMS_classification};
+    public static final String[] ALL_DATATYPE_ITEMS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT};
 
 
 
@@ -55,9 +56,9 @@ public class DBaseHelper extends SQLiteOpenHelper{
     public static String CL_SET_ID = "set_id";
     public static String CL_SET_SERVERNUM   = "set_servernum";
     public static String CL_SET_INCRECOUNT  = "set_increcount";
-    public static String CL_SET_STORENAME   = "set_storeName";
+    public static String CL_SET_UserName = "set_storeName";
     public static String CL_SET_PIN         = "set_pin";
-    public static final String[] ALL_KEY_SETTINGS = new String[]{CL_SET_ID, CL_SET_SERVERNUM, CL_SET_INCRECOUNT, CL_SET_STORENAME, CL_SET_PIN};
+    public static final String[] ALL_KEY_SETTINGS = new String[]{CL_SET_ID, CL_SET_SERVERNUM, CL_SET_INCRECOUNT, CL_SET_UserName, CL_SET_PIN};
     public static final String[] ALL_DATATYPE_SETTINGS = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT};
 
     ///TBL for ITEMS ORDERED
@@ -86,8 +87,9 @@ public class DBaseHelper extends SQLiteOpenHelper{
     public static String CL_CUST_NAME       = "cust_name";
     public static String CL_CUST_TYPE       = "cust_type";
     public static String CL_CUST_isActive   = "cust_isactive";
-    public static final String[] ALL_KEY_CUST = new String[]{CL_CUST_ID, CL_CUST_CODE, CL_CUST_NAME ,CL_CUST_TYPE, CL_CUST_isActive};
-    public static final String[] ALL_DATATYPE_CUST = new String[]{ROWID_AUTOINCRE, TEXT, TEXT , TEXT, TEXT};
+    public static String CL_CUST_assignedItems   = "cust_assigneditems";
+    public static final String[] ALL_KEY_CUST = new String[]{CL_CUST_ID, CL_CUST_CODE, CL_CUST_NAME ,CL_CUST_TYPE, CL_CUST_isActive, CL_CUST_assignedItems};
+    public static final String[] ALL_DATATYPE_CUST = new String[]{ROWID_AUTOINCRE, TEXT, TEXT , TEXT, TEXT, TEXT};
 
 
     //connects db
@@ -142,6 +144,22 @@ public class DBaseHelper extends SQLiteOpenHelper{
 
             ContentValues values = new ContentValues();
             values.put(DBaseHelper.CL_ITEMS_isActive, "1");
+            db.update(TBL_ITEMS, values, null, null );
+        }
+
+        if (oldVersion< 7){
+            db.execSQL("ALTER TABLE "+TBL_CUST+" ADD COLUMN "+CL_CUST_assignedItems+" "+TEXT+"");
+
+            ContentValues values = new ContentValues();
+            values.put(DBaseHelper.CL_CUST_assignedItems, "");
+            db.update(TBL_CUST, values, null, null );
+        }
+
+        if (oldVersion< 8){
+            db.execSQL("ALTER TABLE "+TBL_ITEMS+" ADD COLUMN "+CL_ITEMS_classification+" "+TEXT+"");
+
+            ContentValues values = new ContentValues();
+            values.put(DBaseHelper.CL_ITEMS_classification, "");
             db.update(TBL_ITEMS, values, null, null );
         }
 //        Log.d("DB", "tables updated");
