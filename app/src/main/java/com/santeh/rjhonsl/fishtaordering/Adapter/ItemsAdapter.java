@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Handler;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -37,14 +38,14 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.MyViewHolder
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView txtItem, txtQuantity;
         public ImageButton btnremove;
-        public LinearLayout llitems;
+        public CardView llitems;
 
         public MyViewHolder(View view) {
             super(view);
             txtItem = (TextView) view.findViewById(R.id.txtItem);
             txtQuantity = (TextView) view.findViewById(R.id.txtQuantity);
             btnremove = (ImageButton) view.findViewById(R.id.btnRemove);
-            llitems = (LinearLayout) view.findViewById(R.id.ll_items);
+            llitems = (CardView) view.findViewById(R.id.ll_items);
 
         }
     }
@@ -83,7 +84,6 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.MyViewHolder
                 PopupMenu popup = new PopupMenu(context1, holder.txtQuantity);
 //                if (newsFeedsObj.getCurrentUserID().equalsIgnoreCase())
                 popup.getMenuInflater().inflate(R.menu.contextmenu_items, popup.getMenu());
-
                 popup.setGravity(Gravity.RIGHT);
                 //registering popup with OnMenuItemClickListener
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -94,7 +94,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.MyViewHolder
                             String units = itemList.get(position).getItem_units();
                             final String[] pax = units.split(",");
 
-                            final Dialog d = Helper.dialogBox.numberAndPAXpicker(activity1, itemList.get(position).getOrder_description(), 1, 1000,pax );
+                            final Dialog d = Helper.dialogBox.numberAndPAXpicker(activity1, itemList.get(position).getOrder_description(), 1, 1000, pax );
                             Button btnOk = (Button) d.findViewById(R.id.btn_numberAndPaxPicekr_set);
                             final NumberPicker value = (NumberPicker) d.findViewById(R.id.dialog_numandpax_value);
                             final NumberPicker pax1 = (NumberPicker) d.findViewById(R.id.dialog_numandpax_pax);
@@ -102,8 +102,6 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.MyViewHolder
                             pax1.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
                             value.clearFocus();
                             pax1.clearFocus();
-
-
 
                             btnOk.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -121,7 +119,6 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.MyViewHolder
                     }
                 });
                 popup.show();
-
                 return false;
             }
         });

@@ -19,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -468,6 +469,7 @@ public class Activity_Settings extends AppCompatActivity {
                                 VarFishtaOrdering userDetail =  Parser.parseFeed(response,context).get(0);
 
                                 assignedCustomers = userDetail.getUsr_assignedCust();
+                                Log.d("ASSIGNED CUSTOMERS", assignedCustomers);
                                 wholeName = userDetail.getUsr_fname() + " " + userDetail.getUsr_lname();
                                 getStoresAssigned(assignedCustomers);
 
@@ -505,6 +507,9 @@ public class Activity_Settings extends AppCompatActivity {
         pd.setProgress(100/3);
         pd.show();
 
+        Log.d("ASSIGNED", assignedCustomers);
+
+
         StringRequest postRequest = new StringRequest(Request.Method.POST,
                 Helper.variables.getStoresByArrayID+"?" +
                         "username="+username+"&" +
@@ -514,6 +519,7 @@ public class Activity_Settings extends AppCompatActivity {
                     @Override
                     public void onResponse(final String response) {
 
+                        Log.d("ASSIGNED RESP", response);
                         List<VarFishtaOrdering> custlist = Parser.parseFeed(response, context);
                         if (custlist!=null){
                             if (custlist.size()> 0){

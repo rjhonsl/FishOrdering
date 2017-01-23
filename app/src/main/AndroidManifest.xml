@@ -19,6 +19,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".Util.VolleyAPI"
         android:icon="@drawable/photo"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -61,6 +62,16 @@
         <activity android:name=".Main.Activity_Welcome"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                   android:label="Select Fish">
+        </activity>
+
+        <activity android:name=".Main.Activity_ConfirmedOrders"
+                  android:theme="@style/CustomActionBarTheme"
+                  android:label="Confirmed Orders">
+        </activity>
+
+        <activity android:name=".Main.Activity_DeliveryConfirmation"
+            android:theme="@style/CustomActionBarTheme"
+            android:label="Delivery Confirmation">
         </activity>
 
         <activity android:name=".Main.Activity_SetupSuccess"

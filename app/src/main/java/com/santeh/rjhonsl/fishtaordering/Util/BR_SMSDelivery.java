@@ -8,6 +8,7 @@ import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.santeh.rjhonsl.fishtaordering.Main.Activity_DeliveryConfirmation;
 import com.santeh.rjhonsl.fishtaordering.Main.Activity_OrderHistory;
 import com.santeh.rjhonsl.fishtaordering.Main.MainActivity;
 
@@ -105,7 +106,7 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 
 				}
 
-			}else if (type.equalsIgnoreCase(SendSMS.MESSAGE_TYPE_RESEND)){
+			}else if (type.equalsIgnoreCase(SendSMS.MESSAGE_TYPE_RESEND)) {
 
 				if (isSent.equalsIgnoreCase("0")){
 					Toast.makeText(context, "Rending Failed. Please try again", Toast.LENGTH_LONG).show();
@@ -120,6 +121,26 @@ public class BR_SMSDelivery extends BroadcastReceiver {
 				db.updateSentHistory(hstid, number, content, timesend, "0", isSent, "0");
 				if (Activity_OrderHistory.isActive) {
 					Intent refresh = new Intent(context, Activity_OrderHistory.class);
+					refresh.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+					context.startActivity(refresh);
+				}
+
+			} else if (type.equalsIgnoreCase(SendSMS.MESSAGE_TYPE_SEND_DELIVERY_CONFIRMATION)){
+
+				if (isSent.equalsIgnoreCase("0")){
+					Toast.makeText(context, "SENDING FAILED. Please try again", Toast.LENGTH_LONG).show();
+				}else {
+					Toast.makeText(context, "Delivery Confirmation Successful", Toast.LENGTH_LONG).show();
+				}
+
+				String drnumber = intent.getStringExtra("drnumber");
+				String allitems = intent.getStringExtra("allitems");
+
+
+				db.updateDRSentItems(drnumber, content, allitems);
+
+				if (Activity_DeliveryConfirmation.isActive) {
+					Intent refresh = new Intent(context, Activity_DeliveryConfirmation.class);
 					refresh.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
 					context.startActivity(refresh);
 				}

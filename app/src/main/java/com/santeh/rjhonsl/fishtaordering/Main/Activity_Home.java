@@ -27,7 +27,8 @@ public class Activity_Home extends AppCompatActivity {
     Button btnConvert;
     EditText edtToConvert, edtConverted, edtBinary;
 
-    private TextView btnSendOrder, btnOrdHistory, btnSettings;
+    TextView btnSendOrder, btnOrdHistory, btnSettings, btnOrderConfirmation, btnDeliveryConfirmation;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,8 @@ public class Activity_Home extends AppCompatActivity {
         btnSendOrder = (TextView) findViewById(R.id.btnSendOrder);
         btnOrdHistory = (TextView) findViewById(R.id.btnOrderHistory);
         btnSettings = (TextView) findViewById(R.id.btnSettings);
+        btnDeliveryConfirmation  = (TextView) findViewById(R.id.btnDeliveryConfirmation);
+        btnOrderConfirmation = (TextView) findViewById(R.id.btnOrderConfirmation);
 
         edtToConvert = (EditText) findViewById(R.id.edtToConvert);
         edtBinary = (EditText) findViewById(R.id.edtBinary);
@@ -84,6 +87,13 @@ public class Activity_Home extends AppCompatActivity {
             }
         });
 
+        btnDeliveryConfirmation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, Activity_DeliveryConfirmation.class);
+                startActivity(intent);
+            }
+        });
 
         btnOrdHistory.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +107,14 @@ public class Activity_Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, Activity_Settings.class);
+                startActivity(intent);
+            }
+        });
+
+        btnOrderConfirmation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, Activity_ConfirmedOrders.class);
                 startActivity(intent);
             }
         });

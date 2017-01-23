@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -298,6 +299,8 @@ public class Activity_Welcome extends AppCompatActivity {
                                     serverNumber = itemsList.get(Keys.SETTINGS_DEFAULT_SERVERNUM).getDs_value();
 
 //                                    Helper.toast.indefinite(activity, response + " " + serverNumber + " " + wholeName + " " + assignedCustomers + " ");
+
+                                    Log.d("ASSIGNED CUSTOMERS", assignedCustomers);
 
                                     db.insertKeyValSettings(Keys.SETTINGS_STOREIDS, assignedCustomers);
                                     db.insertSettings(

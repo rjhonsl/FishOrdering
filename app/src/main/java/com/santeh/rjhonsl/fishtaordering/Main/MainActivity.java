@@ -39,6 +39,7 @@ import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.FadeInRightAnimator;
 
+import static com.santeh.rjhonsl.fishtaordering.R.id.all;
 import static com.santeh.rjhonsl.fishtaordering.R.id.btnSend;
 import static com.santeh.rjhonsl.fishtaordering.R.id.btnSendOrder;
 
@@ -181,14 +182,24 @@ public class MainActivity extends AppCompatActivity {
                         window.setAttributes(lp);
                         d.show();
 
-                        String formattedOrder = selectedStoreID+";";
+
+                        String start =  "#OF-"+selectedStoreID+"-";
+                        String formattedOrder = start + "0;";
+                        final List<String> batchedOrderslist = new ArrayList<String>();
+                        int batchCounter = 0;
                         for (int i = 0; i <orderList.size() ; i++) {
                             if (i==0){
-                                formattedOrder = formattedOrder + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
+                                formattedOrder = formattedOrder + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
                             }else{
-                                formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
+                                String tester =  formattedOrder + ";" + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
+                                if (tester.length()>160){
+                                    batchCounter++;
+                                    batchedOrderslist.add(formattedOrder);
+                                    formattedOrder = start + "" + batchCounter+";";
+                                }else{
+                                    formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
+                                }
                             }
-
                         }
 
                         TextView txtstore = (TextView) d.findViewById(R.id.txtStoreName);
@@ -212,9 +223,18 @@ public class MainActivity extends AppCompatActivity {
                                 yes.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        ddd.dismiss();
-                                        d.dismiss();
-                                        SendSMS.sendOrder(activity, context, db.getServerNum(), finalFormattedOrder);
+
+                                        if (batchedOrderslist.size() > 0){
+                                            String allOrders = "";
+                                            for (int i = 0; i < batchedOrderslist.size(); i++) {
+                                                allOrders = allOrders + batchedOrderslist.get(i) + "\n\n";
+                                            }
+                                            Helper.dialogBox.okOnly_Scrolling(activity, "Items", allOrders, "OK", R.color.amber_300).show();
+                                        }
+
+//                                        ddd.dismiss();
+//                                        d.dismiss();
+//                                        SendSMS.sendOrder(activity, context, db.getServerNum(), finalFormattedOrder);
                                     }
                                 });
 

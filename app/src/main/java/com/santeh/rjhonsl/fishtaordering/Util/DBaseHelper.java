@@ -17,7 +17,7 @@ import java.util.List;
 public class DBaseHelper extends SQLiteOpenHelper{
 
     private static String DATABASE_NAME = "fishta_ordering.db";
-    private static int DATABASE_VERSION = 9;
+    private static int DATABASE_VERSION = 15;
     private static String LOGTAG = "DB_FishtaOrdering";
 
     public static String DATE = "DATE", TEXT = "TEXT", INTEGER = "INTEGER", DOUBLE = "DOUBLE", DATETIME = "DATETIME",
@@ -92,6 +92,9 @@ public class DBaseHelper extends SQLiteOpenHelper{
     public static final String[] ALL_DATATYPE_CUST = new String[]{ROWID_AUTOINCRE, TEXT, TEXT , TEXT, TEXT, TEXT};
 
 
+
+
+
     //connects db
     public DBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -111,6 +114,8 @@ public class DBaseHelper extends SQLiteOpenHelper{
         db.execSQL(createTableString(TBL_ORDEREDITEMS, ALL_KEY_ORDERED_ITEMS, ALL_DATATYPE_ORDERED_ITEMS));
         db.execSQL(createTableString(TBL_SETINGS_KEYVAL_PAIR, ALL_KEY_KV, ALL_DATATYPE_KV));
         db.execSQL(createTableString(TBL_CUST, ALL_KEY_CUST, ALL_DATATYPE_CUST));
+        db.execSQL(createTableString(DBConstants.OrderConfirmation.tableName, DBConstants.OrderConfirmation.ALL_KEYS, DBConstants.OrderConfirmation.ALL_DATATYPE));
+        db.execSQL(createTableString(DBConstants.DeliveryConfirmation.tableName, DBConstants.DeliveryConfirmation.ALL_KEYS, DBConstants.DeliveryConfirmation.ALL_DATATYPE));
     }
 
     /**
@@ -162,13 +167,32 @@ public class DBaseHelper extends SQLiteOpenHelper{
             values.put(DBaseHelper.CL_ITEMS_classification, "");
             db.update(TBL_ITEMS, values, null, null );
         }
+
+        if (oldVersion< 10){
+            db.execSQL(createTableString(DBConstants.OrderConfirmation.tableName, DBConstants.OrderConfirmation.ALL_KEYS, DBConstants.OrderConfirmation.ALL_DATATYPE));
+        }
+
+        if (oldVersion< 12){
+            db.execSQL(createTableString(DBConstants.DeliveryConfirmation.tableName, DBConstants.DeliveryConfirmation.ALL_KEYS, DBConstants.DeliveryConfirmation.ALL_DATATYPE));
+        }
+
+
+        if (oldVersion< 14){
+            db.execSQL("ALTER TABLE "+DBConstants.OrderConfirmation.tableName+" ADD COLUMN "+DBConstants.OrderConfirmation.items+" "+TEXT+"");
+        }
+
+        if (oldVersion< 15){
+            db.execSQL("ALTER TABLE "+DBConstants.DeliveryConfirmation.tableName+" ADD COLUMN "+DBConstants.DeliveryConfirmation.item_batchNumber+" "+TEXT+"");
+
+        }
+
+
 //        Log.d("DB", "tables updated");
 //        //step3 - list existing columns
 //        List<String> oldItem = GetColumns(db, TBL_ITEMS);
 //        List<String> oldSentHistory = GetColumns(db, TBL_SENTHISTORY);
 //        List<String> oldSettings = GetColumns(db, TBL_SETTINGS);
 //        List<String> oldOrderedItems = GetColumns(db, TBL_ORDEREDITEMS);
-
 
         //step4 - backup table
         

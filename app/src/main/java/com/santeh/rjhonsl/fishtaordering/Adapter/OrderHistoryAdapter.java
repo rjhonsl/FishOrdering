@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -41,7 +42,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView txtTimeSent, txtItems, txtIsSent, txtStoreName;
         public ImageView btnResend;
-        public LinearLayout llItems;
+        public FrameLayout llItems;
 
         public MyViewHolder(View view) {
             super(view);
@@ -51,7 +52,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
             txtStoreName = (TextView) view.findViewById(R.id.txtStoreName);
             btnResend = (ImageView) view.findViewById(R.id.btnResend);
 
-            llItems = (LinearLayout) view.findViewById(R.id.ll_items);
+            llItems = (FrameLayout) view.findViewById(R.id.ll_items);
         }
     }
 
@@ -83,17 +84,14 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
             holder.txtIsSent.setVisibility(View.GONE);
         }
 
-//        Log.d("BINDVIEW", "ORDER HISTORY" + sentHistoryList.size());
 
         pd = new ProgressDialog(context1);
         pd.setMessage("Resending order please wait...");
-//        Log.d("BINDVIEW", "AFTER PD" + sentHistoryList.size());
-
-        holder.txtStoreName.setText(db.getStoreName( sentHistoryList.get(position).getHst_message().split(";")[0]) );
+        String mainInfo = sentHistoryList.get(position).getHst_message().split(";")[0];
+        String storeid = mainInfo.split("-")[1];
+        holder.txtStoreName.setText(db.getStoreName(storeid));
         holder.txtItems.setText(db.rearrangeItems(sentHistoryList.get(position).getHst_message()));
         holder.txtTimeSent.setText(timeSent);
-//        Log.d("BINDVIEW", "AFTER TIME SENT" + sentHistoryList.size());
-//        holder.txtIsSent.setText(sentHistoryList.get(position).getHst_isSent());
 
         holder.btnResend.setOnClickListener(new View.OnClickListener() {
             @Override

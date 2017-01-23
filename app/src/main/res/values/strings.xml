@@ -11,6 +11,27 @@
     <string name="puregold_baliwag">Juan Sapangbato</string>
     <string name="device_settings">DEVICE SETTINGS</string>
     <string name="noitems">Good! Everything is clean here!</string>
+    <string name="samle_item">
+        Bangus 20PCs, \n
+        Asuhos 20KGs, \n
+        Bangus 20PCs, \n
+        Asuhos 20KGs, \n
+        Bangus 20PCs, \n
+        Asuhos 20KGs,\n
+        Bangus 20PCs, \n
+        Asuhos 20KGs, \n
+        Bangus 20PCs, \n
+        Asuhos 20KGs, \n
+        Bangus 20PCs, \n
+        Asuhos 20KGs,\n
+        Bangus 20PCs, \n
+        Asuhos 20KGs, \n
+        Bangus 20PCs, \n
+        Asuhos 20KGs, \n
+        Bangus 20PCs, \n
+        Asuhos 20KGs,\n
+        Bangus 20PCs, \n
+        Asuhos 20KGs</string>
 
     <string-array name="sampleItems">
         <item>Bangus | 20KGs</item>
