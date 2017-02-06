@@ -18,6 +18,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.OpenableColumns;
 import android.support.design.widget.Snackbar;
 import android.telephony.TelephonyManager;
@@ -665,6 +666,13 @@ public class Helper {
     }
 
     public static class random{
+
+
+
+        public static void delayedTask(Runnable runnableTask, long delayInMillis){
+            Handler handler = new Handler();
+            handler.postDelayed(runnableTask, delayInMillis);
+        }
 
 
         public static boolean createFolderToExternal(String folderName, Activity activity){

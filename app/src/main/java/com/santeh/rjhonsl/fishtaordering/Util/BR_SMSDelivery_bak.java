@@ -14,7 +14,7 @@ import com.santeh.rjhonsl.fishtaordering.Main.MainActivity;
 
 import java.util.List;
 
-public class BR_SMSDelivery extends BroadcastReceiver {
+public class BR_SMSDelivery_bak extends BroadcastReceiver {
 
 	private final String DEBUG_TAG = getClass().getSimpleName();
 	private static final String ACTION_SMS_SENT = SendSMS.ACTION_SENDORDER;

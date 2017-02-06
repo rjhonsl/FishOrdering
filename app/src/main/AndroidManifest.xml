@@ -34,63 +34,86 @@
         </activity>
 
         <activity android:name=".Main.Activity_PickItem"
+            android:screenOrientation="portrait"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                     android:label="Select Item">
         </activity>
 
 
         <activity android:name=".Main.Activity_OrderHistory"
+            android:screenOrientation="portrait"
                   android:theme="@style/CustomActionBarTheme"
                   android:label="Order History">
         </activity>
 
         <activity android:name=".Main.Activity_Settings"
+                android:screenOrientation="portrait"
                   android:theme="@style/CustomActionBarTheme"
                   android:label="Settings">
         </activity>
 
         <activity android:name=".Main.Activity_Wiz_SetServerNum"
+            android:screenOrientation="portrait"
                   android:theme="@style/CustomActionBarTheme"
                   android:label="Set Server Number">
         </activity>
 
         <activity android:name=".Main.Activity_Wiz_UserName"
+            android:screenOrientation="portrait"
                   android:theme="@style/CustomActionBarTheme"
                   android:label="Set Store Name">
         </activity>
 
         <activity android:name=".Main.Activity_Welcome"
+            android:screenOrientation="portrait"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                   android:label="Select Fish">
         </activity>
 
         <activity android:name=".Main.Activity_ConfirmedOrders"
+            android:screenOrientation="portrait"
                   android:theme="@style/CustomActionBarTheme"
                   android:label="Confirmed Orders">
         </activity>
 
         <activity android:name=".Main.Activity_DeliveryConfirmation"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme"
             android:label="Delivery Confirmation">
         </activity>
 
         <activity android:name=".Main.Activity_SetupSuccess"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-                  android:label="Sucess">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"
+            android:label="Success">
+        </activity>
+
+        <activity android:name=".Main.Activity_BackLoad_BadOrder"
+            android:screenOrientation="portrait"
+            android:label="Back Load/Bad Order">
+        </activity>
+
+        <activity android:name=".Main.Activity_Create_BackLoad_BadOrder"
+            android:screenOrientation="portrait"
+            android:label="New BO/BL/AI">
         </activity>
 
         <activity android:name=".Main.Activity_Wiz_Stores"
+            android:screenOrientation="portrait"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                   android:label="Select Stores">
         </activity>
 
         <activity android:name=".Main.Activity_Home"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-                    android:label="Fishta SMS Ordering">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:label="Fishta SMS Ordering">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
 
 

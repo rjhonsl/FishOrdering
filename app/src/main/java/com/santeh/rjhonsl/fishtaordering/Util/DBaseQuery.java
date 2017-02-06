@@ -959,6 +959,7 @@ public class DBaseQuery {
         return arranged;
     }
 
+
     public String rearrangeBatchItems(String raw) {
 
         String[] splitted = raw.split(";");

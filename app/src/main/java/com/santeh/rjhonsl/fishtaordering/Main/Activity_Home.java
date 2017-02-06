@@ -45,6 +45,7 @@ public class Activity_Home extends AppCompatActivity {
         btnSettings = (TextView) findViewById(R.id.btnSettings);
         btnDeliveryConfirmation  = (TextView) findViewById(R.id.btnDeliveryConfirmation);
         btnOrderConfirmation = (TextView) findViewById(R.id.btnOrderConfirmation);
+        TextView btnBackLoad = (TextView) findViewById(R.id.btnBLBO);
 
         edtToConvert = (EditText) findViewById(R.id.edtToConvert);
         edtBinary = (EditText) findViewById(R.id.edtBinary);
@@ -83,6 +84,14 @@ public class Activity_Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnBackLoad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, Activity_BackLoad_BadOrder.class);
                 startActivity(intent);
             }
         });

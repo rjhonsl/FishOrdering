@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/gray_100"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_horizontal"
+              android:weightSum="1">
+
+    <LinearLayout
+        android:visibility="gone"
+        android:backgroundTint="@color/orange_fishta"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_gravity="left"
+        android:gravity="center_vertical"
+        android:background="@color/gray_400"
+        android:elevation="3dp"
+        >
+        <TextView
+            android:layout_weight="1"
+            android:paddingLeft="24dp"
+            android:gravity="center_vertical|left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/gray_900"
+            android:text="BAD ORDER"
+            android:id="@+id/dialog_okonly_title"
+            />
+
+        <ImageButton
+            android:background="@drawable/bg_material_transparent_darker_pressed"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:tint="@color/gray_800"
+            android:id="@+id/btnClose"
+            android:src="@android:drawable/arrow_down_float"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:textSize="15sp"
+            android:textColor="@color/bluegrey_700"
+            android:text="JAN 02, 2017"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:background="@color/gray_100"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/txtCreateType"
+            android:drawableTint="@color/gray_700"
+            android:drawableRight="@android:drawable/arrow_down_float"
+            android:gravity="center"
+            android:padding="8dp"
+            android:layout_weight="1"
+            android:textColor="@color/bluegrey_700"
+            android:textSize="15sp"
+            android:text="BAD ORDER"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <View
+        android:background="@color/orange_300"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="ITEM  "
+                android:textColor="@color/gray_800"
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:padding="5dp"
+                android:text="EXPECTED"
+                android:textColor="@color/gray_800"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="ACTUAL"
+                android:textColor="@color/gray_800"
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="UNIT"
+                android:textColor="@color/gray_800"
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:background="@color/orange_300"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_weight="1"
+        android:id="@+id/rv_drContents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+
+    <View
+        android:background="@color/gray_800"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp" />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnAdditem"
+            android:background="@drawable/bg_white_darkpressed"
+            android:text="ADD ITEM"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="36dp" />
+        <Button
+            android:id="@+id/btnSendDRConfirmation"
+            android:background="@drawable/bg_white_darkpressed"
+            android:text="SEND BO/BL/AI"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="36dp" />
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

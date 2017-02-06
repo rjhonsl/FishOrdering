@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -183,37 +184,57 @@ public class MainActivity extends AppCompatActivity {
                         d.show();
 
 
-                        String start =  "#OF-"+selectedStoreID+"-";
-                        String formattedOrder = start + "0;";
+                        String start =  "#OF-"+selectedStoreID+"";
+                        String formattedOrder = start + ";";
+                        String fullformatted = "";
                         final List<String> batchedOrderslist = new ArrayList<String>();
                         int batchCounter = 0;
                         for (int i = 0; i <orderList.size() ; i++) {
+//                            Log.d("BATCHING", "start: "+formattedOrder.length()+"");
                             if (i==0){
                                 formattedOrder = formattedOrder + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
+                                fullformatted = formattedOrder;
                             }else{
                                 String tester =  formattedOrder + ";" + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
                                 if (tester.length()>160){
+//                                    Log.d("BATCHING", "greater than: "+formattedOrder.length()+"");
                                     batchCounter++;
                                     batchedOrderslist.add(formattedOrder);
                                     formattedOrder = start + "" + batchCounter+";";
                                 }else{
                                     formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
+                                    if (i==orderList.size()-1){
+                                        batchedOrderslist.add(formattedOrder);
+                                    }
+//                                    Log.d("BATCHING", "less than: "+formattedOrder.length()+"");
                                 }
+                                fullformatted = fullformatted  + ";" + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
                             }
                         }
+
+
+                        if (batchedOrderslist.size() > 0){
+                            String allOrders = "";
+                            for (int i = 0; i < batchedOrderslist.size(); i++) {
+                                allOrders = allOrders + batchedOrderslist.get(i) + "\n||\n";
+                            }
+//                            Helper.dialogBox.okOnly_Scrolling(activity, "Items", allOrders, "OK", R.color.amber_300).show();
+                        }
+
 
                         TextView txtstore = (TextView) d.findViewById(R.id.txtStoreName);
                         TextView txtCurrent = (TextView) d.findViewById(R.id.txtcurrentTime);
                         TextView txtItems = (TextView) d.findViewById(R.id.txtItem);
                         TextView txtClose = (TextView) d.findViewById(R.id.txtCloseDialog);
                         ImageView imgButton = (ImageView) d.findViewById(R.id.btnFinalSend);
-                        txtItems.setText(db.rearrangeItems(formattedOrder));
+                        txtItems.setText(db.rearrangeItems(fullformatted));
 
                         txtstore.setText(selectedStoreName);
                         txtCurrent.setText(Helper.convert.LongToDateTime_Gregorian(System.currentTimeMillis()));
 
 
-                        final String finalFormattedOrder = formattedOrder;
+//                        final String finalFormattedOrder = formattedOrder;
+                        final String finalFormattedOrder = fullformatted;
                         imgButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -229,12 +250,13 @@ public class MainActivity extends AppCompatActivity {
                                             for (int i = 0; i < batchedOrderslist.size(); i++) {
                                                 allOrders = allOrders + batchedOrderslist.get(i) + "\n\n";
                                             }
-                                            Helper.dialogBox.okOnly_Scrolling(activity, "Items", allOrders, "OK", R.color.amber_300).show();
+//                                            Helper.dialogBox.okOnly_Scrolling(activity, "Items", finalFormattedOrder, "OK", R.color.amber_300).show();
+                                            Log.d("AllOrders", finalFormattedOrder);
                                         }
 
-//                                        ddd.dismiss();
-//                                        d.dismiss();
-//                                        SendSMS.sendOrder(activity, context, db.getServerNum(), finalFormattedOrder);
+                                        ddd.dismiss();
+                                        d.dismiss();
+                                        SendSMS.sendOrder(activity, context, db.getServerNum(), finalFormattedOrder);
                                     }
                                 });
 
@@ -375,6 +397,13 @@ public class MainActivity extends AppCompatActivity {
 //        itemsViewAdapter.notifyDataSetChanged();
         itemsViewAdapter.notifyItemInserted(orderList.size());
         itemsViewAdapter.notifyItemRangeInserted(orderList.size(), orderList.size());
+
+        Helper.random.delayedTask(new Runnable() {
+            @Override
+            public void run() {
+                rvItems.smoothScrollToPosition(orderList.size());
+            }
+        }, 250);
     }
 
 

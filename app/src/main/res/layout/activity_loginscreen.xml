@@ -97,6 +97,8 @@
 
                 </android.support.v7.widget.CardView>
 
+
+
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardBackgroundColor="@color/deepOrange_75"
@@ -111,6 +113,46 @@
                         android:gravity="center"
                         android:text="DELIVERY CONFIRMATIONS"
                         android:id="@+id/btnDeliveryConfirmation"
+                        />
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+                <android.support.v7.widget.CardView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/deepOrange_75"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="0dp">
+
+                    <TextView android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/deepOrange_900"
+                        android:background="@drawable/bg_material_transparent_darker_pressed"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:text="REPROCESS"
+                        android:id="@+id/btnReprocess"
+                        />
+
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/deepOrange_75"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="0dp">
+
+                    <TextView android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/deepOrange_900"
+                        android:background="@drawable/bg_material_transparent_darker_pressed"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:text="BACK LOAD / BAD ORDER /\nACTUAL INVENTORY"
+                        android:id="@+id/btnBLBO"
                         />
 
                 </android.support.v7.widget.CardView>

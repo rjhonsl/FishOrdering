@@ -82,7 +82,6 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.MyViewHolder
             public boolean onLongClick(View v) {
 
                 PopupMenu popup = new PopupMenu(context1, holder.txtQuantity);
-//                if (newsFeedsObj.getCurrentUserID().equalsIgnoreCase())
                 popup.getMenuInflater().inflate(R.menu.contextmenu_items, popup.getMenu());
                 popup.setGravity(Gravity.RIGHT);
                 //registering popup with OnMenuItemClickListener
