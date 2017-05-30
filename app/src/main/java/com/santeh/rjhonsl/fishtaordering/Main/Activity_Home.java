@@ -11,6 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.santeh.rjhonsl.fishtaordering.Main.BlBoAi.Activity_BackLoad_BadOrder;
+import com.santeh.rjhonsl.fishtaordering.Main.DeliveryConfirmation.Activity_ConfirmedOrders;
+import com.santeh.rjhonsl.fishtaordering.Main.DeliveryConfirmation.Activity_DeliveryConfirmation;
+import com.santeh.rjhonsl.fishtaordering.Main.OrderItems.Activity_OrderHistory;
+import com.santeh.rjhonsl.fishtaordering.Main.OrderItems.MainActivity;
+import com.santeh.rjhonsl.fishtaordering.Main.Reprocess.ActivityReprocess;
+import com.santeh.rjhonsl.fishtaordering.Main.SetupWizard.Activity_Welcome;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;
@@ -27,12 +34,12 @@ public class Activity_Home extends AppCompatActivity {
     Button btnConvert;
     EditText edtToConvert, edtConverted, edtBinary;
 
-    TextView btnSendOrder, btnOrdHistory, btnSettings, btnOrderConfirmation, btnDeliveryConfirmation;
+    TextView btnSendOrder, btnOrdHistory, btnSettings, btnOrderConfirmation, btnDeliveryConfirmation, btnReprocess;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loginscreen);
+        setContentView(R.layout.activity_home);
         activity = this;
         context = Activity_Home.this;
 
@@ -42,6 +49,7 @@ public class Activity_Home extends AppCompatActivity {
 
         btnSendOrder = (TextView) findViewById(R.id.btnSendOrder);
         btnOrdHistory = (TextView) findViewById(R.id.btnOrderHistory);
+        btnReprocess = (TextView) findViewById(R.id.btnReprocess);
         btnSettings = (TextView) findViewById(R.id.btnSettings);
         btnDeliveryConfirmation  = (TextView) findViewById(R.id.btnDeliveryConfirmation);
         btnOrderConfirmation = (TextView) findViewById(R.id.btnOrderConfirmation);
@@ -57,26 +65,8 @@ public class Activity_Home extends AppCompatActivity {
         btnConvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//
                 String hexed = Helper.convert.stringtoHex(edtToConvert.getText().toString());
-//                String binned = Helper.convert.StringToBinary(edtToConvert.getText().toString()).toString();
-//                String stringFromHexedFromBinned = Helper.convert.stringtoHex(binned);
-////                String reversedHex = Helper.convert.toStringBuilder(hexed).reverse().toString();
-//
                 edtBinary.setText(hexed);
-//
-////                edtConverted.setText(Helper.convert.HextoString(Helper.convert.stringtoHex(edtToConvert.getText().toString())));
-////                edtBinary.setText(convertToBinary(edtToConvert.getText().toString()+""));
-////                String reversedbinary = convertToBinary(edtToConvert.getText().toString()+"").reverse().toString();
-////                String binaryTOChar = convertBinaryToChar(
-//////                        convertToBinary(edtToConvert.getText().toString()).toString()
-////                        reversedbinary
-////                );
-////
-////                edtBinary.setText(edtBinary.getText().toString()+"\n\n"+reversedbinary);
-//
-////                edtConverted.setText(Helper.convert.HextoString(stringFromHexedFromBinned));
-
             }
         });
 
@@ -124,6 +114,15 @@ public class Activity_Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, Activity_ConfirmedOrders.class);
+                startActivity(intent);
+            }
+        });
+
+
+        btnReprocess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, ActivityReprocess.class);
                 startActivity(intent);
             }
         });

@@ -1,4 +1,4 @@
-package com.santeh.rjhonsl.fishtaordering.Adapter;
+package com.santeh.rjhonsl.fishtaordering.Main.OrderItems;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -12,17 +12,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.santeh.rjhonsl.fishtaordering.Main.Activity_ConfirmedOrders;
-import com.santeh.rjhonsl.fishtaordering.Main.Activity_OrderHistory;
+import com.santeh.rjhonsl.fishtaordering.Main.DeliveryConfirmation.Activity_ConfirmedOrders;
 import com.santeh.rjhonsl.fishtaordering.Pojo.OrderConfirmationPojo;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBConstants;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;
-import com.santeh.rjhonsl.fishtaordering.Util.VarFishtaOrdering;
 
 import java.util.List;
 

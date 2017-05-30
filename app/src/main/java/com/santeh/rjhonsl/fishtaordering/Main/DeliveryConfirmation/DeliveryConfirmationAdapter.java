@@ -1,11 +1,10 @@
-package com.santeh.rjhonsl.fishtaordering.Adapter;
+package com.santeh.rjhonsl.fishtaordering.Main.DeliveryConfirmation;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,11 +18,9 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.santeh.rjhonsl.fishtaordering.Main.Activity_DeliveryConfirmation;
 import com.santeh.rjhonsl.fishtaordering.Pojo.DeliveryConfirmationPojo;
 import com.santeh.rjhonsl.fishtaordering.Pojo.DeliveryItemsPojo;
 import com.santeh.rjhonsl.fishtaordering.R;
@@ -190,17 +187,13 @@ public class DeliveryConfirmationAdapter extends RecyclerView.Adapter<DeliveryCo
                         item.setActualQty(splitted_receivedItems[i].split(",")[1]);
                         item.setActualunits(splitted_receivedItems[i].split(",")[2]);
                     }
-
-
                     itemsLIst.add(item);
-                }
+                }//end of loop
 
+                // populating dr items dialog
                 DeliveryDetailsAdapter drAdapter = new DeliveryDetailsAdapter(itemsLIst, context1, activity1);
                 rvDrContents.setAdapter(drAdapter);
                 drAdapter.notifyDataSetChanged();
-
-
-
 
                 btnSendDR.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -214,10 +207,7 @@ public class DeliveryConfirmationAdapter extends RecyclerView.Adapter<DeliveryCo
                             }
                         }
 
-//                        Toast.makeText(activity1, ""+tobesent, Toast.LENGTH_LONG).show();
-
                         if (itemsLIst.size() > 0){
-
                             final Dialog d = new Dialog(activity1);//
                             d.requestWindowFeature(Window.FEATURE_NO_TITLE); //notitle
                             d.setContentView(R.layout.dialog_sendingconf);//Set the xml view of the dialog
@@ -232,7 +222,6 @@ public class DeliveryConfirmationAdapter extends RecyclerView.Adapter<DeliveryCo
 
                             String formattedOrder = "#DR-"+drlist.get(position).getDrNumber()+"-"+drlist.get(position).getCustID()+";" +allitemstobeSent;
 
-
                             TextView txtstore = (TextView) d.findViewById(R.id.txtStoreName);
                             TextView txtCurrent = (TextView) d.findViewById(R.id.txtcurrentTime);
                             TextView txtItems = (TextView) d.findViewById(R.id.txtItem);
@@ -242,7 +231,6 @@ public class DeliveryConfirmationAdapter extends RecyclerView.Adapter<DeliveryCo
                             txtstore.setText(db.getStoreName(drlist.get(position).getCustID()));
 
                             txtCurrent.setText(Helper.convert.LongToDateTime_Gregorian(System.currentTimeMillis()));
-
 
                             final String finalFormattedOrder = formattedOrder;
                             final String finalAllitemstobeSent = allitemstobeSent;

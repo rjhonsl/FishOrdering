@@ -1,4 +1,4 @@
-package com.santeh.rjhonsl.fishtaordering.Adapter;
+package com.santeh.rjhonsl.fishtaordering.Main.DeliveryConfirmation;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +13,10 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.santeh.rjhonsl.fishtaordering.Main.MainActivity;
+import com.santeh.rjhonsl.fishtaordering.Main.OrderItems.MainActivity;
 import com.santeh.rjhonsl.fishtaordering.Pojo.DeliveryItemsPojo;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
-import com.santeh.rjhonsl.fishtaordering.Util.Helper;
 
 import java.util.List;
 
@@ -97,9 +95,10 @@ public class DeliveryDetailsAdapter extends RecyclerView.Adapter<DeliveryDetails
             @Override
             public void afterTextChanged(Editable editable) {
                 if (holder.edtText3.getText().toString().length() <1){
-                    itemlistt.get(position).setActualQty("0");
+
                     holder.edtText3.setText("0");
                     holder.edtText3.setSelection(0,holder.edtText3.getText().length());
+                    itemlistt.get(position).setActualQty("0");
                 }else {
                     itemlistt.get(position).setActualQty(holder.edtText3.getText().toString());
                 }

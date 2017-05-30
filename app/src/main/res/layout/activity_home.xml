@@ -40,35 +40,43 @@
             >
 
 
+
+
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    app:cardBackgroundColor="@color/deepOrange_75"
-                                                    app:cardCornerRadius="0dp"
-                                                    app:cardElevation="0dp"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/orange_fishta_darker"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="1dp"
+                    android:layout_marginBottom="4dp"
                 >
 
                     <TextView android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:textColor="@color/deepOrange_900"
-                              android:background="@drawable/bg_material_transparent_darker_pressed"
-                              android:padding="10dp"
-                              android:typeface="normal"
-                              android:gravity="center"
-                              android:text="SEND ORDER"
-                              android:id="@+id/btnSendOrder"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                          android:textColor="@color/orange_100"
+                          android:padding="10dp"
+                          android:typeface="normal"
+                        android:background="@drawable/bg_material_transparent_darker_pressed"
+                          android:gravity="center"
+                          android:text="SEND ORDER"
+                          android:id="@+id/btnSendOrder"
                     />
 
                 </android.support.v7.widget.CardView>
 
+
+
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    app:cardBackgroundColor="@color/deepOrange_75"
-                                                    app:cardElevation="0dp"
-                                                    app:cardCornerRadius="0dp">
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/orange_fishta_darker"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="1dp"
+                    android:layout_marginBottom="4dp">
 
                     <TextView android:layout_width="match_parent"
                               android:layout_height="wrap_content"
-                              android:textColor="@color/deepOrange_900"
+                        android:textStyle="bold"
+                              android:textColor="@color/orange_100"
                               android:background="@drawable/bg_material_transparent_darker_pressed"
                               android:padding="10dp"
                               android:gravity="center"
@@ -79,15 +87,24 @@
                 </android.support.v7.widget.CardView>
 
 
+                <!--<View-->
+                    <!--android:background="@color/orange_fishta_darker"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="2dp"/>-->
+
+
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/deepOrange_75"
-                    app:cardElevation="0dp"
-                    app:cardCornerRadius="0dp">
+                    app:cardBackgroundColor="@color/orange_fishta_darker"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="1dp"
+                    android:layout_marginBottom="4dp"
+                    >
 
                     <TextView android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/deepOrange_900"
+                        android:textStyle="bold"
+                        android:textColor="@color/orange_100"
                         android:background="@drawable/bg_material_transparent_darker_pressed"
                         android:padding="10dp"
                         android:gravity="center"
@@ -98,16 +115,17 @@
                 </android.support.v7.widget.CardView>
 
 
-
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/deepOrange_75"
-                    app:cardElevation="0dp"
-                    app:cardCornerRadius="0dp">
+                    app:cardBackgroundColor="@color/orange_fishta_darker"
+                    app:cardElevation="1dp"
+                    app:cardCornerRadius="2dp"
+                    android:layout_marginBottom="4dp">
 
                     <TextView android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/deepOrange_900"
+                        android:textStyle="bold"
+                        android:textColor="@color/orange_100"
                         android:background="@drawable/bg_material_transparent_darker_pressed"
                         android:padding="10dp"
                         android:gravity="center"
@@ -119,16 +137,17 @@
 
 
 
-
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/deepOrange_75"
-                    app:cardElevation="0dp"
-                    app:cardCornerRadius="0dp">
+                    app:cardBackgroundColor="@color/orange_fishta_darker"
+                    app:cardElevation="1dp"
+                    app:cardCornerRadius="2dp"
+                    android:layout_marginBottom="4dp">
 
                     <TextView android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/deepOrange_900"
+                        android:textStyle="bold"
+                        android:textColor="@color/orange_100"
                         android:background="@drawable/bg_material_transparent_darker_pressed"
                         android:padding="10dp"
                         android:gravity="center"
@@ -141,13 +160,15 @@
 
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/deepOrange_75"
-                    app:cardElevation="0dp"
-                    app:cardCornerRadius="0dp">
+                    app:cardBackgroundColor="@color/orange_fishta_darker"
+                    app:cardElevation="1dp"
+                    app:cardCornerRadius="2dp"
+                    android:layout_marginBottom="4dp">
 
                     <TextView android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/deepOrange_900"
+                        android:textColor="@color/orange_100"
+                        android:textStyle="bold"
                         android:background="@drawable/bg_material_transparent_darker_pressed"
                         android:padding="10dp"
                         android:gravity="center"
@@ -158,15 +179,19 @@
                 </android.support.v7.widget.CardView>
 
 
-                <android.support.v7.widget.CardView android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    app:cardBackgroundColor="@color/deepOrange_75"
-                                                    app:cardElevation="0dp"
-                                                    app:cardCornerRadius="0dp">
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="3dp"
+                    app:cardBackgroundColor="@color/orange_fishta_darker"
+                    app:cardElevation="1dp"
+                    app:cardCornerRadius="2dp"
+                    android:layout_marginBottom="3dp">
 
                     <TextView android:layout_width="match_parent"
                               android:layout_height="wrap_content"
-                              android:textColor="@color/deepOrange_900"
+                              android:textColor="@color/orange_100"
+                        android:textStyle="bold"
                               android:background="@drawable/bg_material_transparent_darker_pressed"
                               android:padding="10dp"
                               android:gravity="center"

@@ -1,4 +1,4 @@
-package com.santeh.rjhonsl.fishtaordering.Main;
+package com.santeh.rjhonsl.fishtaordering.Main.SetupWizard;
 
 import android.app.Activity;
 import android.content.Context;

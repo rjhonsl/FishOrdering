@@ -1,4 +1,4 @@
-package com.santeh.rjhonsl.fishtaordering.Main;
+package com.santeh.rjhonsl.fishtaordering.Main.SetupWizard;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.santeh.rjhonsl.fishtaordering.Main.Activity_Home;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;

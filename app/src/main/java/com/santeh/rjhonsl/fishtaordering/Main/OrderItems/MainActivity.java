@@ -1,4 +1,4 @@
-package com.santeh.rjhonsl.fishtaordering.Main;
+package com.santeh.rjhonsl.fishtaordering.Main.OrderItems;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -21,13 +21,11 @@ import android.view.WindowManager;
 import android.view.animation.OvershootInterpolator;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.santeh.rjhonsl.fishtaordering.Adapter.ItemsAdapter;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.Helper;
@@ -39,10 +37,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.FadeInRightAnimator;
-
-import static com.santeh.rjhonsl.fishtaordering.R.id.all;
-import static com.santeh.rjhonsl.fishtaordering.R.id.btnSend;
-import static com.santeh.rjhonsl.fishtaordering.R.id.btnSendOrder;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -194,21 +188,24 @@ public class MainActivity extends AppCompatActivity {
                             if (i==0){
                                 formattedOrder = formattedOrder + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
                                 fullformatted = formattedOrder;
+                                if (orderList.size() > 0 && orderList.size() < 2) {
+                                    batchedOrderslist.add(formattedOrder);
+                                }
                             }else{
-                                String tester =  formattedOrder + ";" + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
-                                if (tester.length()>160){
+                                String tester = formattedOrder + ";" + orderList.get(i).getOrder_code() + "," + orderList.get(i).getOrder_qty() + "," + orderList.get(i).getOrder_unit() + "";
+                                if (tester.length() > 160) {
 //                                    Log.d("BATCHING", "greater than: "+formattedOrder.length()+"");
                                     batchCounter++;
                                     batchedOrderslist.add(formattedOrder);
-                                    formattedOrder = start + "" + batchCounter+";";
-                                }else{
-                                    formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
-                                    if (i==orderList.size()-1){
+                                    formattedOrder = start + "" + batchCounter + ";";
+                                } else {
+                                    formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code() + "," + orderList.get(i).getOrder_qty() + "," + orderList.get(i).getOrder_unit() + "";
+                                    if (i == orderList.size() - 1) {
                                         batchedOrderslist.add(formattedOrder);
                                     }
 //                                    Log.d("BATCHING", "less than: "+formattedOrder.length()+"");
                                 }
-                                fullformatted = fullformatted  + ";" + orderList.get(i).getOrder_code() +","+ orderList.get(i).getOrder_qty() +","+ orderList.get(i).getOrder_unit() +"";
+                                fullformatted = fullformatted + ";" + orderList.get(i).getOrder_code() + "," + orderList.get(i).getOrder_qty() + "," + orderList.get(i).getOrder_unit() + "";
                             }
                         }
 
@@ -218,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
                             for (int i = 0; i < batchedOrderslist.size(); i++) {
                                 allOrders = allOrders + batchedOrderslist.get(i) + "\n||\n";
                             }
-//                            Helper.dialogBox.okOnly_Scrolling(activity, "Items", allOrders, "OK", R.color.amber_300).show();
                         }
 
 
@@ -292,15 +288,15 @@ public class MainActivity extends AppCompatActivity {
 //            public void onClick(View v) {
 //                if(selectedStoreID.equalsIgnoreCase("")){
 //                    Helper.toast.short_(activity, "No store selected.");
-//                }else if (orderList != null){
+//                }else if (itemlist_OUT != null){
 //
-//                    if (orderList.size() > 0){
+//                    if (itemlist_OUT.size() > 0){
 //                        String formattedOrder = selectedStoreID+";";
-//                        for (int i = 0; i <orderList.size() ; i++) {
+//                        for (int i = 0; i <itemlist_OUT.size() ; i++) {
 //                            if (i==0){
-//                                formattedOrder = formattedOrder + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
+//                                formattedOrder = formattedOrder + itemlist_OUT.get(i).getOrder_code().toString()+","+itemlist_OUT.get(i).getOrder_qty().toString()+","+itemlist_OUT.get(i).getOrder_unit().toString()+"";
 //                            }else{
-//                                formattedOrder = formattedOrder + ";" + orderList.get(i).getOrder_code().toString()+","+orderList.get(i).getOrder_qty().toString()+","+orderList.get(i).getOrder_unit().toString()+"";
+//                                formattedOrder = formattedOrder + ";" + itemlist_OUT.get(i).getOrder_code().toString()+","+itemlist_OUT.get(i).getOrder_qty().toString()+","+itemlist_OUT.get(i).getOrder_unit().toString()+"";
 //                            }
 //
 //                        }
@@ -395,15 +391,22 @@ public class MainActivity extends AppCompatActivity {
     public void addItems(VarFishtaOrdering item) {
         orderList.add(item);
 //        itemsViewAdapter.notifyDataSetChanged();
-        itemsViewAdapter.notifyItemInserted(orderList.size());
-        itemsViewAdapter.notifyItemRangeInserted(orderList.size(), orderList.size());
+
+//        itemsViewAdapter.notifyItemRangeInserted(itemlist_OUT.size(), itemlist_OUT.size());
+
+        Helper.random.delayedTask(new Runnable() {
+            @Override
+            public void run() {
+                itemsViewAdapter.notifyItemInserted(orderList.size());
+            }
+        }, 250);
 
         Helper.random.delayedTask(new Runnable() {
             @Override
             public void run() {
                 rvItems.smoothScrollToPosition(orderList.size());
             }
-        }, 250);
+        }, 600);
     }
 
 

@@ -8,9 +8,9 @@ import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.santeh.rjhonsl.fishtaordering.Main.Activity_DeliveryConfirmation;
-import com.santeh.rjhonsl.fishtaordering.Main.Activity_OrderHistory;
-import com.santeh.rjhonsl.fishtaordering.Main.MainActivity;
+import com.santeh.rjhonsl.fishtaordering.Main.DeliveryConfirmation.Activity_DeliveryConfirmation;
+import com.santeh.rjhonsl.fishtaordering.Main.OrderItems.Activity_OrderHistory;
+import com.santeh.rjhonsl.fishtaordering.Main.OrderItems.MainActivity;
 
 import java.util.List;
 
@@ -39,12 +39,7 @@ public class BR_SMSDelivery_bak extends BroadcastReceiver {
 
 		String isSent = "0";
 
-
-		if (SendSMS.loopCount == SendSMS.intMessageParts){
-			//checks if intent action passed is equals to sms sent
-			Log.d("RECEIVER","Start: "+ number );
-			checkifSent(context, intent, action, timesend, SendSMS.wholeContent, number, type, isSent);
-		}
+		checkifSent(context, intent, action, timesend, SendSMS.wholeContent, number, type, isSent);
 	}
 
 	private void checkifSent(Context context, Intent intent, String action, String timesend, String content, String number, String type, String isSent) {
@@ -113,9 +108,6 @@ public class BR_SMSDelivery_bak extends BroadcastReceiver {
 				}
 
 				String hstid = intent.getStringExtra("hstid");
-//				int itemcount = Integer.valueOf(intent.getStringExtra("listcount"));
-//				int itemPosition = Integer.valueOf(intent.getStringExtra("pos"));
-
 				db.updateSentHistory(hstid, number, content, timesend, "0", isSent, "0");
 				if (Activity_OrderHistory.isActive) {
 					Intent refresh = new Intent(context, Activity_OrderHistory.class);
@@ -144,6 +136,7 @@ public class BR_SMSDelivery_bak extends BroadcastReceiver {
 				}
 
 			}
+
 		}
 	}
 

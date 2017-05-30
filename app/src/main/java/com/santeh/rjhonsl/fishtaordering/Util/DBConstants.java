@@ -49,4 +49,41 @@ public class DBConstants {
         public static String[] ALL_DATATYPE = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT};
     }
 
+
+    public static class BLBO {
+        //TBL DR
+        public static String tableName = "tblBLBO";
+        public static String id = "id";
+        public static String sent_to = "sent_to";
+        public static String custid = "cust_ID";
+        public static String items_array = "item_array";
+        public static String content = "content";
+        public static String timeSent = "time_sent";
+        public static String time_opened = "time_opened";
+        public static String isSent = "dc_isSent";
+        public static String isRead = "dc_isRead";
+
+        public static String[] ALL_KEYS = new String[]{id, sent_to, custid, items_array, content, timeSent, time_opened, isSent, isRead};
+        public static String[] ALL_DATATYPE = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT};
+    }
+
+
+    public static class Reprocess {
+        //TBL DR
+        public static String tableName = "tblReprocess";
+        public static String id = "id";
+        public static String sent_to = "sent_to";
+        public static String custid = "cust_ID";
+        public static String items_array = "item_array";
+        public static String content = "content";
+        public static String type = "type";
+        public static String timeSent = "time_sent";
+        public static String time_opened = "time_opened";
+        public static String isSent = "isSent";
+        public static String isRead = "isRead";
+
+        public static String[] ALL_KEYS = new String[]{id, sent_to, custid, items_array, content, type, timeSent, time_opened, isSent, isRead};
+        public static String[] ALL_DATATYPE = new String[]{ROWID_AUTOINCRE, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT};
+    }
+
 }

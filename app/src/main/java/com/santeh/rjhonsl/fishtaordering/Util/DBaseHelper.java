@@ -17,12 +17,13 @@ import java.util.List;
 public class DBaseHelper extends SQLiteOpenHelper{
 
     private static String DATABASE_NAME = "fishta_ordering.db";
-    private static int DATABASE_VERSION = 15;
+    private static int DATABASE_VERSION = 17;
     private static String LOGTAG = "DB_FishtaOrdering";
 
     public static String DATE = "DATE", TEXT = "TEXT", INTEGER = "INTEGER", DOUBLE = "DOUBLE", DATETIME = "DATETIME",
             PRIMARY_AUTOINCRE = "PRIMARY KEY AUTOINCREMENT", BOOLEAN = "BOOLEAN", TEMP = "TMP", ROWID_AUTOINCRE = INTEGER + " " + PRIMARY_AUTOINCRE;
 
+    public static DBaseHelper mInstance;
 
     //TABLE FOR ITEMS
     public static String TBL_ITEMS              = "tbl_items";
@@ -94,9 +95,21 @@ public class DBaseHelper extends SQLiteOpenHelper{
 
 
 
+    public static synchronized DBaseHelper getInstance(Context ctx) {
+        /**
+         * use the application context as suggested by CommonsWare.
+         * this will ensure that you dont accidentally leak an Activitys
+         * context (see this article for more information:
+         * http://android-developers.blogspot.nl/2009/01/avoiding-memory-leaks.html)
+         */
+        if (mInstance == null) {
+            mInstance = new DBaseHelper(ctx.getApplicationContext());
+        }
+        return mInstance;
+    }
 
     //connects db
-    public DBaseHelper(Context context) {
+    DBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 //        Log.d(LOGTAG, "table " + DATABASE_NAME + " has been opened: " + String.valueOf(context));
     }
@@ -116,6 +129,8 @@ public class DBaseHelper extends SQLiteOpenHelper{
         db.execSQL(createTableString(TBL_CUST, ALL_KEY_CUST, ALL_DATATYPE_CUST));
         db.execSQL(createTableString(DBConstants.OrderConfirmation.tableName, DBConstants.OrderConfirmation.ALL_KEYS, DBConstants.OrderConfirmation.ALL_DATATYPE));
         db.execSQL(createTableString(DBConstants.DeliveryConfirmation.tableName, DBConstants.DeliveryConfirmation.ALL_KEYS, DBConstants.DeliveryConfirmation.ALL_DATATYPE));
+        db.execSQL(createTableString(DBConstants.BLBO.tableName, DBConstants.BLBO.ALL_KEYS, DBConstants.BLBO.ALL_DATATYPE));
+        db.execSQL(createTableString(DBConstants.Reprocess.tableName, DBConstants.Reprocess.ALL_KEYS, DBConstants.Reprocess.ALL_DATATYPE));
     }
 
     /**
@@ -176,14 +191,12 @@ public class DBaseHelper extends SQLiteOpenHelper{
             db.execSQL(createTableString(DBConstants.DeliveryConfirmation.tableName, DBConstants.DeliveryConfirmation.ALL_KEYS, DBConstants.DeliveryConfirmation.ALL_DATATYPE));
         }
 
-
-        if (oldVersion< 14){
-            db.execSQL("ALTER TABLE "+DBConstants.OrderConfirmation.tableName+" ADD COLUMN "+DBConstants.OrderConfirmation.items+" "+TEXT+"");
+        if (oldVersion< 16){
+            db.execSQL(createTableString(DBConstants.BLBO.tableName, DBConstants.BLBO.ALL_KEYS, DBConstants.BLBO.ALL_DATATYPE));
         }
 
-        if (oldVersion< 15){
-            db.execSQL("ALTER TABLE "+DBConstants.DeliveryConfirmation.tableName+" ADD COLUMN "+DBConstants.DeliveryConfirmation.item_batchNumber+" "+TEXT+"");
-
+        if (oldVersion< 17){
+            db.execSQL(createTableString(DBConstants.Reprocess.tableName, DBConstants.Reprocess.ALL_KEYS, DBConstants.Reprocess.ALL_DATATYPE));
         }
 
 

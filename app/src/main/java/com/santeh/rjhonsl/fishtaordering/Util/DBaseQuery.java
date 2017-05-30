@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.santeh.rjhonsl.fishtaordering.Pojo.BLBO_recordPojo;
 import com.santeh.rjhonsl.fishtaordering.Pojo.DeliveryConfirmationPojo;
 import com.santeh.rjhonsl.fishtaordering.Pojo.OrderConfirmationPojo;
 
@@ -27,7 +28,7 @@ public class DBaseQuery {
      ********************************************/
     public DBaseQuery(Context context) {
         //Log.d("DBSource", "db connect");
-        dbhelper = new DBaseHelper(context);
+        dbhelper = DBaseHelper.getInstance(context);
     }
 
     public void open() {
@@ -37,7 +38,7 @@ public class DBaseQuery {
 
     public void close() {
         //Log.d("DBSource", "db close");
-        dbhelper.close();
+//        dbhelper.close();
     }
 
 
@@ -76,6 +77,41 @@ public class DBaseQuery {
 
         return db.insert(DBConstants.OrderConfirmation.tableName, null, values);
     }
+
+
+    public long insertBLBOAI(String sent_to, String custid, String items_array, String content, String timeSent, String time_opened, String isSent, String isRead) {
+
+        ContentValues values = new ContentValues();
+        values.put(DBConstants.BLBO.sent_to, sent_to);
+        values.put(DBConstants.BLBO.custid, custid);
+        values.put(DBConstants.BLBO.items_array, items_array);
+        values.put(DBConstants.BLBO.content, content);
+        values.put(DBConstants.BLBO.timeSent, timeSent);
+        values.put(DBConstants.BLBO.time_opened, time_opened);
+        values.put(DBConstants.BLBO.isSent, isSent);
+        values.put(DBConstants.BLBO.isRead, isRead);
+
+        return db.insert(DBConstants.BLBO.tableName, null, values);
+    }
+
+
+    public long insertReprocess(String sent_to, String custid, String items_array, String content, String timeSent, String time_opened, String isSent, String isRead, String type) {
+
+        ContentValues values = new ContentValues();
+        values.put(DBConstants.Reprocess.sent_to, sent_to);
+        values.put(DBConstants.Reprocess.custid, custid);
+        values.put(DBConstants.Reprocess.items_array, items_array);
+        values.put(DBConstants.Reprocess.content, content);
+        values.put(DBConstants.Reprocess.timeSent, timeSent);
+        values.put(DBConstants.Reprocess.time_opened, time_opened);
+        values.put(DBConstants.Reprocess.isSent, isSent);
+        values.put(DBConstants.Reprocess.isRead, isRead);
+        values.put(DBConstants.Reprocess.type, type);
+
+        return db.insert(DBConstants.Reprocess.tableName, null, values);
+    }
+
+
     public long insertDeliveryConfirmation(String drNumber, String sender, String items_received, String items_sent, String content_received, String content_sent, String timeReceived, String timeSent, String custID,
                                            String isSent, String isRead, String batchnumber) {
 
@@ -945,6 +981,83 @@ public class DBaseQuery {
     }
 
 
+
+    public List<BLBO_recordPojo> getAllBLBO_RECORDS() {
+        List<BLBO_recordPojo> blboList = new ArrayList<>();
+        String query = "Select * from " + DBConstants.BLBO.tableName;
+
+        String[] params = new String[]{};
+
+        Cursor cur = db.rawQuery(query, params);
+
+        try {
+            if (cur != null && cur.getCount() > 0) {
+                cur.moveToFirst();
+                do {
+
+                    BLBO_recordPojo queriedItem = new BLBO_recordPojo();
+                    queriedItem.setId(cur.getString(cur.getColumnIndex(DBConstants.BLBO.id)));
+                    queriedItem.setSender(cur.getString(cur.getColumnIndex(DBConstants.BLBO.sent_to)));
+                    queriedItem.setCustID(cur.getString(cur.getColumnIndex(DBConstants.BLBO.custid)));
+                    queriedItem.setAllitems(cur.getString(cur.getColumnIndex(DBConstants.BLBO.items_array)));
+                    queriedItem.setContent(cur.getString(cur.getColumnIndex(DBConstants.BLBO.content)));
+                    queriedItem.setTimeSent(cur.getString(cur.getColumnIndex(DBConstants.BLBO.timeSent)));
+                    queriedItem.setIsRead(cur.getString(cur.getColumnIndex(DBConstants.BLBO.isRead)));
+                    queriedItem.setIsSent(cur.getString(cur.getColumnIndex(DBConstants.BLBO.isSent)));
+                    queriedItem.setTimeSent(cur.getString(cur.getColumnIndex(DBConstants.BLBO.timeSent)));
+
+                    blboList.add(queriedItem);
+                } while (cur.moveToNext());
+            }
+        }finally {
+            if (cur != null) {
+                cur.close();
+            }
+        }
+
+        return blboList;
+    }
+
+
+    public List<BLBO_recordPojo> getAllReprocess() {
+        List<BLBO_recordPojo> blboList = new ArrayList<>();
+        String query = "Select * from " + DBConstants.Reprocess.tableName;
+
+        String[] params = new String[]{};
+
+        Cursor cur = db.rawQuery(query, params);
+
+        Log.d("REPROCESS", cur.getCount() + "");
+        try {
+            if (cur != null && cur.getCount() > 0) {
+                cur.moveToFirst();
+                do {
+
+                    BLBO_recordPojo queriedItem = new BLBO_recordPojo();
+                    queriedItem.setId(cur.getString(cur.getColumnIndex(DBConstants.Reprocess.id)));
+                    queriedItem.setSender(cur.getString(cur.getColumnIndex(DBConstants.Reprocess.sent_to)));
+                    queriedItem.setCustID(cur.getString(cur.getColumnIndex(DBConstants.Reprocess.custid)));
+                    queriedItem.setAllitems(cur.getString(cur.getColumnIndex(DBConstants.Reprocess.items_array)));
+                    queriedItem.setContent(cur.getString(cur.getColumnIndex(DBConstants.Reprocess.content)));
+                    queriedItem.setTimeSent(cur.getString(cur.getColumnIndex(DBConstants.Reprocess.timeSent)));
+                    queriedItem.setIsRead(cur.getString(cur.getColumnIndex(DBConstants.Reprocess.isRead)));
+                    queriedItem.setIsSent(cur.getString(cur.getColumnIndex(DBConstants.Reprocess.isSent)));
+                    queriedItem.setTimeSent(cur.getString(cur.getColumnIndex(DBConstants.Reprocess.timeSent)));
+                    queriedItem.setType(cur.getString(cur.getColumnIndex(DBConstants.Reprocess.type)));
+
+                    blboList.add(queriedItem);
+                } while (cur.moveToNext());
+            }
+        }finally {
+            if (cur != null) {
+                cur.close();
+            }
+        }
+
+        return blboList;
+    }
+
+
     public String rearrangeItems(String raw) {
 
         String[] splitted = raw.split(";");
@@ -974,6 +1087,40 @@ public class DBaseQuery {
         return arranged;
     }
 
+
+
+    public String rearrangeReprocessBatchItems(String raw) {
+
+        String[] splitted = raw.split(";");
+        String arranged = "";
+        int inCounter = 0;
+        int outCounter = 0;
+        for (int i = 0; i < splitted.length; i++) {
+
+            if (splitted[i].split(",")[3].equalsIgnoreCase("o") && outCounter == 0){
+                outCounter ++;
+                arranged = arranged + "" +
+                        "==== OUT ====\n";
+            }
+
+
+            if (splitted[i].split(",")[3].equalsIgnoreCase("i") && inCounter == 0){
+                inCounter ++;
+                arranged = arranged + "\n\n" +
+                        "==== IN ====\n";
+            }
+
+            if (i == 0) {
+                arranged = arranged +  getitemDescription(splitted[i].split(",")[0]) + " " + splitted[i].split(",")[1] + "" + splitted[i].split(",")[2];
+            } else {
+                arranged = arranged + ",\n" + getitemDescription(splitted[i].split(",")[0]) + " " + splitted[i].split(",")[1] + "" + splitted[i].split(",")[2];
+            }
+
+
+
+        }
+        return arranged;
+    }
 
     /**
      * UPDATESS

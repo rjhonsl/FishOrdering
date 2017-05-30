@@ -24,7 +24,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main.MainActivity"
+        <activity android:name=".Main.OrderItems.MainActivity"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                   android:label="New Order">
             <!--<intent-filter>-->
@@ -33,14 +33,14 @@
             <!--</intent-filter>-->
         </activity>
 
-        <activity android:name=".Main.Activity_PickItem"
+        <activity android:name=".Main.OrderItems.Activity_PickItem"
             android:screenOrientation="portrait"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                     android:label="Select Item">
         </activity>
 
 
-        <activity android:name=".Main.Activity_OrderHistory"
+        <activity android:name=".Main.OrderItems.Activity_OrderHistory"
             android:screenOrientation="portrait"
                   android:theme="@style/CustomActionBarTheme"
                   android:label="Order History">
@@ -52,56 +52,66 @@
                   android:label="Settings">
         </activity>
 
-        <activity android:name=".Main.Activity_Wiz_SetServerNum"
+        <activity android:name=".Main.SetupWizard.Activity_Wiz_SetServerNum"
             android:screenOrientation="portrait"
                   android:theme="@style/CustomActionBarTheme"
                   android:label="Set Server Number">
         </activity>
 
-        <activity android:name=".Main.Activity_Wiz_UserName"
+        <activity android:name=".Main.SetupWizard.Activity_Wiz_UserName"
             android:screenOrientation="portrait"
                   android:theme="@style/CustomActionBarTheme"
                   android:label="Set Store Name">
         </activity>
 
-        <activity android:name=".Main.Activity_Welcome"
+        <activity android:name=".Main.SetupWizard.Activity_Welcome"
             android:screenOrientation="portrait"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                   android:label="Select Fish">
         </activity>
 
-        <activity android:name=".Main.Activity_ConfirmedOrders"
+        <activity android:name=".Main.DeliveryConfirmation.Activity_ConfirmedOrders"
             android:screenOrientation="portrait"
                   android:theme="@style/CustomActionBarTheme"
                   android:label="Confirmed Orders">
         </activity>
 
-        <activity android:name=".Main.Activity_DeliveryConfirmation"
+        <activity android:name=".Main.DeliveryConfirmation.Activity_DeliveryConfirmation"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme"
             android:label="Delivery Confirmation">
         </activity>
 
-        <activity android:name=".Main.Activity_SetupSuccess"
+        <activity android:name=".Main.SetupWizard.Activity_SetupSuccess"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait"
             android:label="Success">
         </activity>
 
-        <activity android:name=".Main.Activity_BackLoad_BadOrder"
+        <activity android:name=".Main.BlBoAi.Activity_BackLoad_BadOrder"
             android:screenOrientation="portrait"
             android:label="Back Load/Bad Order">
         </activity>
 
-        <activity android:name=".Main.Activity_Create_BackLoad_BadOrder"
+        <activity android:name=".Main.BlBoAi.Activity_Create_BackLoad_BadOrder"
             android:screenOrientation="portrait"
             android:label="New BO/BL/AI">
         </activity>
 
-        <activity android:name=".Main.Activity_Wiz_Stores"
+        <activity android:name=".Main.SetupWizard.Activity_Wiz_Stores"
             android:screenOrientation="portrait"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar"
                   android:label="Select Stores">
+        </activity>
+
+        <activity android:name=".Main.Reprocess.ActivityReprocess"
+            android:screenOrientation="portrait"
+                  android:label="Reprocess">
+        </activity>
+
+        <activity android:name=".Main.Reprocess.Activity_Create_Reprocess"
+            android:screenOrientation="portrait"
+                  android:label="Reprocess">
         </activity>
 
         <activity android:name=".Main.Activity_Home"

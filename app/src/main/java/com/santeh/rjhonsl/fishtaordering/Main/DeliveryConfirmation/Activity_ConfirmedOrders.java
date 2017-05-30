@@ -1,4 +1,4 @@
-package com.santeh.rjhonsl.fishtaordering.Main;
+package com.santeh.rjhonsl.fishtaordering.Main.DeliveryConfirmation;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,13 +7,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 
-import com.santeh.rjhonsl.fishtaordering.Adapter.ORConfirmationAdapter;
+import com.santeh.rjhonsl.fishtaordering.Main.OrderItems.ORConfirmationAdapter;
 import com.santeh.rjhonsl.fishtaordering.Pojo.OrderConfirmationPojo;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
@@ -108,7 +107,7 @@ public class Activity_ConfirmedOrders extends AppCompatActivity {
                     _of.setORnumber(lastorNumber);
                     _of.setSender(unbatchOFlist.get(i).getSender());
                     _of.setContent(unbatchOFlist.get(i).getContent());
-                    _of.setTimeReceived(unbatchOFlist.get(i).getTimeReceived());
+                    _of.setTimeSent(unbatchOFlist.get(i).getTimeSent());
                     _of.setCustID(unbatchOFlist.get(i).getCustID());
                     _of.setArrangedItem(fullitem.substring(1));
                     _of.setIsSent(unbatchOFlist.get(i).getIsSent());
@@ -126,7 +125,7 @@ public class Activity_ConfirmedOrders extends AppCompatActivity {
                     _of.setORnumber(lastorNumber);
                     _of.setSender(unbatchOFlist.get(i-1).getSender());
                     _of.setContent(unbatchOFlist.get(i-1).getContent());
-                    _of.setTimeReceived(unbatchOFlist.get(i-1).getTimeReceived());
+                    _of.setTimeSent(unbatchOFlist.get(i-1).getTimeSent());
                     _of.setCustID(unbatchOFlist.get(i-1).getCustID());
                     _of.setArrangedItem(fullitem.substring(1));
                     _of.setIsSent(unbatchOFlist.get(i-1).getIsSent());

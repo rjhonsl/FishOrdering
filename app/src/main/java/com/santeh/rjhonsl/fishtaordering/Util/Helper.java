@@ -504,6 +504,14 @@ public class Helper {
             return formatter.format(calendar.getTime());
         }
 
+
+        public static String LongtoDate_DBFormatSlashes(long dateInMillis){
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(dateInMillis);
+            return formatter.format(calendar.getTime());
+        }
+
         public static long DateDifferenceInDays(long date1, long date2){
 
             long diff = date1 - date2; //result in millis

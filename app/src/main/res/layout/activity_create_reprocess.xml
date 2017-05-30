@@ -58,15 +58,17 @@
             android:layout_height="wrap_content" />
 
         <View
+            android:visibility="gone"
             android:background="@color/gray_300"
             android:layout_width="1dp"
             android:layout_height="match_parent"/>
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/txtCreateType"
             android:drawableRight="@android:drawable/arrow_down_float"
             android:gravity="center"
-            android:padding="15dp"
+            android:padding="8dp"
             android:layout_weight="1"
             android:textStyle="bold"
             android:textColor="@color/gray_50"
@@ -77,12 +79,9 @@
 
     </LinearLayout>
 
-    <View
-        android:background="@color/orange_300"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
 
     <LinearLayout
+        android:background="@color/gray_400"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:orientation="horizontal"
@@ -186,19 +185,72 @@
 
     </LinearLayout>
 
-    <View
-        android:background="@color/orange_300"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+
+    <LinearLayout
+            android:layout_weight="1"
+            android:weightSum="2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_weight="1"
-        android:id="@+id/rv_drContents"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+
+
+            <TextView
+                android:elevation="3dp"
+                android:background="@color/gray_600"
+                android:textStyle="bold"
+                android:textColor="@color/white_100"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:text="IN"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_weight="1"
+                android:id="@+id/rv_reprocess_in"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+
+
+        <View
+            android:background="@color/gray_400"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:background="@color/gray_600"
+            android:textStyle="bold"
+            android:textColor="@color/white_100"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:text="OUT"
+            android:padding="5dp"
+            android:elevation="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+        <android.support.v7.widget.RecyclerView
+                android:layout_weight="1"
+                android:id="@+id/rv_reprocess_out"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+
+
 
 
 
@@ -222,9 +274,9 @@
             android:layout_height="36dp" />
 
         <Button
-            android:id="@+id/btnSendBLBO"
+            android:id="@+id/btnSendReprocess"
             android:background="@drawable/bg_white_darkpressed"
-            android:text="SEND BO/BL/AI"
+            android:text="SEND REPROCESS"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="36dp" />

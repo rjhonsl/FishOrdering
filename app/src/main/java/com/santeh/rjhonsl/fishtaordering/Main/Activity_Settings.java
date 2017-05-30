@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -34,6 +33,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.santeh.rjhonsl.fishtaordering.Main.SetupWizard.Activity_Wiz_SetServerNum;
+import com.santeh.rjhonsl.fishtaordering.Main.SetupWizard.Activity_Wiz_Stores;
+import com.santeh.rjhonsl.fishtaordering.Main.SetupWizard.Activity_Wiz_UserName;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseHelper;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
@@ -52,9 +54,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by rjhonsl on 6/1/2016.
@@ -383,7 +383,7 @@ public class Activity_Settings extends AppCompatActivity {
 //            btnYes.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View view) {
-////                    getItems();
+////                    getIsRead();
 ////                    getCustomers();
 //                    d.dismiss();
 //                }

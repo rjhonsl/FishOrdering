@@ -11,9 +11,9 @@ import android.support.v4.app.NotificationCompat;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
-import com.santeh.rjhonsl.fishtaordering.Main.Activity_ConfirmedOrders;
-import com.santeh.rjhonsl.fishtaordering.Main.Activity_DeliveryConfirmation;
-import com.santeh.rjhonsl.fishtaordering.Main.Activity_Welcome;
+import com.santeh.rjhonsl.fishtaordering.Main.DeliveryConfirmation.Activity_ConfirmedOrders;
+import com.santeh.rjhonsl.fishtaordering.Main.DeliveryConfirmation.Activity_DeliveryConfirmation;
+import com.santeh.rjhonsl.fishtaordering.Main.SetupWizard.Activity_Welcome;
 import com.santeh.rjhonsl.fishtaordering.R;
 
 public class BR_ReceiveSMS extends BroadcastReceiver {

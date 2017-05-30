@@ -3,14 +3,20 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_margin="3dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
               android:id="@+id/ll_items"
               android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
         android:background="@drawable/bg_white_darkpressed"
         app:cardCornerRadius="3dp"
         android:elevation="4dp"
@@ -44,13 +50,13 @@
 
 
                 <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Mar 31, 2015 9:20AM"
-                          android:textSize="12sp"
-                          android:textColor="@color/gray_400"
-                          android:layout_alignParentLeft="true"
+                    android:layout_height="wrap_content"
+                    android:text="Mar 31, 2015 9:20AM"
+                    android:textSize="12sp"
+                    android:textColor="@color/gray_400"
+                    android:layout_alignParentLeft="true"
                     android:layout_below="@+id/txtStoreName"
-                          android:id="@+id/txtcurrentTime"
+                    android:id="@+id/txtcurrentTime"
                 />
 
 
@@ -83,7 +89,6 @@
                           android:layout_toLeftOf="@+id/btnDelete"
                           android:paddingTop="5dp"
                           android:layout_alignParentLeft="true"
-
                           android:id="@+id/txtItem"
                           android:textSize="13sp"
                           android:layout_below="@id/txtcurrentTime"

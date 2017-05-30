@@ -41,7 +41,7 @@
     </string-array>
 
 
-    <string-array name="items">
+    <string-array name="isRead">
         <item>10X1000 PRINTED MODIFY POLYBAG</item>
         <item>10X14 HD (USP)</item>
         <item>12X16 HD TORINO</item>

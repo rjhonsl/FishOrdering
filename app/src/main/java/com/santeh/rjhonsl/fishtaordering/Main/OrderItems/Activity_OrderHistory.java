@@ -1,4 +1,4 @@
-package com.santeh.rjhonsl.fishtaordering.Main;
+package com.santeh.rjhonsl.fishtaordering.Main.OrderItems;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 
-import com.santeh.rjhonsl.fishtaordering.Adapter.OrderHistoryAdapter;
 import com.santeh.rjhonsl.fishtaordering.R;
 import com.santeh.rjhonsl.fishtaordering.Util.DBaseQuery;
 import com.santeh.rjhonsl.fishtaordering.Util.VarFishtaOrdering;
